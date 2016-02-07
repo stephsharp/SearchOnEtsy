@@ -8,7 +8,6 @@
 
 #import "ETSearchClient.h"
 #import "ETConstants.h"
-#import "ETListing.h"
 #import <MWFeedParser/NSString+HTML.h>
 
 @interface ETSearchClient ()
@@ -39,7 +38,7 @@
     NSCharacterSet *expectedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=MainImage&keywords=%@&limit=30", ETAPIKey, keywordQueryString]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=MainImage,Shop&keywords=%@&limit=30", ETAPIKey, keywordQueryString]];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -89,7 +88,8 @@
 
     for (NSDictionary *result in results) {
         ETListing *listing = [[ETListing alloc] initWithTitle:[result[@"title"] stringByConvertingHTMLToPlainText]
-                                           mainImageURLString:result[@"MainImage"][@"url_170x135"]];
+                                           mainImageURLString:result[@"MainImage"][@"url_170x135"]
+                                                     shopName:result[@"Shop"][@"shop_name"]];
         [mutableListings addObject:listing];
     }
 

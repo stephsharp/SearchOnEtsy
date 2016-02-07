@@ -12,7 +12,10 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSURL *mainImageURL;
+@property (nonatomic) NSString *shopName;
 
-- (instancetype)initWithTitle:(NSString *)title mainImageURLString:(NSString *)urlString NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTitle:(NSString *)title
+           mainImageURLString:(NSString *)urlString
+                     shopName:(NSString *)shopName NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		827FE0001C680A540017EBD3 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFF61C680A540017EBD3 /* ETSearchClient.m */; };
+		827FE0011C680A540017EBD3 /* ETListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFF91C680A540017EBD3 /* ETListing.m */; };
+		827FE0021C680A540017EBD3 /* ETListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFFC1C680A540017EBD3 /* ETListingsViewController.m */; };
+		827FE0031C680A540017EBD3 /* ETListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFFF1C680A540017EBD3 /* ETListingCell.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
 		82FC0F661C670C4C0017A2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F651C670C4C0017A2B5 /* Assets.xcassets */; };
 		82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */; };
 		82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */; };
-		82FC0F801C670DB40017A2B5 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */; };
 		82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F821C670EF90017A2B5 /* ETConstants.m */; };
-		82FC0F861C671F170017A2B5 /* ETListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F851C671F170017A2B5 /* ETListing.m */; };
 		8A38E707FAE67F2E5B753D5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C325909F7325DD356F7FFC60 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,14 @@
 
 /* Begin PBXFileReference section */
 		3F3FF9A88148A314A83AF902 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		827FDFF51C680A540017EBD3 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
+		827FDFF61C680A540017EBD3 /* ETSearchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchClient.m; sourceTree = "<group>"; };
+		827FDFF81C680A540017EBD3 /* ETListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListing.h; sourceTree = "<group>"; };
+		827FDFF91C680A540017EBD3 /* ETListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListing.m; sourceTree = "<group>"; };
+		827FDFFB1C680A540017EBD3 /* ETListingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingsViewController.h; sourceTree = "<group>"; };
+		827FDFFC1C680A540017EBD3 /* ETListingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingsViewController.m; sourceTree = "<group>"; };
+		827FDFFE1C680A540017EBD3 /* ETListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingCell.h; sourceTree = "<group>"; };
+		827FDFFF1C680A540017EBD3 /* ETListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingCell.m; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* EtsySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtsySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,12 +52,8 @@
 		82FC0F6F1C670C4C0017A2B5 /* EtsySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EtsySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EtsySearchTests.m; sourceTree = "<group>"; };
 		82FC0F751C670C4C0017A2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82FC0F7E1C670DB40017A2B5 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
-		82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchClient.m; sourceTree = "<group>"; };
 		82FC0F811C670EF90017A2B5 /* ETConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETConstants.h; sourceTree = "<group>"; };
 		82FC0F821C670EF90017A2B5 /* ETConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETConstants.m; sourceTree = "<group>"; };
-		82FC0F841C671F170017A2B5 /* ETListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListing.h; sourceTree = "<group>"; };
-		82FC0F851C671F170017A2B5 /* ETListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListing.m; sourceTree = "<group>"; };
 		8E0108C33CD1858D55828F87 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C325909F7325DD356F7FFC60 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,6 +86,62 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		827FDFF21C6809FC0017EBD3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				82FC0F621C670C4C0017A2B5 /* Main.storyboard */,
+				82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		827FDFF31C680A540017EBD3 /* Listings */ = {
+			isa = PBXGroup;
+			children = (
+				827FDFF41C680A540017EBD3 /* Data source */,
+				827FDFF71C680A540017EBD3 /* Models */,
+				827FDFFA1C680A540017EBD3 /* View controllers */,
+				827FDFFD1C680A540017EBD3 /* Views */,
+			);
+			path = Listings;
+			sourceTree = "<group>";
+		};
+		827FDFF41C680A540017EBD3 /* Data source */ = {
+			isa = PBXGroup;
+			children = (
+				827FDFF51C680A540017EBD3 /* ETSearchClient.h */,
+				827FDFF61C680A540017EBD3 /* ETSearchClient.m */,
+			);
+			path = "Data source";
+			sourceTree = "<group>";
+		};
+		827FDFF71C680A540017EBD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				827FDFF81C680A540017EBD3 /* ETListing.h */,
+				827FDFF91C680A540017EBD3 /* ETListing.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		827FDFFA1C680A540017EBD3 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				827FDFFB1C680A540017EBD3 /* ETListingsViewController.h */,
+				827FDFFC1C680A540017EBD3 /* ETListingsViewController.m */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		827FDFFD1C680A540017EBD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				827FDFFE1C680A540017EBD3 /* ETListingCell.h */,
+				827FDFFF1C680A540017EBD3 /* ETListingCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		82FC0F4D1C670C4C0017A2B5 = {
 			isa = PBXGroup;
 			children = (
@@ -107,13 +169,9 @@
 				82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */,
 				82FC0F811C670EF90017A2B5 /* ETConstants.h */,
 				82FC0F821C670EF90017A2B5 /* ETConstants.m */,
-				82FC0F7E1C670DB40017A2B5 /* ETSearchClient.h */,
-				82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */,
-				82FC0F841C671F170017A2B5 /* ETListing.h */,
-				82FC0F851C671F170017A2B5 /* ETListing.m */,
-				82FC0F621C670C4C0017A2B5 /* Main.storyboard */,
+				827FDFF31C680A540017EBD3 /* Listings */,
+				827FDFF21C6809FC0017EBD3 /* Storyboards */,
 				82FC0F651C670C4C0017A2B5 /* Assets.xcassets */,
-				82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */,
 				82FC0F6A1C670C4C0017A2B5 /* Info.plist */,
 				82FC0F591C670C4C0017A2B5 /* Supporting Files */,
 			);
@@ -297,11 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				827FE0031C680A540017EBD3 /* ETListingCell.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
-				82FC0F801C670DB40017A2B5 /* ETSearchClient.m in Sources */,
+				827FE0001C680A540017EBD3 /* ETSearchClient.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,
-				82FC0F861C671F170017A2B5 /* ETListing.m in Sources */,
+				827FE0021C680A540017EBD3 /* ETListingsViewController.m in Sources */,
+				827FE0011C680A540017EBD3 /* ETListing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ETListing.h"
 
 @interface ETSearchClient : NSObject
 
