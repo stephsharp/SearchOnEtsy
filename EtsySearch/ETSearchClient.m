@@ -9,6 +9,7 @@
 #import "ETSearchClient.h"
 #import "ETConstants.h"
 #import "ETListing.h"
+#import <MWFeedParser/NSString+HTML.h>
 
 @interface ETSearchClient ()
 
@@ -87,8 +88,7 @@
     NSArray *results = json[@"results"];
 
     for (NSDictionary *result in results) {
-        // TODO: Convert HTML title to string
-        ETListing *listing = [[ETListing alloc] initWithTitle:result[@"title"]
+        ETListing *listing = [[ETListing alloc] initWithTitle:[result[@"title"] stringByConvertingHTMLToPlainText]
                                            mainImageURLString:result[@"MainImage"][@"url_170x135"]];
         [mutableListings addObject:listing];
     }

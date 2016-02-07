@@ -1,0 +1,10 @@
+PODS:
+  - MWFeedParser/NSString+HTML (1.0.1)
+
+DEPENDENCIES:
+  - MWFeedParser/NSString+HTML (~> 1.0)
+
+SPEC CHECKSUMS:
+  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+
+COCOAPODS: 0.39.0
