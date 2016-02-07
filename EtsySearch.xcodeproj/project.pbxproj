@@ -13,6 +13,9 @@
 		82FC0F661C670C4C0017A2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F651C670C4C0017A2B5 /* Assets.xcassets */; };
 		82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */; };
 		82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */; };
+		82FC0F801C670DB40017A2B5 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */; };
+		82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F821C670EF90017A2B5 /* ETConstants.m */; };
+		82FC0F861C671F170017A2B5 /* ETListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F851C671F170017A2B5 /* ETListing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,12 @@
 		82FC0F6F1C670C4C0017A2B5 /* EtsySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EtsySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EtsySearchTests.m; sourceTree = "<group>"; };
 		82FC0F751C670C4C0017A2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82FC0F7E1C670DB40017A2B5 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
+		82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchClient.m; sourceTree = "<group>"; };
+		82FC0F811C670EF90017A2B5 /* ETConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETConstants.h; sourceTree = "<group>"; };
+		82FC0F821C670EF90017A2B5 /* ETConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETConstants.m; sourceTree = "<group>"; };
+		82FC0F841C671F170017A2B5 /* ETListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListing.h; sourceTree = "<group>"; };
+		82FC0F851C671F170017A2B5 /* ETListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +89,12 @@
 			children = (
 				82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */,
 				82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */,
+				82FC0F811C670EF90017A2B5 /* ETConstants.h */,
+				82FC0F821C670EF90017A2B5 /* ETConstants.m */,
+				82FC0F7E1C670DB40017A2B5 /* ETSearchClient.h */,
+				82FC0F7F1C670DB40017A2B5 /* ETSearchClient.m */,
+				82FC0F841C671F170017A2B5 /* ETListing.h */,
+				82FC0F851C671F170017A2B5 /* ETListing.m */,
 				82FC0F621C670C4C0017A2B5 /* Main.storyboard */,
 				82FC0F651C670C4C0017A2B5 /* Assets.xcassets */,
 				82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */,
@@ -208,7 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
+				82FC0F801C670DB40017A2B5 /* ETSearchClient.m in Sources */,
+				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,
+				82FC0F861C671F170017A2B5 /* ETListing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
