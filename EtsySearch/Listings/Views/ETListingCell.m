@@ -10,4 +10,10 @@
 
 @implementation ETListingCell
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    self.mainImageView.image = nil;
+}
+
 @end

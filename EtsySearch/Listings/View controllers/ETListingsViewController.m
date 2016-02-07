@@ -9,6 +9,7 @@
 #import "ETListingsViewController.h"
 #import "ETSearchClient.h"
 #import "ETListingCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 static NSString *const reuseIdentifier = @"ListingCell";
 
@@ -91,8 +92,7 @@ static NSString *const reuseIdentifier = @"ListingCell";
     ETListingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     ETListing *listing = [self listingForIndexPath:indexPath];
 
-    // TODO: Lazily load image so it doesn't block the main thread
-    cell.mainImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:listing.mainImageURL]];
+    [cell.mainImageView setImageWithURL:listing.mainImageURL];
     cell.titleLabel.text = listing.title;
     cell.shopNameLabel.text = listing.shopName;
 
