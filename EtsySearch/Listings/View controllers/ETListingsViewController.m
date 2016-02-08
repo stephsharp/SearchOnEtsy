@@ -11,6 +11,7 @@
 #import "ETListingCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "ETListingFlowLayout.h"
+#import "UIImageView+ETFade.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -103,7 +104,13 @@ static NSUInteger const ETDefaultCellWidth = 160;
     ETListingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ETListingReuseIdentifier forIndexPath:indexPath];
     ETListing *listing = [self listingForIndexPath:indexPath];
 
-    [cell.mainImageView setImageWithURL:listing.mainImageURL];
+    [cell.mainImageView setImageWithURLRequest:[NSURLRequest requestWithURL:listing.mainImageURL]
+                              placeholderImage:nil
+                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                           [cell.mainImageView et_fadeImage:image];
+                                        }
+                                       failure:nil];
+
     cell.titleLabel.text = listing.title;
     cell.shopNameLabel.text = listing.shopName;
 
