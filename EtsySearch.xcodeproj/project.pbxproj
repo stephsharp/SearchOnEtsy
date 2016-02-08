@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		824CDF651C6843EB005C4D52 /* ETListingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF641C6843EB005C4D52 /* ETListingFlowLayout.m */; };
 		827FE0001C680A540017EBD3 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFF61C680A540017EBD3 /* ETSearchClient.m */; };
 		827FE0011C680A540017EBD3 /* ETListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFF91C680A540017EBD3 /* ETListing.m */; };
 		827FE0021C680A540017EBD3 /* ETListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 827FDFFC1C680A540017EBD3 /* ETListingsViewController.m */; };
@@ -33,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		3F3FF9A88148A314A83AF902 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		824CDF631C6843EB005C4D52 /* ETListingFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingFlowLayout.h; sourceTree = "<group>"; };
+		824CDF641C6843EB005C4D52 /* ETListingFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingFlowLayout.m; sourceTree = "<group>"; };
 		827FDFF51C680A540017EBD3 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
 		827FDFF61C680A540017EBD3 /* ETSearchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchClient.m; sourceTree = "<group>"; };
 		827FDFF81C680A540017EBD3 /* ETListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListing.h; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 			children = (
 				827FDFFB1C680A540017EBD3 /* ETListingsViewController.h */,
 				827FDFFC1C680A540017EBD3 /* ETListingsViewController.m */,
+				824CDF631C6843EB005C4D52 /* ETListingFlowLayout.h */,
+				824CDF641C6843EB005C4D52 /* ETListingFlowLayout.m */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				827FE0031C680A540017EBD3 /* ETListingCell.m in Sources */,
+				824CDF651C6843EB005C4D52 /* ETListingFlowLayout.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
 				827FE0001C680A540017EBD3 /* ETSearchClient.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,

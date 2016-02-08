@@ -10,6 +10,7 @@
 #import "ETSearchClient.h"
 #import "ETListingCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "ETListingFlowLayout.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -59,17 +60,24 @@ static NSUInteger const ETDefaultCellWidth = 160;
     NSString *searchText = searchBar.text;
 
     if (searchText.length > 0) {
+        // Clear collection view & show spinner
+        [self.listings removeAllObjects];
+        [self.collectionView reloadData];
+
         [self.searchClient searchForKeywords:searchText completion:^(NSArray *listings, NSError *error) {
             if (error) {
                 NSLog(@"error: %@", error.localizedDescription);
             }
             else {
                 NSLog(@"Listings: %@", listings);
-                self.listings = [NSMutableArray arrayWithArray:listings];
 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    // TODO: Don't reload entire collection view when inserting new listings.
-                    [self.collectionView reloadData];
+                    for (int i = 0; i < listings.count; i++) {
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
+                            [self.listings addObject:listings[i]];
+                            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
+                        });
+                    }
                 });
             }
         }];
@@ -123,5 +131,6 @@ static NSUInteger const ETDefaultCellWidth = 160;
         [self.collectionView performBatchUpdates:nil completion:nil];
     } completion:nil];
 }
+
 
 @end

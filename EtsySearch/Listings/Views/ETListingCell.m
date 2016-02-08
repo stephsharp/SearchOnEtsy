@@ -10,6 +10,29 @@
 
 @implementation ETListingCell
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self sharedInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self sharedInit];
+    }
+    return self;
+}
+
+- (void)sharedInit
+{
+    self.layer.speed = 1.5;
+}
+
 - (void)prepareForReuse
 {
     [super prepareForReuse];
