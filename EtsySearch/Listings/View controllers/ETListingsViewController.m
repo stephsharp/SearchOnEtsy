@@ -100,7 +100,6 @@ static NSUInteger const ETDefaultCellWidth = 160;
     cell.shopNameLabel.text = listing.shopName;
 
     return cell;
-
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
