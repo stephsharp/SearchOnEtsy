@@ -50,6 +50,7 @@
 {
     [super prepareForReuse];
     self.mainImageView.image = nil;
+    self.mainImageView.backgroundColor = [UIColor et_lightGrayColor];
 }
 
 @end

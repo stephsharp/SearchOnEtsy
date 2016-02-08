@@ -38,7 +38,8 @@
     NSCharacterSet *expectedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=MainImage,Shop&keywords=%@&limit=30", ETAPIKey, keywordQueryString]];
+    // Including Images here instead of MainImage to get the average color info (which is null in MainImage).
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=30", ETAPIKey, keywordQueryString]];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -88,8 +89,16 @@
 
     for (NSDictionary *result in results) {
         ETListing *listing = [[ETListing alloc] initWithTitle:[result[@"title"] stringByConvertingHTMLToPlainText]
-                                           mainImageURLString:result[@"MainImage"][@"url_170x135"]
+                                           mainImageURLString:result[@"Images"][0][@"url_170x135"]
                                                      shopName:result[@"Shop"][@"shop_name"]];
+
+        // Color info for MainImage is null, but it can be accessed via the Images array.
+        NSString *hexCode = result[@"Images"][0][@"hex_code"];
+
+        if (hexCode && hexCode != (id)[NSNull null]) {
+            listing.mainImageHexCode = hexCode;
+        }
+
         [mutableListings addObject:listing];
     }
 

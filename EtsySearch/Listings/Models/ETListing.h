@@ -13,6 +13,7 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSURL *mainImageURL;
 @property (nonatomic) NSString *shopName;
+@property (nonatomic) NSString *mainImageHexCode;
 
 - (instancetype)initWithTitle:(NSString *)title
            mainImageURLString:(NSString *)urlString

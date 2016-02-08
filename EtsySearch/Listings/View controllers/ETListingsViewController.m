@@ -12,6 +12,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "ETListingFlowLayout.h"
 #import "UIImageView+ETFade.h"
+#import "UIColor+ETTheme.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -113,6 +114,10 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
     cell.titleLabel.text = listing.title;
     cell.shopNameLabel.text = listing.shopName;
+
+    if (listing.mainImageHexCode) {
+        cell.mainImageView.backgroundColor = [UIColor et_colorFromHexCode:listing.mainImageHexCode];
+    }
 
     return cell;
 }
