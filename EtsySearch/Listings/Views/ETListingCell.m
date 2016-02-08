@@ -7,6 +7,7 @@
 //
 
 #import "ETListingCell.h"
+#import "UIColor+ETTheme.h"
 
 @implementation ETListingCell
 
@@ -28,9 +29,21 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self sharedInit];
+}
+
 - (void)sharedInit
 {
     self.layer.speed = 1.5;
+
+    self.layer.cornerRadius = 4.0f;
+    self.layer.borderWidth = 1.0f;
+    self.layer.borderColor = [UIColor et_lightGrayColor].CGColor;
+
+    self.mainImageView.backgroundColor = [UIColor et_lightGrayColor];
 }
 
 - (void)prepareForReuse
