@@ -11,7 +11,8 @@
 #import "ETListingCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
-static NSString *const reuseIdentifier = @"ListingCell";
+static NSString *const ETListingReuseIdentifier = @"ListingCell";
+static NSUInteger const ETDefaultCellWidth = 160;
 
 @interface ETListingsViewController () <UISearchBarDelegate, UICollectionViewDataSource /*, UICollectionViewDelegateFlowLayout */>
 
@@ -91,7 +92,7 @@ static NSString *const reuseIdentifier = @"ListingCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ETListingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ETListingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ETListingReuseIdentifier forIndexPath:indexPath];
     ETListing *listing = [self listingForIndexPath:indexPath];
 
     [cell.mainImageView setImageWithURL:listing.mainImageURL];
@@ -104,14 +105,24 @@ static NSString *const reuseIdentifier = @"ListingCell";
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
-//{
-//    return CGSizeMake(100.0f, 100.0f);
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)collectionViewLayout;
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-//{
-//    return UIEdgeInsetsMake(50.0f, 20.0f, 50.0f, 20.0f);
-//}
+    CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
+    NSUInteger cellsPerRow = collectionViewWidth / ETDefaultCellWidth;
+
+    CGFloat availableWidthForCells = collectionViewWidth - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
+    CGFloat cellWidth = availableWidthForCells / cellsPerRow;
+
+    return CGSizeMake(cellWidth, cellWidth);
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        [self.collectionView performBatchUpdates:nil completion:nil];
+    } completion:nil];
+}
 
 @end
