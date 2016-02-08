@@ -72,6 +72,8 @@ static NSString *const reuseIdentifier = @"ListingCell";
                 });
             }
         }];
+
+        [searchBar resignFirstResponder];
     }
 }
 
