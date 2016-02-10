@@ -13,11 +13,12 @@
 #import "ETListingCard.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UIImageView+ETFade.h"
+#import <SafariServices/SafariServices.h>
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
 
-@interface ETListingsViewController () <UISearchBarDelegate, UICollectionViewDataSource /*, UICollectionViewDelegateFlowLayout */>
+@interface ETListingsViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
@@ -117,9 +118,19 @@ static NSUInteger const ETDefaultCellWidth = 160;
     return cell;
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ETListingCard *card = [self listingCardForIndexPath:indexPath];
+    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:card.listingURL];
+    safariViewController.view.tintColor = self.collectionView.tintColor;
+    [self presentViewController:safariViewController animated:YES completion:nil];
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)collectionViewLayout;
 

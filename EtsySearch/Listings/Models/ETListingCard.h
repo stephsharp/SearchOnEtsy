@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) ETListing *listing;
 
 @property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSURL *listingURL;
 @property (nonatomic, readonly) NSURL *mainImageURL;
 @property (nonatomic, readonly) UIColor *mainImageColor;
 @property (nonatomic, readonly) NSString *shopName;

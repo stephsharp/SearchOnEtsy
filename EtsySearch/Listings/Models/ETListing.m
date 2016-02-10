@@ -11,7 +11,8 @@
 @implementation ETListing
 
 - (instancetype)initWithTitle:(NSString *)title
-           mainImageURLString:(NSString *)urlString
+             listingURLString:(NSString *)listingURLString
+           mainImageURLString:(NSString *)mainImageURLString
                      shopName:(NSString *)shopName
                         price:(NSString *)price
                  currencyCode:(NSString *)currencyCode
@@ -19,7 +20,8 @@
     self = [super init];
     if (self) {
         _title = title;
-        _mainImageURL = [NSURL URLWithString:urlString];
+        _listingURL = [NSURL URLWithString:listingURLString];
+        _mainImageURL = [NSURL URLWithString:mainImageURLString];
         _shopName = shopName;
         _price = price;
         _currencyCode = currencyCode;
@@ -29,7 +31,7 @@
 
 - (instancetype)init
 {
-    return [self initWithTitle:nil mainImageURLString:nil shopName:nil price:nil currencyCode:nil];
+    return [self initWithTitle:nil listingURLString:nil mainImageURLString:nil shopName:nil price:nil currencyCode:nil];
 }
 
 - (NSString *)description

@@ -24,8 +24,9 @@
 - (void)configure
 {
     _title = _listing.title;
-    _shopName = _listing.shopName;
+    _listingURL = _listing.listingURL;
     _mainImageURL = _listing.mainImageURL;
+    _shopName = _listing.shopName;
     _formattedPrice = [self formatPrice:_listing.price withCurrencyCode:_listing.currencyCode];
 
     if (_listing.mainImageHexCode) {

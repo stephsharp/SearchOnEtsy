@@ -89,6 +89,7 @@
 
     for (NSDictionary *result in results) {
         ETListing *listing = [[ETListing alloc] initWithTitle:[result[@"title"] stringByConvertingHTMLToPlainText]
+                                             listingURLString:result[@"url"]
                                            mainImageURLString:result[@"Images"][0][@"url_170x135"]
                                                      shopName:result[@"Shop"][@"shop_name"]
                                                         price:result[@"price"]
