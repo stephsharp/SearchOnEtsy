@@ -19,30 +19,6 @@
 
 @implementation ETListingFlowLayout
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self sharedInit];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self sharedInit];
-    }
-    return self;
-}
-
-- (void)sharedInit
-{
-    self.minimumInteritemSpacing = 10.0;
-    self.sectionInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
-}
-
 - (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
     UICollectionViewLayoutAttributes* attributes = [[super layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
