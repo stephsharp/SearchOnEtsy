@@ -12,11 +12,15 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSURL *mainImageURL;
-@property (nonatomic) NSString *shopName;
 @property (nonatomic) NSString *mainImageHexCode;
+@property (nonatomic) NSString *shopName;
+@property (nonatomic) NSString *price;
+@property (nonatomic) NSString *currencyCode;
 
 - (instancetype)initWithTitle:(NSString *)title
            mainImageURLString:(NSString *)urlString
-                     shopName:(NSString *)shopName NS_DESIGNATED_INITIALIZER;
+                     shopName:(NSString *)shopName
+                        price:(NSString *)price
+                 currencyCode:(NSString *)currencyCode NS_DESIGNATED_INITIALIZER;
 
 @end

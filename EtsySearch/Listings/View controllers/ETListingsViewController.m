@@ -9,10 +9,10 @@
 #import "ETListingsViewController.h"
 #import "ETSearchClient.h"
 #import "ETListingCell.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
 #import "ETListingFlowLayout.h"
+#import "ETListingCard.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UIImageView+ETFade.h"
-#import "UIColor+ETTheme.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -20,7 +20,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 @interface ETListingsViewController () <UISearchBarDelegate, UICollectionViewDataSource /*, UICollectionViewDelegateFlowLayout */>
 
 @property (nonatomic) ETSearchClient *searchClient;
-@property (nonatomic) NSMutableArray *listings;
+@property (nonatomic) NSMutableArray *listingCards;
 
 @end
 
@@ -47,12 +47,12 @@ static NSUInteger const ETDefaultCellWidth = 160;
 - (void)sharedInit
 {
     _searchClient = [ETSearchClient new];
-    _listings = [NSMutableArray new];
+    _listingCards = [NSMutableArray new];
 }
 
-- (ETListing *)listingForIndexPath:(NSIndexPath *)indexPath
+- (ETListingCard *)listingCardForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.listings[indexPath.row];
+    return self.listingCards[indexPath.row];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -63,7 +63,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
     if (searchText.length > 0) {
         // Clear collection view & show spinner
-        [self.listings removeAllObjects];
+        [self.listingCards removeAllObjects];
         [self.collectionView reloadData];
 
         [self.searchClient searchForKeywords:searchText completion:^(NSArray *listings, NSError *error) {
@@ -76,7 +76,8 @@ static NSUInteger const ETDefaultCellWidth = 160;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     for (int i = 0; i < listings.count; i++) {
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
-                            [self.listings addObject:listings[i]];
+                            ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
+                            [self.listingCards addObject:card];
                             [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
                         });
                     }
@@ -97,27 +98,21 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.listings.count;
+    return self.listingCards.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ETListingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ETListingReuseIdentifier forIndexPath:indexPath];
-    ETListing *listing = [self listingForIndexPath:indexPath];
+    ETListingCard *card = [self listingCardForIndexPath:indexPath];
+    [cell configureWithListingCard:card];
 
-    [cell.mainImageView setImageWithURLRequest:[NSURLRequest requestWithURL:listing.mainImageURL]
+    [cell.mainImageView setImageWithURLRequest:[NSURLRequest requestWithURL:card.mainImageURL]
                               placeholderImage:nil
                                        success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-                                           [cell.mainImageView et_fadeImage:image];
-                                        }
+                                            [cell.mainImageView et_fadeImage:image];
+                                       }
                                        failure:nil];
-
-    cell.titleLabel.text = listing.title;
-    cell.shopNameLabel.text = listing.shopName;
-
-    if (listing.mainImageHexCode) {
-        cell.mainImageView.backgroundColor = [UIColor et_colorFromHexCode:listing.mainImageHexCode];
-    }
 
     return cell;
 }
@@ -143,6 +138,5 @@ static NSUInteger const ETDefaultCellWidth = 160;
         [self.collectionView performBatchUpdates:nil completion:nil];
     } completion:nil];
 }
-
 
 @end

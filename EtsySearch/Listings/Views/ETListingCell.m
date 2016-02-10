@@ -53,4 +53,15 @@
     self.mainImageView.backgroundColor = [UIColor et_lightGrayColor];
 }
 
+- (void)configureWithListingCard:(ETListingCard *)listingCard
+{
+    self.titleLabel.text = listingCard.title;
+    self.shopNameLabel.text = listingCard.shopName;
+    self.priceLabel.text = listingCard.formattedPrice;
+
+    if (listingCard.mainImageColor) {
+        self.mainImageView.backgroundColor = listingCard.mainImageColor;
+    }
+}
+
 @end
