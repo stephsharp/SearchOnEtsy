@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Listings View Controller-->
+        <!--Delegate-->
         <scene sceneID="zHY-Dm-AwR">
             <objects>
                 <collectionViewController id="XOX-Vd-tFZ" customClass="ETListingsViewController" sceneMemberID="viewController">
@@ -86,20 +86,23 @@
                             <rect key="frame" x="150" y="5.5" width="300" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="sRJ-xr-cZk">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-jN-zxB" customClass="ETSearchBar">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="33"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="XOX-Vd-tFZ" id="xcK-07-qHx"/>
+                                        <outlet property="delegate" destination="XOX-Vd-tFZ" id="U4e-Zo-bjQ"/>
                                     </connections>
-                                </searchBar>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="sRJ-xr-cZk" secondAttribute="bottom" id="4Wn-uJ-Svn"/>
-                                <constraint firstItem="sRJ-xr-cZk" firstAttribute="top" secondItem="G54-EV-bnr" secondAttribute="top" id="6LY-ZM-Dcw"/>
-                                <constraint firstAttribute="trailing" secondItem="sRJ-xr-cZk" secondAttribute="trailing" id="Teu-5N-F0Z"/>
-                                <constraint firstItem="sRJ-xr-cZk" firstAttribute="leading" secondItem="G54-EV-bnr" secondAttribute="leading" id="zrS-Lk-R7b"/>
+                                <constraint firstAttribute="bottom" secondItem="Tsz-jN-zxB" secondAttribute="bottom" id="4O7-LE-u4E"/>
+                                <constraint firstAttribute="trailing" secondItem="Tsz-jN-zxB" secondAttribute="trailing" id="9gi-SO-Com"/>
+                                <constraint firstItem="Tsz-jN-zxB" firstAttribute="leading" secondItem="G54-EV-bnr" secondAttribute="leading" id="FmO-XF-R6O"/>
+                                <constraint firstItem="Tsz-jN-zxB" firstAttribute="top" secondItem="G54-EV-bnr" secondAttribute="top" id="PmC-x4-qY1"/>
                             </constraints>
                         </view>
                     </navigationItem>

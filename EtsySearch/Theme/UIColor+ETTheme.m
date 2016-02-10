@@ -35,6 +35,33 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
+// http://stackoverflow.com/a/11598127/1367622
+- (UIColor *)lighterColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a]) {
+        return [UIColor colorWithRed:MIN(r + 0.05f, 1.0f)
+                               green:MIN(g + 0.05f, 1.0f)
+                                blue:MIN(b + 0.05f, 1.0f)
+                               alpha:a];
+    }
+    return nil;
+}
+
+- (UIColor *)darkerColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a]) {
+        return [UIColor colorWithRed:MAX(r - 0.05f, 0.0f)
+                               green:MAX(g - 0.05f, 0.0f)
+                                blue:MAX(b - 0.05f, 0.0f)
+                               alpha:a];
+    }
+    return nil;
+}
+
+#pragma mark - Theme colors
+
 + (UIColor *)et_lightGrayColor
 {
     return [UIColor et_colorFromHexCode:@"DBDBDB"];

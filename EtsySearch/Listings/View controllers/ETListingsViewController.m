@@ -14,11 +14,12 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UIImageView+ETFade.h"
 #import <SafariServices/SafariServices.h>
+#import "ETSearchBar.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
 
-@interface ETListingsViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
@@ -97,9 +98,9 @@ static NSUInteger const ETDefaultCellWidth = 160;
     }];
 }
 
-#pragma mark - UISearchBarDelegate
+#pragma mark - ETSearchBarDelegate
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBarSearchButtonClicked:(ETSearchBar *)searchBar
 {
     self.currentSearchText = searchBar.text;
     self.endOfSearchResults = NO;

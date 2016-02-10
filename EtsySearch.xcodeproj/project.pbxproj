@@ -16,6 +16,8 @@
 		824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF841C686658005C4D52 /* ETListingsViewController.m */; };
 		824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF871C686658005C4D52 /* ETListingCell.m */; };
 		824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF921C6AA3E9005C4D52 /* ETListingCard.m */; };
+		824CDF991C6B1575005C4D52 /* ETSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF981C6B1575005C4D52 /* ETSearchBar.m */; };
+		824CDF9C1C6BE193005C4D52 /* ETSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
@@ -53,6 +55,10 @@
 		824CDF871C686658005C4D52 /* ETListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingCell.m; sourceTree = "<group>"; };
 		824CDF911C6AA3E9005C4D52 /* ETListingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingCard.h; sourceTree = "<group>"; };
 		824CDF921C6AA3E9005C4D52 /* ETListingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingCard.m; sourceTree = "<group>"; };
+		824CDF971C6B1575005C4D52 /* ETSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchBar.h; sourceTree = "<group>"; };
+		824CDF981C6B1575005C4D52 /* ETSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchBar.m; sourceTree = "<group>"; };
+		824CDF9A1C6BE193005C4D52 /* ETSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchButton.h; sourceTree = "<group>"; };
+		824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchButton.m; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* EtsySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtsySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +165,10 @@
 			children = (
 				824CDF861C686658005C4D52 /* ETListingCell.h */,
 				824CDF871C686658005C4D52 /* ETListingCell.m */,
+				824CDF971C6B1575005C4D52 /* ETSearchBar.h */,
+				824CDF981C6B1575005C4D52 /* ETSearchBar.m */,
+				824CDF9A1C6BE193005C4D52 /* ETSearchButton.h */,
+				824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824CDF991C6B1575005C4D52 /* ETSearchBar.m in Sources */,
+				824CDF9C1C6BE193005C4D52 /* ETSearchButton.m in Sources */,
 				824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */,
 				824CDF881C686658005C4D52 /* UIImageView+ETFade.m in Sources */,
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,
