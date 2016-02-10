@@ -82,7 +82,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="zfg-k8-CdF">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="G54-EV-bnr">
+                        <view key="titleView" contentMode="scaleToFill" id="G54-EV-bnr" customClass="ETTitleView">
                             <rect key="frame" x="150" y="5.5" width="300" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
