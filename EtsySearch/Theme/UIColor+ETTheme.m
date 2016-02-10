@@ -40,4 +40,14 @@
     return [UIColor et_colorFromHexCode:@"DBDBDB"];
 }
 
++ (UIColor *)et_orangeColor
+{
+    return [UIColor et_colorFromHexCode:@"FF6816"];
+}
+
++ (UIColor *)et_darkGrayColor
+{
+    return [UIColor et_colorFromHexCode:@"575757"];
+}
+
 @end

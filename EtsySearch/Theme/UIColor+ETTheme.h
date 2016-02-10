@@ -13,5 +13,7 @@
 + (UIColor *)et_colorFromHexCode:(NSString *)hexString;
 
 + (UIColor *)et_lightGrayColor;
++ (UIColor *)et_darkGrayColor;
++ (UIColor *)et_orangeColor;
 
 @end
