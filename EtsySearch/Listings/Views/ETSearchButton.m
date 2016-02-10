@@ -9,6 +9,8 @@
 #import "ETSearchButton.h"
 #import "UIColor+ETTheme.h"
 
+static NSUInteger const ETContentInset = 8;
+
 @implementation ETSearchButton
 
 - (instancetype)init
@@ -40,9 +42,11 @@
 
 - (void)sharedInit
 {
-    [self setTitle:@"S" forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.backgroundColor = self.tintColor;
+    self.contentEdgeInsets = UIEdgeInsetsMake(ETContentInset, ETContentInset, ETContentInset, ETContentInset);
+
+    [self setImage:[UIImage imageNamed:@"search-icon"] forState:UIControlStateNormal];
+    self.adjustsImageWhenHighlighted = NO;
 }
 
 #pragma mark - UIButton

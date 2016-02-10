@@ -80,7 +80,7 @@ static NSUInteger const ETHorizontalPadding = 8;
 
 - (void)configureSearchButton
 {
-    self.searchButton = [ETSearchButton new];
+    self.searchButton = [ETSearchButton buttonWithType:UIButtonTypeCustom];
     [self.searchButton addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
 
     [self addSubview:self.searchButton];
