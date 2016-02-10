@@ -39,7 +39,7 @@
     NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
 
     // Including Images here instead of MainImage to get the average color info (which is null in MainImage).
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=%ld&offset=%ld", ETAPIKey, keywordQueryString, ETListingsLimit, offset]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=%ld&offset=%ld", ETAPIKey, keywordQueryString, (unsigned long)ETListingsLimit, (unsigned long)offset]];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {

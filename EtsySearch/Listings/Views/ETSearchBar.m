@@ -10,7 +10,7 @@
 #import "ETSearchButton.h"
 #import "UIColor+ETTheme.h"
 
-static NSUInteger const ETHorizontalPadding = 8;
+static NSInteger const ETHorizontalPadding = 8;
 
 @interface ETSearchBar () <UITextFieldDelegate>
 
@@ -96,7 +96,7 @@ static NSUInteger const ETHorizontalPadding = 8;
 
     NSDictionary *views = NSDictionaryOfVariableBindings(textField, button);
 
-    NSString *horizontalFormat = [NSString stringWithFormat:@"H:|-%ld-[textField]-%ld-[button]|", ETHorizontalPadding, ETHorizontalPadding];
+    NSString *horizontalFormat = [NSString stringWithFormat:@"H:|-%ld-[textField]-%ld-[button]|", (long)ETHorizontalPadding, (long)ETHorizontalPadding];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalFormat
                                                                  options:0
                                                                  metrics:nil
