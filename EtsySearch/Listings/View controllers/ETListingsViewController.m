@@ -77,6 +77,12 @@ static NSUInteger const ETDefaultCellWidth = 160;
             if (listings.count == 0) {
                 self.fetching = NO;
                 self.endOfSearchResults = YES;
+
+                // Not as smooth as I would like, but sligthly better than invalidating layout
+                // which causes collection view to flicker when coming to rest.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.collectionView performBatchUpdates:nil completion:nil];
+                });
             }
 
             NSInteger numberOfExistingCards = self.listingCards.count;
@@ -143,10 +149,30 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
     BOOL isLastItem = (indexPath.row == self.listingCards.count - 1);
     if (isLastItem && !self.endOfSearchResults && !self.isFetching) {
+        [self.collectionViewLayout invalidateLayout];
         [self searchForKeywords:self.currentSearchText withOffset:self.listingCards.count];
     }
 
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableView = nil;
+
+    if (kind == UICollectionElementKindSectionFooter) {
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+    }
+
+    return reusableView;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (self.isFetching) {
+        return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40);
+    }
+    return CGSizeMake(0.1, 0.1); // Collection view crashes if footer size is CGRectZero.
 }
 
 #pragma mark - UICollectionViewDelegate
