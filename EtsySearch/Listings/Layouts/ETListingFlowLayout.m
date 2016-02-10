@@ -45,7 +45,7 @@
 
 - (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
-    UICollectionViewLayoutAttributes* attributes = [super layoutAttributesForItemAtIndexPath:itemIndexPath];
+    UICollectionViewLayoutAttributes* attributes = [[super layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
 
     if ([self.indexPathsToAnimate containsObject:itemIndexPath]) {
         attributes.alpha = 0.0;
