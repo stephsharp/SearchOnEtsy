@@ -45,8 +45,16 @@ static NSUInteger const ETContentInset = 8;
     self.backgroundColor = self.tintColor;
     self.contentEdgeInsets = UIEdgeInsetsMake(ETContentInset, ETContentInset, ETContentInset, ETContentInset);
 
-    [self setImage:[UIImage imageNamed:@"search-icon"] forState:UIControlStateNormal];
+    [self setButtonImage];
     self.adjustsImageWhenHighlighted = NO;
+}
+
+- (void)setButtonImage
+{
+    NSBundle *bundleForClass = [NSBundle bundleForClass:[self class]];
+    UIImage *searchIcon = [UIImage imageNamed:@"search-icon" inBundle:bundleForClass compatibleWithTraitCollection:self.traitCollection];
+
+    [self setImage:searchIcon forState:UIControlStateNormal];
 }
 
 #pragma mark - UIButton

@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Delegate-->
+        <!--Listings View Controller-->
         <scene sceneID="zHY-Dm-AwR">
             <objects>
-                <collectionViewController id="XOX-Vd-tFZ" customClass="ETListingsViewController" sceneMemberID="viewController">
+                <collectionViewController id="XOX-Vd-tFZ" userLabel="Listings View Controller" customClass="ETListingsViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WI3-Ta-rZu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
                             <rect key="frame" x="150" y="5.5" width="300" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-jN-zxB" customClass="ETSearchBar">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-jN-zxB" customClass="ETSearchBar">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="33"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
