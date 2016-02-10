@@ -22,6 +22,9 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
+@property (nonatomic) NSString *currentSearchText;
+@property (nonatomic, getter=isFetching) BOOL fetching;
+@property (nonatomic) BOOL endOfSearchResults;
 
 @end
 
@@ -56,35 +59,57 @@ static NSUInteger const ETDefaultCellWidth = 160;
     return self.listingCards[indexPath.row];
 }
 
+#pragma mark - Search
+
+- (void)searchForKeywords:(NSString *)keywords withOffset:(NSUInteger)offset
+{
+    self.fetching = YES;
+
+    [self.searchClient searchForKeywords:keywords offset:offset completion:^(NSArray *listings, NSError *error) {
+        if (error) {
+            NSLog(@"error: %@", error.localizedDescription);
+            self.fetching = NO;
+        }
+        else {
+            NSLog(@"Listings: %@", listings);
+
+            if (listings.count == 0) {
+                self.fetching = NO;
+                self.endOfSearchResults = YES;
+            }
+
+            NSInteger numberOfExistingCards = self.listingCards.count;
+
+            for (int i = 0; i < listings.count; i++) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
+                    ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
+                    [self.listingCards addObject:card];
+                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
+
+                    BOOL isLastItem = (i == listings.count - 1);
+                    if (isLastItem) {
+                        self.fetching = NO;
+                        [self.collectionView flashScrollIndicators];
+                    }
+                });
+            }
+        }
+    }];
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSString *searchText = searchBar.text;
+    self.currentSearchText = searchBar.text;
+    self.endOfSearchResults = NO;
 
-    if (searchText.length > 0) {
+    if (self.currentSearchText.length > 0) {
         // Clear collection view & show spinner
         [self.listingCards removeAllObjects];
         [self.collectionView reloadData];
 
-        [self.searchClient searchForKeywords:searchText completion:^(NSArray *listings, NSError *error) {
-            if (error) {
-                NSLog(@"error: %@", error.localizedDescription);
-            }
-            else {
-                NSLog(@"Listings: %@", listings);
-
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    for (int i = 0; i < listings.count; i++) {
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
-                            ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
-                            [self.listingCards addObject:card];
-                            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
-                        });
-                    }
-                });
-            }
-        }];
+        [self searchForKeywords:self.currentSearchText withOffset:0];
 
         [searchBar resignFirstResponder];
     }
@@ -115,6 +140,11 @@ static NSUInteger const ETDefaultCellWidth = 160;
                                        }
                                        failure:nil];
 
+    BOOL isLastItem = (indexPath.row == self.listingCards.count - 1);
+    if (isLastItem && !self.endOfSearchResults && !self.isFetching) {
+        [self searchForKeywords:self.currentSearchText withOffset:self.listingCards.count];
+    }
+
     return cell;
 }
 
@@ -142,6 +172,8 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
     return CGSizeMake(cellWidth, cellWidth);
 }
+
+#pragma mark - UIViewController
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {

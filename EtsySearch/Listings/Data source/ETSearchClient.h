@@ -11,6 +11,6 @@
 
 @interface ETSearchClient : NSObject
 
-- (void)searchForKeywords:(NSString *)keywords completion:(void (^)(NSArray *listings, NSError *error))completion;
+- (void)searchForKeywords:(NSString *)keywords offset:(NSUInteger)offset completion:(void (^)(NSArray *listings, NSError *error))completion;
 
 @end

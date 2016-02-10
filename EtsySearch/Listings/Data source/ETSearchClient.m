@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void)searchForKeywords:(NSString *)keywords completion:(void (^)(NSArray *listings, NSError *error))completion
+- (void)searchForKeywords:(NSString *)keywords offset:(NSUInteger)offset completion:(void (^)(NSArray *listings, NSError *error))completion
 {
     if (self.dataTask) {
         [self.dataTask cancel];
@@ -39,7 +39,7 @@
     NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
 
     // Including Images here instead of MainImage to get the average color info (which is null in MainImage).
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=30", ETAPIKey, keywordQueryString]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=%ld&offset=%ld", ETAPIKey, keywordQueryString, ETListingsLimit, offset]];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
