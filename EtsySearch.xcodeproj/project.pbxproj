@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147B9EE0B80197C35822BA00 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1508205BDAC37D3B47D16C8 /* Pods.framework */; };
 		824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF741C686645005C4D52 /* UIColor+ETTheme.m */; };
 		824CDF881C686658005C4D52 /* UIImageView+ETFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF781C686658005C4D52 /* UIImageView+ETFade.m */; };
 		824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7B1C686658005C4D52 /* ETSearchClient.m */; };
@@ -22,7 +23,6 @@
 		82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */; };
 		82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */; };
 		82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F821C670EF90017A2B5 /* ETConstants.m */; };
-		8A38E707FAE67F2E5B753D5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C325909F7325DD356F7FFC60 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		82FC0F811C670EF90017A2B5 /* ETConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETConstants.h; sourceTree = "<group>"; };
 		82FC0F821C670EF90017A2B5 /* ETConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETConstants.m; sourceTree = "<group>"; };
 		8E0108C33CD1858D55828F87 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C325909F7325DD356F7FFC60 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1508205BDAC37D3B47D16C8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A38E707FAE67F2E5B753D5C /* libPods.a in Frameworks */,
+				147B9EE0B80197C35822BA00 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 		8E36DB23133675D3B5CBA4C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C325909F7325DD356F7FFC60 /* libPods.a */,
+				C1508205BDAC37D3B47D16C8 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

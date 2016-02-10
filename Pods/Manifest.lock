@@ -9,13 +9,16 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - MWFeedParser/NSString+HTML (1.0.1)
+  - NVActivityIndicatorView (2.3)
 
 DEPENDENCIES:
   - AFNetworking/UIKit (~> 3.0)
   - MWFeedParser/NSString+HTML (~> 1.0)
+  - NVActivityIndicatorView (~> 2.3)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+  NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
 
 COCOAPODS: 0.39.0
