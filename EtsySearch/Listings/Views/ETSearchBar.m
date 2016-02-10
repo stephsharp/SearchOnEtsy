@@ -170,6 +170,24 @@ static NSUInteger const ETHorizontalPadding = 8;
     self.layer.borderColor = self.tintColor.CGColor;
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.delegate searchBarSearchButtonClicked:self];
+
+    return YES;
+}
+
+#pragma mark - UIResponder
+
+- (BOOL)resignFirstResponder
+{
+    [self.textField resignFirstResponder];
+
+    return YES;
+}
+
 #pragma mark - Actions
 
 - (IBAction)search
