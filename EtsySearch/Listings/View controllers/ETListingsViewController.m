@@ -170,7 +170,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     if (self.isFetching) {
-        return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40);
+        return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 50);
     }
     return CGSizeMake(0.1, 0.1); // Collection view crashes if footer size is CGRectZero.
 }

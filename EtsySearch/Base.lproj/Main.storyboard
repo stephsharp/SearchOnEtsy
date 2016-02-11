@@ -75,14 +75,22 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="rNF-ws-pDq">
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="rNF-ws-pDq" customClass="ETListingsFooterView">
                             <rect key="frame" x="0.0" y="244" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-wi-ALW">
-                                    <rect key="frame" x="140" y="15" width="20" height="20"/>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-wi-ALW">
+                                    <rect key="frame" x="290" y="10" width="20" height="20"/>
+                                    <color key="color" red="1" green="0.40784313725490196" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                                 </activityIndicatorView>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="a6g-wi-ALW" firstAttribute="centerX" secondItem="rNF-ws-pDq" secondAttribute="centerX" id="0gI-dM-izC"/>
+                                <constraint firstItem="a6g-wi-ALW" firstAttribute="centerY" secondItem="rNF-ws-pDq" secondAttribute="centerY" constant="-5" id="dgW-5u-fxQ"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="spinner" destination="a6g-wi-ALW" id="Dyy-GQ-fiV"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="XOX-Vd-tFZ" id="7m9-lF-Fbg"/>
