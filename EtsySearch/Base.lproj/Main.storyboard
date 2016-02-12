@@ -16,7 +16,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cmm-YQ-wwS" customClass="ETListingFlowLayout">
                             <size key="itemSize" width="160" height="160"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="55" height="55"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -77,11 +77,11 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="rNF-ws-pDq" customClass="ETListingsFooterView">
-                            <rect key="frame" x="0.0" y="244" width="600" height="50"/>
+                            <rect key="frame" x="0.0" y="244" width="600" height="55"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-NT-bdc" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                    <rect key="frame" x="287.5" y="12.5" width="25" height="25"/>
+                                    <rect key="frame" x="287" y="10" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="IcL-gF-f1h"/>
                                         <constraint firstAttribute="width" secondItem="r2Q-NT-bdc" secondAttribute="height" multiplier="1:1" id="akV-YB-fF6"/>
@@ -89,7 +89,7 @@
                                 </view>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="r2Q-NT-bdc" firstAttribute="centerY" secondItem="rNF-ws-pDq" secondAttribute="centerY" id="Epl-RP-Wvg"/>
+                                <constraint firstItem="r2Q-NT-bdc" firstAttribute="centerY" secondItem="rNF-ws-pDq" secondAttribute="centerY" constant="-5" id="Epl-RP-Wvg"/>
                                 <constraint firstItem="r2Q-NT-bdc" firstAttribute="centerX" secondItem="rNF-ws-pDq" secondAttribute="centerX" id="STd-wn-UOw"/>
                             </constraints>
                             <connections>

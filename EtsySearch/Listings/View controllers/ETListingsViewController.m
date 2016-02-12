@@ -16,9 +16,11 @@
 #import <SafariServices/SafariServices.h>
 #import "ETSearchBar.h"
 #import "ETListingsFooterView.h"
+#import "ETConstants.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
+static NSUInteger const ETFooterViewHeight = 55;
 
 @interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -185,7 +187,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     if (self.shouldShowFooter) {
-        return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 50);
+        return CGSizeMake(CGRectGetWidth(self.collectionView.frame), ETFooterViewHeight);
     }
     return CGSizeMake(0.1, 0.1); // Collection view crashes if footer size is CGRectZero.
 }
