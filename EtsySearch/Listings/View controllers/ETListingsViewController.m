@@ -17,20 +17,23 @@
 #import "ETSearchBar.h"
 #import "ETListingsFooterView.h"
 #import "ETConstants.h"
+#import "ETHomeViewController.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
 static NSUInteger const ETFooterViewHeight = 55;
+static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 @interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
+
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
-@property (nonatomic) NSString *currentSearchText;
 @property (nonatomic, getter=isFetching) BOOL fetching;
 @property (nonatomic) BOOL endOfSearchResults;
 @property (nonatomic) BOOL shouldShowFooter;
-@property (nonatomic, weak) ETListingsFooterView *footerView;
+@property (weak, nonatomic) ETListingsFooterView *footerView;
 
 @end
 
@@ -65,12 +68,36 @@ static NSUInteger const ETFooterViewHeight = 55;
     return self.listingCards[indexPath.row];
 }
 
+#pragma mark - View lifecycle
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
+    self.searchBar.text = self.searchText;
+
+    if (self.searchText.length > 0) {
+        [self beginSearch];
+    }
+}
+
 #pragma mark - Properties
 
 - (void)setShouldShowFooter:(BOOL)shouldShowFooter
 {
     _shouldShowFooter = shouldShowFooter;
     shouldShowFooter ? [self.footerView.spinner startAnimation] : [self.footerView.spinner stopAnimation];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:ETHomeSegueIdentifer]) {
+        ETHomeViewController *homeVC = (ETHomeViewController *)segue.destinationViewController;
+        homeVC.searchText = self.searchText;
+    }
 }
 
 #pragma mark - Search
@@ -126,18 +153,22 @@ static NSUInteger const ETFooterViewHeight = 55;
 
 - (void)searchBarSearchButtonClicked:(ETSearchBar *)searchBar
 {
-    self.currentSearchText = searchBar.text;
-    self.endOfSearchResults = NO;
+    self.searchText = searchBar.text;
 
-    if (self.currentSearchText.length > 0) {
-        // Clear collection view & show spinner
-        [self.listingCards removeAllObjects];
-        [self.collectionView reloadData];
-
-        [self searchForKeywords:self.currentSearchText withOffset:0];
-
-        [searchBar resignFirstResponder];
+    if (self.searchText.length > 0) {
+        [self beginSearch];
     }
+
+    [searchBar resignFirstResponder];
+}
+
+- (void)beginSearch
+{
+    self.endOfSearchResults = NO;
+    [self.listingCards removeAllObjects];
+    [self.collectionView reloadData];
+
+    [self searchForKeywords:self.searchText withOffset:0];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -168,7 +199,7 @@ static NSUInteger const ETFooterViewHeight = 55;
     BOOL isLastItem = (indexPath.row == self.listingCards.count - 1);
     if (isLastItem && !self.endOfSearchResults && !self.isFetching) {
         [self.collectionViewLayout invalidateLayout];
-        [self searchForKeywords:self.currentSearchText withOffset:self.listingCards.count];
+        [self searchForKeywords:self.searchText withOffset:self.listingCards.count];
     }
 
     return cell;

@@ -163,6 +163,11 @@ static NSInteger const ETHorizontalPadding = 8;
     return self.textField.font;
 }
 
+- (BOOL)isEmpty
+{
+    return self.text.length == 0;
+}
+
 #pragma mark - UIView
 
 - (void)tintColorDidChange

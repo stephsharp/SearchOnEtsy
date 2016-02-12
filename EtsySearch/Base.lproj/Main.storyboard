@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Listings View Controller-->
@@ -103,6 +104,11 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="zfg-k8-CdF">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="left-arrow" id="U4h-mR-SHU" userLabel="Back">
+                            <connections>
+                                <segue destination="Vk4-At-I1v" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHomeViewController:" id="9uh-9u-ZG8"/>
+                            </connections>
+                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="G54-EV-bnr" customClass="ETTitleView">
                             <rect key="frame" x="150" y="5.5" width="300" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -127,8 +133,12 @@
                             </constraints>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Tsz-jN-zxB" id="Elr-aW-QSq"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0p-VS-tQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vk4-At-I1v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1388" y="327"/>
         </scene>
@@ -144,13 +154,59 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="XOX-Vd-tFZ" kind="relationship" relationship="rootViewController" id="vDh-A5-ceg"/>
+                        <segue destination="5YT-Bv-bGw" kind="relationship" relationship="rootViewController" id="MbU-2t-uQ9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2j-xt-FZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576" y="327"/>
+            <point key="canvasLocation" x="-64" y="327"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="N6u-a7-BXa">
+            <objects>
+                <viewController id="5YT-Bv-bGw" userLabel="Home View Controller" customClass="ETHomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xf0-rp-RZv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ax8-jy-UQX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fXh-lK-ghb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-Hv-4KH" customClass="ETSearchBar">
+                                <rect key="frame" x="60" y="275" width="480" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uWD-sa-DkY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="5YT-Bv-bGw" id="c1F-K2-fjo"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerY" secondItem="fXh-lK-ghb" secondAttribute="centerY" id="9oA-hN-QfD"/>
+                            <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="XXA-uZ-mS1"/>
+                            <constraint firstItem="O7Y-Hv-4KH" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.8" id="mBm-6D-ogg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i00-7J-pVP"/>
+                    <connections>
+                        <outlet property="searchBar" destination="O7Y-Hv-4KH" id="8rq-eF-9PT"/>
+                        <segue destination="XOX-Vd-tFZ" kind="show" identifier="ListingsSegue" id="wzB-Ix-ani"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FVV-qC-F25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="332"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="left-arrow" width="13" height="21"/>
+    </resources>
     <color key="tintColor" red="1" green="0.40784313725490196" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
 </document>

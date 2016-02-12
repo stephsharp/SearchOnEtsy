@@ -26,4 +26,6 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable NSString *text;
 @property (nonatomic) UIFont *font;
 
+@property (nonatomic, readonly) BOOL isEmpty;
+
 @end
