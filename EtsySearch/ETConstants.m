@@ -9,4 +9,4 @@
 #import "ETConstants.h"
 
 NSString *const ETAPIKey = @"liwecjs0c3ssk6let4p1wqt9";
-NSUInteger const ETListingsLimit = 30;
+NSUInteger const ETListingsLimit = 20;
