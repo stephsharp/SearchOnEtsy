@@ -10,6 +10,4 @@
 
 @interface ETHomeViewController : UIViewController
 
-@property (nonatomic) NSString *searchText;
-
 @end

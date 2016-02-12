@@ -174,10 +174,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-Hv-4KH" customClass="ETSearchBar">
-                                <rect key="frame" x="60" y="275" width="480" height="50"/>
+                                <rect key="frame" x="60" y="277" width="480" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="uWD-sa-DkY"/>
+                                    <constraint firstAttribute="height" constant="46" id="uWD-sa-DkY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>

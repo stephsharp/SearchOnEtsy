@@ -70,9 +70,9 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 #pragma mark - View lifecycle
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
     self.searchBar.text = self.searchText;
@@ -88,16 +88,6 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 {
     _shouldShowFooter = shouldShowFooter;
     shouldShowFooter ? [self.footerView.spinner startAnimation] : [self.footerView.spinner stopAnimation];
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:ETHomeSegueIdentifer]) {
-        ETHomeViewController *homeVC = (ETHomeViewController *)segue.destinationViewController;
-        homeVC.searchText = self.searchText;
-    }
 }
 
 #pragma mark - Search

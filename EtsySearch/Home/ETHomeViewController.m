@@ -20,19 +20,18 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 
 @implementation ETHomeViewController
 
-#pragma mark - ETSearchBarDelegate
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-
-    self.searchBar.text = self.searchText;
+    self.searchBar.text = nil;
 }
+
+#pragma mark - ETSearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(ETSearchBar *)searchBar
 {
-    self.searchText = searchBar.text;
+    [self.searchBar resignFirstResponder];
 
     if (!searchBar.isEmpty) {
         [self performSegueWithIdentifier:ETListingsSegueIdentifier sender:searchBar];
@@ -45,7 +44,7 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 {
     if ([segue.identifier isEqualToString:ETListingsSegueIdentifier]) {
         ETListingsViewController *listingsVC = (ETListingsViewController *)segue.destinationViewController;
-        listingsVC.searchText = self.searchText;
+        listingsVC.searchText = self.searchBar.text;
     }
 }
 
