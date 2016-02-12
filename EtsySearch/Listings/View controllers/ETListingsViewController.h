@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETSearchBar.h"
 
 @interface ETListingsViewController : UICollectionViewController
+
+@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
 @property (nonatomic) NSString *searchText;
 

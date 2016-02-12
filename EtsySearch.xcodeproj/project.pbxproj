@@ -21,6 +21,9 @@
 		824CDF9F1C6BF841005C4D52 /* ETTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF9E1C6BF841005C4D52 /* ETTitleView.m */; };
 		824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFA11C6C046E005C4D52 /* ETListingsFooterView.m */; };
 		824CDFA61C6D7625005C4D52 /* ETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */; };
+		824CDFAA1C6D96CB005C4D52 /* ETSearchTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFA91C6D96CB005C4D52 /* ETSearchTransitioningDelegate.m */; };
+		824CDFAD1C6D97E1005C4D52 /* ETSearchTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFAC1C6D97E1005C4D52 /* ETSearchTransitionAnimator.m */; };
+		824CDFB01C6DA8EF005C4D52 /* UIViewController+ETContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFAF1C6DA8EF005C4D52 /* UIViewController+ETContentViewController.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
@@ -68,6 +71,12 @@
 		824CDFA11C6C046E005C4D52 /* ETListingsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingsFooterView.m; sourceTree = "<group>"; };
 		824CDFA41C6D7625005C4D52 /* ETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomeViewController.h; sourceTree = "<group>"; };
 		824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomeViewController.m; sourceTree = "<group>"; };
+		824CDFA81C6D96CB005C4D52 /* ETSearchTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchTransitioningDelegate.h; sourceTree = "<group>"; };
+		824CDFA91C6D96CB005C4D52 /* ETSearchTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchTransitioningDelegate.m; sourceTree = "<group>"; };
+		824CDFAB1C6D97E1005C4D52 /* ETSearchTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchTransitionAnimator.h; sourceTree = "<group>"; };
+		824CDFAC1C6D97E1005C4D52 /* ETSearchTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchTransitionAnimator.m; sourceTree = "<group>"; };
+		824CDFAE1C6DA8EF005C4D52 /* UIViewController+ETContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ETContentViewController.h"; sourceTree = "<group>"; };
+		824CDFAF1C6DA8EF005C4D52 /* UIViewController+ETContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ETContentViewController.m"; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* EtsySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtsySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -191,8 +200,22 @@
 			children = (
 				824CDFA41C6D7625005C4D52 /* ETHomeViewController.h */,
 				824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */,
+				824CDFA71C6D93E0005C4D52 /* Transition */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		824CDFA71C6D93E0005C4D52 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				824CDFA81C6D96CB005C4D52 /* ETSearchTransitioningDelegate.h */,
+				824CDFA91C6D96CB005C4D52 /* ETSearchTransitioningDelegate.m */,
+				824CDFAB1C6D97E1005C4D52 /* ETSearchTransitionAnimator.h */,
+				824CDFAC1C6D97E1005C4D52 /* ETSearchTransitionAnimator.m */,
+				824CDFAE1C6DA8EF005C4D52 /* UIViewController+ETContentViewController.h */,
+				824CDFAF1C6DA8EF005C4D52 /* UIViewController+ETContentViewController.m */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		827FDFF21C6809FC0017EBD3 /* Storyboards */ = {
@@ -441,10 +464,13 @@
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,
 				824CDF8B1C686658005C4D52 /* ETListing.m in Sources */,
 				824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */,
+				824CDFAA1C6D96CB005C4D52 /* ETSearchTransitioningDelegate.m in Sources */,
 				824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
 				824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */,
+				824CDFB01C6DA8EF005C4D52 /* UIViewController+ETContentViewController.m in Sources */,
 				824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */,
+				824CDFAD1C6D97E1005C4D52 /* ETSearchTransitionAnimator.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,

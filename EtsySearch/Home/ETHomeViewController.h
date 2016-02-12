@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETSearchBar.h"
 
 @interface ETHomeViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
 @end

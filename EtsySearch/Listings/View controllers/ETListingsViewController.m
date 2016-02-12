@@ -14,19 +14,17 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UIImageView+ETFade.h"
 #import <SafariServices/SafariServices.h>
-#import "ETSearchBar.h"
 #import "ETListingsFooterView.h"
 #import "ETConstants.h"
 #import "ETHomeViewController.h"
+#import "ETSearchTransitioningDelegate.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
-@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-
-@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ETSearchTransitionPresentedViewController>
 
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
@@ -247,6 +245,22 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [self.collectionView performBatchUpdates:nil completion:nil];
     } completion:nil];
+}
+
+#pragma mark - ETSearchTransitionPushedViewController
+
+@synthesize toSearchBar;
+
+- (UIView *)toSearchBar
+{
+    return self.searchBar;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.searchBar resignFirstResponder];
 }
 
 @end

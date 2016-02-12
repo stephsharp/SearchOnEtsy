@@ -7,18 +7,25 @@
 //
 
 #import "ETHomeViewController.h"
-#import "ETSearchBar.h"
 #import "ETListingsViewController.h"
+#import "ETSearchTransitioningDelegate.h"
+#import "UIViewController+ETContentViewController.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
+@property (nonatomic) ETSearchTransitioningDelegate *transitioningDelegate;
 
 @end
 
 @implementation ETHomeViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.transitioningDelegate = [ETSearchTransitioningDelegate new];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -43,8 +50,12 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:ETListingsSegueIdentifier]) {
-        ETListingsViewController *listingsVC = (ETListingsViewController *)segue.destinationViewController;
+        ETListingsViewController *listingsVC = (ETListingsViewController *)segue.destinationViewController.et_contentViewController;
         listingsVC.searchText = self.searchBar.text;
+
+        self.transitioningDelegate.fromSearchBar = self.searchBar;
+        segue.destinationViewController.transitioningDelegate = self.transitioningDelegate;
+        segue.destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
     }
 }
 
