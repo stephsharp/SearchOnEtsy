@@ -20,6 +20,9 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    if (self.presenting) {
+        return 0.28;
+    }
     return 0.2;
 }
 
