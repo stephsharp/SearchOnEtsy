@@ -16,15 +16,16 @@
 #import <SafariServices/SafariServices.h>
 #import "ETListingsFooterView.h"
 #import "ETConstants.h"
-#import "ETHomeViewController.h"
-#import "ETSearchTransitioningDelegate.h"
+#import "ETSearchBar.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
-@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ETSearchTransitionPresentedViewController>
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
 @property (nonatomic) ETSearchClient *searchClient;
 @property (nonatomic) NSMutableArray *listingCards;
@@ -247,11 +248,9 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     } completion:nil];
 }
 
-#pragma mark - ETSearchTransitionPushedViewController
+#pragma mark - ETSearchTransitionViewController
 
-@synthesize toSearchBar;
-
-- (UIView *)toSearchBar
+- (UIView *)transitioningSearchBar
 {
     return self.searchBar;
 }

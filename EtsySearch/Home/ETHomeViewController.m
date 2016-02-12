@@ -10,11 +10,13 @@
 #import "ETListingsViewController.h"
 #import "ETSearchTransitioningDelegate.h"
 #import "UIViewController+ETContentViewController.h"
+#import "ETSearchBar.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 @property (nonatomic) ETSearchTransitioningDelegate *transitioningDelegate;
 
 @end
@@ -53,7 +55,6 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
         ETListingsViewController *listingsVC = (ETListingsViewController *)segue.destinationViewController.et_contentViewController;
         listingsVC.searchText = self.searchBar.text;
 
-        self.transitioningDelegate.fromSearchBar = self.searchBar;
         segue.destinationViewController.transitioningDelegate = self.transitioningDelegate;
         segue.destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
     }
@@ -62,6 +63,13 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 - (IBAction)unwindToHomeViewController:(UIStoryboardSegue *)unwindSegue
 {
 
+}
+
+#pragma mark - ETSearchTransitionViewController
+
+- (UIView *)transitioningSearchBar
+{
+    return self.searchBar;
 }
 
 @end

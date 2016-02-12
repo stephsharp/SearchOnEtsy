@@ -28,42 +28,60 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    UIViewController *presentedVC = presented.et_contentViewController;
-    [presentedVC.view layoutIfNeeded];
+    UIViewController<ETSearchTransitionViewController> *toVC;
+    UIViewController<ETSearchTransitionViewController> *fromVC;
 
-    return [self animatorWithViewController:presentedVC presenting:YES];
+    if ([presented.et_contentViewController conformsToProtocol:@protocol(ETSearchTransitionViewController)]) {
+        toVC = (UIViewController<ETSearchTransitionViewController> *)presented.et_contentViewController;
+        [toVC.view layoutIfNeeded];
+    }
+
+    if ([source conformsToProtocol:@protocol(ETSearchTransitionViewController)]) {
+        fromVC = (UIViewController<ETSearchTransitionViewController> *)source;
+    }
+
+    if (toVC && fromVC) {
+        return [self animatorWithPresentedViewController:toVC sourceViewController:fromVC presenting:YES];
+    }
+
+    return nil;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    UIViewController *dismissedContentViewController = dismissed.et_contentViewController;
+    UIViewController<ETSearchTransitionViewController> *dismissedVC;
 
-    return [self animatorWithViewController:dismissedContentViewController presenting:NO];
+    if ([dismissed.et_contentViewController conformsToProtocol:@protocol(ETSearchTransitionViewController)]) {
+        dismissedVC = (UIViewController<ETSearchTransitionViewController> *)dismissed.et_contentViewController;
+    }
+
+    if (dismissedVC) {
+        return [self animatorWithPresentedViewController:dismissedVC sourceViewController:nil presenting:NO];
+    }
+
+    return nil;
 }
 
-- (ETSearchTransitionAnimator *)animatorWithViewController:(UIViewController *)viewController presenting:(BOOL)presenting
+- (ETSearchTransitionAnimator *)animatorWithPresentedViewController:(UIViewController<ETSearchTransitionViewController> *)presentedVC
+                                               sourceViewController:(UIViewController<ETSearchTransitionViewController> *)sourceVC
+                                                         presenting:(BOOL)presenting
 {
-    if ([viewController conformsToProtocol:@protocol(ETSearchTransitionPresentedViewController)]) {
-        UIViewController<ETSearchTransitionPresentedViewController> *presentedVC = (UIViewController<ETSearchTransitionPresentedViewController> *)viewController;
+    self.animator.presenting = presenting;
+    self.animator.toSearchBar = presentedVC.transitioningSearchBar;
 
-        self.animator.presenting = presenting;
-        self.animator.toSearchBar = presentedVC.toSearchBar;
-        self.animator.fromSearchBar = self.fromSearchBar;
+    if (presenting) {
+        NSMutableArray *mutableConstraints = [NSMutableArray new];
 
-        if (presenting) {
-            // Only get constraints that have either item1 or item2 as self.fromSearhBar
-            NSMutableArray *mutableConstraints = [NSMutableArray new];
-
-            for (NSLayoutConstraint *c in self.fromSearchBar.superview.constraints) {
-                if (c.firstItem == self.fromSearchBar || c.secondItem == self.fromSearchBar) {
-                    [mutableConstraints addObject:c];
-                }
+        for (NSLayoutConstraint *c in sourceVC.transitioningSearchBar.superview.constraints) {
+            if (c.firstItem == sourceVC.transitioningSearchBar || c.secondItem == sourceVC.transitioningSearchBar) {
+                [mutableConstraints addObject:c];
             }
-
-            self.animator.fromSearchBarConstraints = [mutableConstraints copy];
         }
+
+        self.animator.fromSearchBar = sourceVC.transitioningSearchBar;
+        self.animator.fromSearchBarConstraints = [mutableConstraints copy];
     }
-    
+
     return self.animator;
 }
 

@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ETSearchTransitionPresentedViewController <NSObject>
+@protocol ETSearchTransitionViewController <NSObject>
 
-@property (nonatomic, weak) UIView *toSearchBar;
+@property (weak, nonatomic, readonly) UIView *transitioningSearchBar;
 
 @end
 
-@interface ETSearchTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
 
-@property (nonatomic) UIView *fromSearchBar;
+@interface ETSearchTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
 
 @end

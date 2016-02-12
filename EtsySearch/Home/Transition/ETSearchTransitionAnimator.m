@@ -7,8 +7,6 @@
 //
 
 #import "ETSearchTransitionAnimator.h"
-#import "ETHomeViewController.h"
-#import "ETListingsViewController.h" // What if it conforms to a protocol instead? See odConnect...
 
 @interface ETSearchTransitionAnimator ()
 
@@ -32,8 +30,8 @@
 
     UIView *containerView = [transitionContext containerView];
 
-    ETHomeViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    ETListingsViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
     // Start appearance transition for source controller because UIKit
     // does not remove views from hierarchy when transition is finished.
@@ -50,23 +48,22 @@
         toVC.view.alpha = 0;
         self.toSearchBar.hidden = YES;
 
-        [containerView addSubview:fromVC.searchBar];
+        [containerView addSubview:self.fromSearchBar];
 
         CGRect frame = [self.toSearchBar convertRect:self.toSearchBar.bounds toView:nil];
-        [self setupConstraintsOnSearchBar:fromVC.searchBar forFrame:frame];
+        [self setupConstraintsOnSearchBar:self.fromSearchBar forFrame:frame];
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             toVC.view.alpha = 1;
-            [fromVC.searchBar layoutIfNeeded];
+            [self.fromSearchBar layoutIfNeeded];
         }
         completion:^(BOOL finished) {
-             fromVC.searchBar.hidden = YES;
+             self.fromSearchBar.hidden = YES;
              self.toSearchBar.hidden = NO;
             [self.transitionContext completeTransition:YES];
         }];
     }
     else {
-        [containerView bringSubviewToFront:self.fromSearchBar];
         self.fromSearchBar.hidden = NO;
         [toVC.view addSubview:self.fromSearchBar];
         [self setupOriginalConstraintsOnSearchBar:self.fromSearchBar];
