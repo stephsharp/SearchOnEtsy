@@ -42,7 +42,7 @@ import UIKit
  - SemiCircleSpin:          SemiCircleSpin animation.
  - BallRotateChase:         BallRotateChase animation.
  */
-public enum NVActivityIndicatorType {
+@objc public enum NVActivityIndicatorType: Int {
     /**
      Blank.
      
@@ -299,10 +299,18 @@ public class NVActivityIndicatorView: UIView {
     public var type: NVActivityIndicatorType
     
     /// Color of activity indicator view.
-    public var color: UIColor
+    public var color: UIColor {
+        didSet {
+            setUpAnimation()
+        }
+    }
     
     /// Actual size of animation in view.
-    public var size: CGSize
+    public var size: CGSize {
+        didSet {
+            setUpAnimation()
+        }
+    }
     
     /// Current status of animation, this is not used to start or stop animation.
     public var animating: Bool = false

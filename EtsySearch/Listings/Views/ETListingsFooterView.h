@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@import NVActivityIndicatorView;
 
 @interface ETListingsFooterView : UICollectionReusableView
+
+@property (weak, nonatomic) IBOutlet NVActivityIndicatorView *spinner;
 
 @end

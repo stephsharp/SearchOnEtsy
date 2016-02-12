@@ -14,7 +14,18 @@ PODS:
 DEPENDENCIES:
   - AFNetworking/UIKit (~> 3.0)
   - MWFeedParser/NSString+HTML (~> 1.0)
-  - NVActivityIndicatorView (~> 2.3)
+  - NVActivityIndicatorView (from `https://github.com/stephsharp/NVActivityIndicatorView.git`,
+    branch `objc-fixes`)
+
+EXTERNAL SOURCES:
+  NVActivityIndicatorView:
+    :branch: objc-fixes
+    :git: https://github.com/stephsharp/NVActivityIndicatorView.git
+
+CHECKOUT OPTIONS:
+  NVActivityIndicatorView:
+    :commit: bdf96fc6bc77d0d5de9e3391c323dc3e8d9cfa27
+    :git: https://github.com/stephsharp/NVActivityIndicatorView.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93

@@ -3,4 +3,4 @@ use_frameworks!
 
 pod 'MWFeedParser/NSString+HTML', '~> 1.0'
 pod 'AFNetworking/UIKit', '~> 3.0'
-pod 'NVActivityIndicatorView', '~> 2.3'
+pod 'NVActivityIndicatorView', :git => 'https://github.com/stephsharp/NVActivityIndicatorView.git', :branch => 'objc-fixes'

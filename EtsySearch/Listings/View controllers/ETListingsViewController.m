@@ -15,6 +15,7 @@
 #import "UIImageView+ETFade.h"
 #import <SafariServices/SafariServices.h>
 #import "ETSearchBar.h"
+#import "ETListingsFooterView.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -26,6 +27,8 @@ static NSUInteger const ETDefaultCellWidth = 160;
 @property (nonatomic) NSString *currentSearchText;
 @property (nonatomic, getter=isFetching) BOOL fetching;
 @property (nonatomic) BOOL endOfSearchResults;
+@property (nonatomic) BOOL shouldShowFooter;
+@property (nonatomic, weak) ETListingsFooterView *footerView;
 
 @end
 
@@ -60,13 +63,24 @@ static NSUInteger const ETDefaultCellWidth = 160;
     return self.listingCards[indexPath.row];
 }
 
+#pragma mark - Properties
+
+- (void)setShouldShowFooter:(BOOL)shouldShowFooter
+{
+    _shouldShowFooter = shouldShowFooter;
+    shouldShowFooter ? [self.footerView.spinner startAnimation] : [self.footerView.spinner stopAnimation];
+}
+
 #pragma mark - Search
 
 - (void)searchForKeywords:(NSString *)keywords withOffset:(NSUInteger)offset
 {
     self.fetching = YES;
+    self.shouldShowFooter = YES;
 
     [self.searchClient searchForKeywords:keywords offset:offset completion:^(NSArray *listings, NSError *error) {
+        self.shouldShowFooter = NO;
+
         if (error) {
             NSLog(@"error: %@", error.localizedDescription);
             self.fetching = NO;
@@ -162,6 +176,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
     if (kind == UICollectionElementKindSectionFooter) {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        self.footerView = (ETListingsFooterView *)reusableView;
     }
 
     return reusableView;
@@ -169,7 +184,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    if (self.isFetching) {
+    if (self.shouldShowFooter) {
         return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 50);
     }
     return CGSizeMake(0.1, 0.1); // Collection view crashes if footer size is CGRectZero.

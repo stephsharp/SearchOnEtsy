@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ia-vn-3KS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Listings View Controller-->
@@ -79,17 +80,20 @@
                             <rect key="frame" x="0.0" y="244" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-wi-ALW">
-                                    <rect key="frame" x="290" y="10" width="20" height="20"/>
-                                    <color key="color" red="1" green="0.40784313725490196" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
-                                </activityIndicatorView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-NT-bdc" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                    <rect key="frame" x="287.5" y="12.5" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="IcL-gF-f1h"/>
+                                        <constraint firstAttribute="width" secondItem="r2Q-NT-bdc" secondAttribute="height" multiplier="1:1" id="akV-YB-fF6"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="a6g-wi-ALW" firstAttribute="centerX" secondItem="rNF-ws-pDq" secondAttribute="centerX" id="0gI-dM-izC"/>
-                                <constraint firstItem="a6g-wi-ALW" firstAttribute="centerY" secondItem="rNF-ws-pDq" secondAttribute="centerY" constant="-5" id="dgW-5u-fxQ"/>
+                                <constraint firstItem="r2Q-NT-bdc" firstAttribute="centerY" secondItem="rNF-ws-pDq" secondAttribute="centerY" id="Epl-RP-Wvg"/>
+                                <constraint firstItem="r2Q-NT-bdc" firstAttribute="centerX" secondItem="rNF-ws-pDq" secondAttribute="centerX" id="STd-wn-UOw"/>
                             </constraints>
                             <connections>
-                                <outlet property="spinner" destination="a6g-wi-ALW" id="Dyy-GQ-fiV"/>
+                                <outlet property="spinner" destination="r2Q-NT-bdc" id="4MO-lz-Mhx"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
