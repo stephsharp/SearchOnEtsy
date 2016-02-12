@@ -68,7 +68,7 @@
 		824CDFA11C6C046E005C4D52 /* ETListingsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingsFooterView.m; sourceTree = "<group>"; };
 		824CDFA41C6D7625005C4D52 /* ETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomeViewController.h; sourceTree = "<group>"; };
 		824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomeViewController.m; sourceTree = "<group>"; };
-		82FC0F561C670C4C0017A2B5 /* EtsySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtsySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search on Etsy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		82FC0F571C670C4C0017A2B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82FC0F561C670C4C0017A2B5 /* EtsySearch.app */,
+				82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */,
 				82FC0F6F1C670C4C0017A2B5 /* EtsySearchTests.xctest */,
 			);
 			name = Products;
@@ -300,7 +300,7 @@
 			);
 			name = EtsySearch;
 			productName = EtsySearch;
-			productReference = 82FC0F561C670C4C0017A2B5 /* EtsySearch.app */;
+			productReference = 82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		82FC0F6E1C670C4C0017A2B5 /* EtsySearchTests */ = {
@@ -579,7 +579,7 @@
 				INFOPLIST_FILE = EtsySearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssharp.EtsySearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Search on Etsy";
 			};
 			name = Debug;
 		};
@@ -591,7 +591,7 @@
 				INFOPLIST_FILE = EtsySearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssharp.EtsySearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Search on Etsy";
 			};
 			name = Release;
 		};
