@@ -20,7 +20,7 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.3;
+    return 0.2;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -52,7 +52,7 @@
         CGRect frame = [self.toSearchBar convertRect:self.toSearchBar.bounds toView:nil];
         [self setupConstraintsOnSearchBar:fromVC.searchBar forFrame:frame];
 
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             toVC.view.alpha = 1;
             [fromVC.searchBar layoutIfNeeded];
         }
