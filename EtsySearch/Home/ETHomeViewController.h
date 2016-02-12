@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETSearchTransitioningDelegate.h"
 
-@interface ETHomeViewController : UIViewController
+@interface ETHomeViewController : UIViewController <ETSearchTransitionViewController>
 
 @end

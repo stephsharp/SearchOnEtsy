@@ -14,10 +14,9 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UIImageView+ETFade.h"
 #import <SafariServices/SafariServices.h>
-#import "ETSearchBar.h"
 #import "ETListingsFooterView.h"
 #import "ETConstants.h"
-#import "ETHomeViewController.h"
+#import "ETSearchBar.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -247,6 +246,20 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [self.collectionView performBatchUpdates:nil completion:nil];
     } completion:nil];
+}
+
+#pragma mark - ETSearchTransitionViewController
+
+- (UIView *)transitioningSearchBar
+{
+    return self.searchBar;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.searchBar resignFirstResponder];
 }
 
 @end

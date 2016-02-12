@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETSearchTransitioningDelegate.h"
 
-@interface ETListingsViewController : UICollectionViewController
+@interface ETListingsViewController : UICollectionViewController <ETSearchTransitionViewController>
 
 @property (nonatomic) NSString *searchText;
 
