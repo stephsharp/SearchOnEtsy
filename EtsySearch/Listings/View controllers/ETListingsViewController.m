@@ -88,11 +88,12 @@ static NSUInteger const ETFooterViewHeight = 55;
             self.fetching = NO;
         }
         else {
-            NSLog(@"Listings: %@", listings);
+            if (listings.count < ETListingsLimit) {
+                self.endOfSearchResults = YES;
+            }
 
             if (listings.count == 0) {
                 self.fetching = NO;
-                self.endOfSearchResults = YES;
 
                 // Not as smooth as I would like, but sligthly better than invalidating layout
                 // which causes collection view to flicker when coming to rest.
@@ -100,21 +101,22 @@ static NSUInteger const ETFooterViewHeight = 55;
                     [self.collectionView performBatchUpdates:nil completion:nil];
                 });
             }
+            else {
+                NSInteger numberOfExistingCards = self.listingCards.count;
 
-            NSInteger numberOfExistingCards = self.listingCards.count;
+                for (int i = 0; i < listings.count; i++) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
+                        ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
+                        [self.listingCards addObject:card];
+                        [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
 
-            for (int i = 0; i < listings.count; i++) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
-                    ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
-                    [self.listingCards addObject:card];
-                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
-
-                    BOOL isLastItem = (i == listings.count - 1);
-                    if (isLastItem) {
-                        self.fetching = NO;
-                        [self.collectionView flashScrollIndicators];
-                    }
-                });
+                        BOOL isLastItem = (i == listings.count - 1);
+                        if (isLastItem) {
+                            self.fetching = NO;
+                            [self.collectionView flashScrollIndicators];
+                        }
+                    });
+                }
             }
         }
     }];
