@@ -91,13 +91,13 @@
 {
     NSDictionary *views = NSDictionaryOfVariableBindings(searchBar);
 
-    NSString *horizontalFormat = [NSString stringWithFormat:@"H:|-%f-[searchBar(%f)]", frame.origin.x, frame.size.width];
+    NSString *horizontalFormat = [NSString stringWithFormat:@"H:|-(%f)-[searchBar(%f)]", frame.origin.x, frame.size.width];
     [searchBar.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalFormat
                                                                                 options:0
                                                                                 metrics:nil
                                                                                   views:views]];
 
-    NSString *verticalFormat = [NSString stringWithFormat:@"V:|-%f-[searchBar(%f)]", frame.origin.y, frame.size.height];
+    NSString *verticalFormat = [NSString stringWithFormat:@"V:|-(%f)-[searchBar(%f)]", frame.origin.y, frame.size.height];
     [searchBar.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat
                                                                                 options:0
                                                                                 metrics:nil
