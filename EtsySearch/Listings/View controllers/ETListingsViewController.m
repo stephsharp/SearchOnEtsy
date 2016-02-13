@@ -23,7 +23,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
-@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
@@ -73,6 +73,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self addEdgeSwipeGestureRecognizer];
 
     self.searchBar.text = self.searchText;
 
@@ -260,6 +261,21 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [self.searchBar resignFirstResponder];
+}
+
+
+- (void)addEdgeSwipeGestureRecognizer
+{
+    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+
+    gestureRecognizer.edges = UIRectEdgeLeft;
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)dismiss
+{
+    [self performSegueWithIdentifier:ETHomeSegueIdentifer sender:self];
 }
 
 @end
