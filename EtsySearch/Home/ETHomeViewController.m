@@ -21,8 +21,11 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *randomImageView;
+@property (nonatomic) IBOutlet NSLayoutConstraint *randomImageViewZeroHeightConstraint;
+@property (nonatomic) IBOutlet NSLayoutConstraint *searchBarYConstraint;
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
+@property (nonatomic) CGFloat searchBarYConstraintOriginalConstant;
 @property (nonatomic) ETRandomObjectEnumerator *randomImageEnumerator;
 @property (nonatomic) NSTimer *randomImageTimer;
 @property (nonatomic) ETSearchTransitioningDelegate *transitioningDelegate;
@@ -48,6 +51,18 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
     [self startTimer];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+    if (CGRectGetHeight(self.view.bounds) < 400.0f) {
+        [self hideRandomImage];
+    }
+    else {
+        [self showRandomImage];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -58,6 +73,16 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
+}
+
+#pragma mark - Properties
+
+- (CGFloat)searchBarYConstraintOriginalConstant
+{
+    if (_searchBarYConstraintOriginalConstant == 0) {
+        _searchBarYConstraintOriginalConstant = self.searchBarYConstraint.constant;
+    }
+    return _searchBarYConstraintOriginalConstant;
 }
 
 #pragma mark - Random images
@@ -127,6 +152,18 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
                                              selector:@selector(stopTimer)
                                                  name:UIApplicationWillResignActiveNotification
                                                object:nil];
+}
+
+- (void)hideRandomImage
+{
+    self.randomImageViewZeroHeightConstraint.active = YES;
+    self.searchBarYConstraint.constant = self.searchBarYConstraintOriginalConstant - 20;
+}
+
+- (void)showRandomImage
+{
+    self.randomImageViewZeroHeightConstraint.active = NO;
+    self.searchBarYConstraint.constant = self.searchBarYConstraintOriginalConstant;
 }
 
 #pragma mark - ETSearchBarDelegate

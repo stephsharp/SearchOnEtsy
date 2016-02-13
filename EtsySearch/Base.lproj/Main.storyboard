@@ -181,7 +181,7 @@
                                     <constraint firstAttribute="height" priority="900" constant="46" id="uWD-sa-DkY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search for something artistic..."/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1.5"/>
                                     </userDefinedRuntimeAttribute>
@@ -190,17 +190,23 @@
                                     <outlet property="delegate" destination="5YT-Bv-bGw" id="c1F-K2-fjo"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UXf-Kz-hkX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-artistic" translatesAutoresizingMaskIntoConstraints="NO" id="UXf-Kz-hkX">
                                 <rect key="frame" x="235" y="50" width="130" height="163"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" id="7nP-tT-kg4"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="yvr-EG-qtC"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7nP-tT-kg4"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="3F7-WY-OH5"/>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" constant="-87" id="4Kx-sb-WeO"/>
+                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" priority="950" constant="-87" id="4Kx-sb-WeO"/>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.5" priority="900" id="8sv-5j-bTw"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerY" secondItem="fXh-lK-ghb" secondAttribute="centerY" constant="-40" id="9oA-hN-QfD"/>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="top" secondItem="Xf0-rp-RZv" secondAttribute="bottom" constant="30" id="AjN-Xe-Qin"/>
@@ -211,7 +217,9 @@
                     <navigationItem key="navigationItem" id="i00-7J-pVP"/>
                     <connections>
                         <outlet property="randomImageView" destination="UXf-Kz-hkX" id="iPI-Zr-m5Z"/>
+                        <outlet property="randomImageViewZeroHeightConstraint" destination="7nP-tT-kg4" id="hil-EG-Jj2"/>
                         <outlet property="searchBar" destination="O7Y-Hv-4KH" id="8rq-eF-9PT"/>
+                        <outlet property="searchBarYConstraint" destination="9oA-hN-QfD" id="o9p-qm-djE"/>
                         <segue destination="8Ia-vn-3KS" kind="presentation" identifier="ListingsSegue" id="Eci-yn-LiE"/>
                     </connections>
                 </viewController>
@@ -221,6 +229,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-artistic" width="130" height="130"/>
         <image name="left-arrow" width="13" height="21"/>
     </resources>
     <color key="tintColor" red="1" green="0.40784313725490196" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
