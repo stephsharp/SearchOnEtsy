@@ -10,6 +10,7 @@
 
 @interface UIImageView (ETFade)
 
+- (void)et_fadeImage:(UIImage *)image withDuration:(NSTimeInterval)duration;
 - (void)et_fadeImage:(UIImage *)image;
 
 @end

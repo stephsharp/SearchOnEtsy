@@ -9,15 +9,12 @@
 /* Begin PBXBuildFile section */
 		147B9EE0B80197C35822BA00 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1508205BDAC37D3B47D16C8 /* Pods.framework */; };
 		824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF741C686645005C4D52 /* UIColor+ETTheme.m */; };
-		824CDF881C686658005C4D52 /* UIImageView+ETFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF781C686658005C4D52 /* UIImageView+ETFade.m */; };
 		824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7B1C686658005C4D52 /* ETSearchClient.m */; };
 		824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7E1C686658005C4D52 /* ETListingFlowLayout.m */; };
 		824CDF8B1C686658005C4D52 /* ETListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF811C686658005C4D52 /* ETListing.m */; };
 		824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF841C686658005C4D52 /* ETListingsViewController.m */; };
 		824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF871C686658005C4D52 /* ETListingCell.m */; };
 		824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF921C6AA3E9005C4D52 /* ETListingCard.m */; };
-		824CDF991C6B1575005C4D52 /* ETSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF981C6B1575005C4D52 /* ETSearchBar.m */; };
-		824CDF9C1C6BE193005C4D52 /* ETSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */; };
 		824CDF9F1C6BF841005C4D52 /* ETTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF9E1C6BF841005C4D52 /* ETTitleView.m */; };
 		824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFA11C6C046E005C4D52 /* ETListingsFooterView.m */; };
 		824CDFA61C6D7625005C4D52 /* ETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */; };
@@ -28,6 +25,9 @@
 		824CDFC01C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFBF1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m */; };
 		824CDFC81C6E9D47005C4D52 /* HomeImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824CDFC71C6E9D47005C4D52 /* HomeImages.plist */; };
 		824CDFCC1C6EAB19005C4D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */; };
+		824CDFD61C6EBC17005C4D52 /* UIImageView+ETFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */; };
+		824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */; };
+		824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
@@ -50,8 +50,6 @@
 		3F3FF9A88148A314A83AF902 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		824CDF731C686645005C4D52 /* UIColor+ETTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ETTheme.h"; sourceTree = "<group>"; };
 		824CDF741C686645005C4D52 /* UIColor+ETTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ETTheme.m"; sourceTree = "<group>"; };
-		824CDF771C686658005C4D52 /* UIImageView+ETFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ETFade.h"; sourceTree = "<group>"; };
-		824CDF781C686658005C4D52 /* UIImageView+ETFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ETFade.m"; sourceTree = "<group>"; };
 		824CDF7A1C686658005C4D52 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
 		824CDF7B1C686658005C4D52 /* ETSearchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchClient.m; sourceTree = "<group>"; };
 		824CDF7D1C686658005C4D52 /* ETListingFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingFlowLayout.h; sourceTree = "<group>"; };
@@ -64,10 +62,6 @@
 		824CDF871C686658005C4D52 /* ETListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingCell.m; sourceTree = "<group>"; };
 		824CDF911C6AA3E9005C4D52 /* ETListingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingCard.h; sourceTree = "<group>"; };
 		824CDF921C6AA3E9005C4D52 /* ETListingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETListingCard.m; sourceTree = "<group>"; };
-		824CDF971C6B1575005C4D52 /* ETSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchBar.h; sourceTree = "<group>"; };
-		824CDF981C6B1575005C4D52 /* ETSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchBar.m; sourceTree = "<group>"; };
-		824CDF9A1C6BE193005C4D52 /* ETSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchButton.h; sourceTree = "<group>"; };
-		824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchButton.m; sourceTree = "<group>"; };
 		824CDF9D1C6BF841005C4D52 /* ETTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTitleView.h; sourceTree = "<group>"; };
 		824CDF9E1C6BF841005C4D52 /* ETTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTitleView.m; sourceTree = "<group>"; };
 		824CDFA01C6C046E005C4D52 /* ETListingsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETListingsFooterView.h; sourceTree = "<group>"; };
@@ -86,6 +80,12 @@
 		824CDFBF1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ETShuffle.m"; sourceTree = "<group>"; };
 		824CDFC71C6E9D47005C4D52 /* HomeImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeImages.plist; sourceTree = "<group>"; };
 		824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		824CDFCF1C6EBC17005C4D52 /* UIImageView+ETFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ETFade.h"; sourceTree = "<group>"; };
+		824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ETFade.m"; sourceTree = "<group>"; };
+		824CDFD21C6EBC17005C4D52 /* ETSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchBar.h; sourceTree = "<group>"; };
+		824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchBar.m; sourceTree = "<group>"; };
+		824CDFD41C6EBC17005C4D52 /* ETSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchButton.h; sourceTree = "<group>"; };
+		824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchButton.m; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search on Etsy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,15 +139,6 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		824CDF761C686658005C4D52 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				824CDF771C686658005C4D52 /* UIImageView+ETFade.h */,
-				824CDF781C686658005C4D52 /* UIImageView+ETFade.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		824CDF791C686658005C4D52 /* Data source */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,10 +182,6 @@
 			children = (
 				824CDF861C686658005C4D52 /* ETListingCell.h */,
 				824CDF871C686658005C4D52 /* ETListingCell.m */,
-				824CDF971C6B1575005C4D52 /* ETSearchBar.h */,
-				824CDF981C6B1575005C4D52 /* ETSearchBar.m */,
-				824CDF9A1C6BE193005C4D52 /* ETSearchButton.h */,
-				824CDF9B1C6BE193005C4D52 /* ETSearchButton.m */,
 				824CDF9D1C6BF841005C4D52 /* ETTitleView.h */,
 				824CDF9E1C6BF841005C4D52 /* ETTitleView.m */,
 				824CDFA01C6C046E005C4D52 /* ETListingsFooterView.h */,
@@ -239,6 +226,35 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		824CDFCD1C6EBC17005C4D52 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				824CDFCE1C6EBC17005C4D52 /* Categories */,
+				824CDFD11C6EBC17005C4D52 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		824CDFCE1C6EBC17005C4D52 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				824CDFCF1C6EBC17005C4D52 /* UIImageView+ETFade.h */,
+				824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		824CDFD11C6EBC17005C4D52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				824CDFD21C6EBC17005C4D52 /* ETSearchBar.h */,
+				824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */,
+				824CDFD41C6EBC17005C4D52 /* ETSearchButton.h */,
+				824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		827FDFF21C6809FC0017EBD3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +267,6 @@
 		827FDFF31C680A540017EBD3 /* Listings */ = {
 			isa = PBXGroup;
 			children = (
-				824CDF761C686658005C4D52 /* Categories */,
 				824CDF791C686658005C4D52 /* Data source */,
 				824CDF7C1C686658005C4D52 /* Layouts */,
 				824CDF7F1C686658005C4D52 /* Models */,
@@ -289,6 +304,7 @@
 				82FC0F811C670EF90017A2B5 /* ETConstants.h */,
 				82FC0F821C670EF90017A2B5 /* ETConstants.m */,
 				824CDF721C686645005C4D52 /* Theme */,
+				824CDFCD1C6EBC17005C4D52 /* Common */,
 				824CDFA31C6D75FF005C4D52 /* Home */,
 				827FDFF31C680A540017EBD3 /* Listings */,
 				827FDFF21C6809FC0017EBD3 /* Storyboards */,
@@ -477,25 +493,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				824CDF991C6B1575005C4D52 /* ETSearchBar.m in Sources */,
 				824CDFBD1C6E9458005C4D52 /* ETRandomObjectEnumerator.m in Sources */,
-				824CDF9C1C6BE193005C4D52 /* ETSearchButton.m in Sources */,
 				824CDFA61C6D7625005C4D52 /* ETHomeViewController.m in Sources */,
 				824CDFB91C6DF815005C4D52 /* ETSearchTransitioningDelegate.m in Sources */,
 				824CDF9F1C6BF841005C4D52 /* ETTitleView.m in Sources */,
 				824CDFB81C6DF815005C4D52 /* ETSearchTransitionAnimator.m in Sources */,
 				824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */,
-				824CDF881C686658005C4D52 /* UIImageView+ETFade.m in Sources */,
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,
 				824CDF8B1C686658005C4D52 /* ETListing.m in Sources */,
+				824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */,
 				824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */,
 				824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
 				824CDFBA1C6DF815005C4D52 /* UIViewController+ETContentViewController.m in Sources */,
 				824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */,
+				824CDFD61C6EBC17005C4D52 /* UIImageView+ETFade.m in Sources */,
 				824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
+				824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */,
 				824CDFC01C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,
 			);

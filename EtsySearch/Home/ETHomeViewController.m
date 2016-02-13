@@ -12,8 +12,11 @@
 #import "UIViewController+ETContentViewController.h"
 #import "ETSearchBar.h"
 #import "ETRandomObjectEnumerator.h"
+#import "UIImageView+ETFade.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
+static NSTimeInterval const ETTimerInterval = 6;
+static NSTimeInterval const ETCrossFadeDuration = 0.4;
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
@@ -21,6 +24,7 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
 @property (nonatomic) ETRandomObjectEnumerator *randomImageEnumerator;
+@property (nonatomic) NSTimer *randomImageTimer;
 @property (nonatomic) ETSearchTransitioningDelegate *transitioningDelegate;
 
 @end
@@ -41,14 +45,13 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.searchBar.text = nil;
 
-    // TODO: Start timer
+    [self startTimer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
-    // TODO: Pause timer
+    [self stopTimer];
 }
 
 #pragma mark - Random images
@@ -56,23 +59,53 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 - (void)setupRandomImages
 {
     self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithArray:[ETHomeViewController imageInfo]];
-
-    NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
-    [self setRandomImage:imageInfo];
-
-    // TODO: Create timer
+    [self updateRandomImage];
 }
 
-- (void)setRandomImage:(NSDictionary *)imageInfo
+- (void)updateRandomImage
 {
-    self.randomImageView.image = [UIImage imageNamed:imageInfo[@"imageName"]];
-    self.searchBar.placeholder = [NSString stringWithFormat:@"Search for something %@...", imageInfo[@"keyword"]];
+    NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
+
+    UIImage *nextImage = [UIImage imageNamed:imageInfo[@"imageName"]];
+    NSString *nextPlaceholder = [NSString stringWithFormat:@"Search for something %@...", imageInfo[@"keyword"]];
+
+    [self.randomImageView et_fadeImage:nextImage withDuration:ETCrossFadeDuration];
+    [self fadePlaceholder:nextPlaceholder withDuration:ETCrossFadeDuration];
+}
+
+- (void)fadePlaceholder:(NSString *)placeholderText withDuration:(NSTimeInterval)duration
+{
+    [UIView transitionWithView:self.searchBar
+                      duration:duration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.searchBar.placeholder = placeholderText;
+                    } completion:nil];
 }
 
 + (NSArray *)imageInfo
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeImages" ofType:@"plist"];
     return [[NSArray alloc] initWithContentsOfFile:path];
+}
+
+- (void)stopTimer
+{
+    [self.randomImageTimer invalidate];
+    self.randomImageTimer = nil;
+}
+
+- (void)startTimer
+{
+    if (self.randomImageTimer) {
+        [self stopTimer];
+    }
+
+    self.randomImageTimer = [NSTimer scheduledTimerWithTimeInterval:ETTimerInterval
+                                                             target:self
+                                                           selector:@selector(updateRandomImage)
+                                                           userInfo:nil
+                                                            repeats:YES];
 }
 
 #pragma mark - ETSearchBarDelegate

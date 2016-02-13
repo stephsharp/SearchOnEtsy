@@ -10,14 +10,19 @@
 
 @implementation UIImageView (ETFade)
 
-- (void)et_fadeImage:(UIImage *)image
+- (void)et_fadeImage:(UIImage *)image withDuration:(NSTimeInterval)duration
 {
     [UIView transitionWithView:self
-                      duration:0.15f
+                      duration:duration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         self.image = image;
                     } completion:nil];
+}
+
+- (void)et_fadeImage:(UIImage *)image
+{
+    [self et_fadeImage:image withDuration:0.15];
 }
 
 @end
