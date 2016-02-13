@@ -24,6 +24,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable UIColor *textColor;
 @property (nonatomic) IBInspectable NSString *placeholder;
 @property (nonatomic) IBInspectable NSString *text;
+@property (nonatomic) IBInspectable CGFloat borderWidth;
 @property (nonatomic) UIFont *font;
 
 @property (nonatomic, readonly) BOOL isEmpty;

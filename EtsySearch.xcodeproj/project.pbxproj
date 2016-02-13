@@ -24,10 +24,13 @@
 		824CDFB81C6DF815005C4D52 /* ETSearchTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFB31C6DF815005C4D52 /* ETSearchTransitionAnimator.m */; };
 		824CDFB91C6DF815005C4D52 /* ETSearchTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFB51C6DF815005C4D52 /* ETSearchTransitioningDelegate.m */; };
 		824CDFBA1C6DF815005C4D52 /* UIViewController+ETContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFB71C6DF815005C4D52 /* UIViewController+ETContentViewController.m */; };
+		824CDFBD1C6E9458005C4D52 /* ETRandomObjectEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFBC1C6E9458005C4D52 /* ETRandomObjectEnumerator.m */; };
+		824CDFC01C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFBF1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m */; };
+		824CDFC81C6E9D47005C4D52 /* HomeImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824CDFC71C6E9D47005C4D52 /* HomeImages.plist */; };
+		824CDFCC1C6EAB19005C4D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
-		82FC0F661C670C4C0017A2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F651C670C4C0017A2B5 /* Assets.xcassets */; };
 		82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */; };
 		82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */; };
 		82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F821C670EF90017A2B5 /* ETConstants.m */; };
@@ -77,12 +80,17 @@
 		824CDFB51C6DF815005C4D52 /* ETSearchTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchTransitioningDelegate.m; sourceTree = "<group>"; };
 		824CDFB61C6DF815005C4D52 /* UIViewController+ETContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ETContentViewController.h"; sourceTree = "<group>"; };
 		824CDFB71C6DF815005C4D52 /* UIViewController+ETContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ETContentViewController.m"; sourceTree = "<group>"; };
+		824CDFBB1C6E9458005C4D52 /* ETRandomObjectEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETRandomObjectEnumerator.h; sourceTree = "<group>"; };
+		824CDFBC1C6E9458005C4D52 /* ETRandomObjectEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRandomObjectEnumerator.m; sourceTree = "<group>"; };
+		824CDFBE1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ETShuffle.h"; sourceTree = "<group>"; };
+		824CDFBF1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ETShuffle.m"; sourceTree = "<group>"; };
+		824CDFC71C6E9D47005C4D52 /* HomeImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeImages.plist; sourceTree = "<group>"; };
+		824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search on Etsy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82FC0F631C670C4C0017A2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		82FC0F651C670C4C0017A2B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82FC0F681C670C4C0017A2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82FC0F6A1C670C4C0017A2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82FC0F6F1C670C4C0017A2B5 /* EtsySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EtsySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +208,10 @@
 			children = (
 				824CDFA41C6D7625005C4D52 /* ETHomeViewController.h */,
 				824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */,
+				824CDFBB1C6E9458005C4D52 /* ETRandomObjectEnumerator.h */,
+				824CDFBC1C6E9458005C4D52 /* ETRandomObjectEnumerator.m */,
+				824CDFBE1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.h */,
+				824CDFBF1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m */,
 				824CDFB11C6DF815005C4D52 /* Transition */,
 			);
 			path = Home;
@@ -216,6 +228,15 @@
 				824CDFB71C6DF815005C4D52 /* UIViewController+ETContentViewController.m */,
 			);
 			path = Transition;
+			sourceTree = "<group>";
+		};
+		824CDFC21C6E9D13005C4D52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */,
+				824CDFC71C6E9D47005C4D52 /* HomeImages.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		827FDFF21C6809FC0017EBD3 /* Storyboards */ = {
@@ -271,8 +292,8 @@
 				824CDFA31C6D75FF005C4D52 /* Home */,
 				827FDFF31C680A540017EBD3 /* Listings */,
 				827FDFF21C6809FC0017EBD3 /* Storyboards */,
-				82FC0F651C670C4C0017A2B5 /* Assets.xcassets */,
 				82FC0F6A1C670C4C0017A2B5 /* Info.plist */,
+				824CDFC21C6E9D13005C4D52 /* Resources */,
 				82FC0F591C670C4C0017A2B5 /* Supporting Files */,
 			);
 			path = EtsySearch;
@@ -388,8 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */,
-				82FC0F661C670C4C0017A2B5 /* Assets.xcassets in Resources */,
+				824CDFC81C6E9D47005C4D52 /* HomeImages.plist in Resources */,
 				82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */,
+				824CDFCC1C6EAB19005C4D52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				824CDF991C6B1575005C4D52 /* ETSearchBar.m in Sources */,
+				824CDFBD1C6E9458005C4D52 /* ETRandomObjectEnumerator.m in Sources */,
 				824CDF9C1C6BE193005C4D52 /* ETSearchButton.m in Sources */,
 				824CDFA61C6D7625005C4D52 /* ETHomeViewController.m in Sources */,
 				824CDFB91C6DF815005C4D52 /* ETSearchTransitioningDelegate.m in Sources */,
@@ -473,6 +496,7 @@
 				824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
+				824CDFC01C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,6 +54,10 @@
         [self setupConstraintsOnSearchBar:self.fromSearchBar forFrame:frame];
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            for (UIView *view in fromVC.view.subviews) {
+                view.alpha = 0;
+            }
+
             toVC.view.alpha = 1;
             [self.fromSearchBar layoutIfNeeded];
         }
@@ -70,6 +74,10 @@
         self.toSearchBar.hidden = YES;
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            for (UIView *view in toVC.view.subviews) {
+                view.alpha = 1;
+            }
+
             fromVC.view.alpha = 0;
             [self.fromSearchBar layoutIfNeeded];
         }

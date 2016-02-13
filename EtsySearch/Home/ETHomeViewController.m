@@ -11,12 +11,16 @@
 #import "ETSearchTransitioningDelegate.h"
 #import "UIViewController+ETContentViewController.h"
 #import "ETSearchBar.h"
+#import "ETRandomObjectEnumerator.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *randomImageView;
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
+
+@property (nonatomic) ETRandomObjectEnumerator *randomImageEnumerator;
 @property (nonatomic) ETSearchTransitioningDelegate *transitioningDelegate;
 
 @end
@@ -26,7 +30,9 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.transitioningDelegate = [ETSearchTransitioningDelegate new];
+    [self setupRandomImages];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -34,6 +40,39 @@ static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.searchBar.text = nil;
+
+    // TODO: Start timer
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    // TODO: Pause timer
+}
+
+#pragma mark - Random images
+
+- (void)setupRandomImages
+{
+    self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithArray:[ETHomeViewController imageInfo]];
+
+    NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
+    [self setRandomImage:imageInfo];
+
+    // TODO: Create timer
+}
+
+- (void)setRandomImage:(NSDictionary *)imageInfo
+{
+    self.randomImageView.image = [UIImage imageNamed:imageInfo[@"imageName"]];
+    self.searchBar.placeholder = [NSString stringWithFormat:@"Search for something %@...", imageInfo[@"keyword"]];
+}
+
++ (NSArray *)imageInfo
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeImages" ofType:@"plist"];
+    return [[NSArray alloc] initWithContentsOfFile:path];
 }
 
 #pragma mark - ETSearchBarDelegate
