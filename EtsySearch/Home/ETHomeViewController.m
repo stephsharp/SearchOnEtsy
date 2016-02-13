@@ -15,8 +15,8 @@
 #import "UIImageView+ETFade.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
-static NSTimeInterval const ETTimerInterval = 6;
-static NSTimeInterval const ETCrossFadeDuration = 0.4;
+static NSTimeInterval const ETTimerInterval = 7;
+static NSTimeInterval const ETCrossFadeDuration = 0.5;
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
@@ -43,8 +43,8 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.searchBar.text = nil;
 
+    self.searchBar.text = nil;
     [self startTimer];
 }
 
@@ -54,12 +54,26 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
     [self stopTimer];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
+}
+
 #pragma mark - Random images
+
++ (NSArray *)imageInfo
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeImages" ofType:@"plist"];
+    return [[NSArray alloc] initWithContentsOfFile:path];
+}
 
 - (void)setupRandomImages
 {
     self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithArray:[ETHomeViewController imageInfo]];
+
     [self updateRandomImage];
+    [self addTimerObservers];
 }
 
 - (void)updateRandomImage
@@ -67,7 +81,7 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
     NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
 
     UIImage *nextImage = [UIImage imageNamed:imageInfo[@"imageName"]];
-    NSString *nextPlaceholder = [NSString stringWithFormat:@"Search for something %@...", imageInfo[@"keyword"]];
+    NSString *nextPlaceholder = [NSString stringWithFormat:@"Find something %@...", imageInfo[@"keyword"]];
 
     [self.randomImageView et_fadeImage:nextImage withDuration:ETCrossFadeDuration];
     [self fadePlaceholder:nextPlaceholder withDuration:ETCrossFadeDuration];
@@ -83,18 +97,6 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
                     } completion:nil];
 }
 
-+ (NSArray *)imageInfo
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeImages" ofType:@"plist"];
-    return [[NSArray alloc] initWithContentsOfFile:path];
-}
-
-- (void)stopTimer
-{
-    [self.randomImageTimer invalidate];
-    self.randomImageTimer = nil;
-}
-
 - (void)startTimer
 {
     if (self.randomImageTimer) {
@@ -106,6 +108,25 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
                                                            selector:@selector(updateRandomImage)
                                                            userInfo:nil
                                                             repeats:YES];
+}
+
+- (void)stopTimer
+{
+    [self.randomImageTimer invalidate];
+    self.randomImageTimer = nil;
+}
+
+- (void)addTimerObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startTimer)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopTimer)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
 }
 
 #pragma mark - ETSearchBarDelegate
