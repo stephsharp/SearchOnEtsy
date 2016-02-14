@@ -44,6 +44,7 @@
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             if (completion) {
+                // TODO: If cancelled, send a custom error to say task was cancelled because new search was initiated.
                 completion(nil, error);
             }
         }
@@ -71,6 +72,7 @@
                     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", nil),
                                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"An unknown error occurred.", nil),
                                                 };
+                    // TODO: Extract error codes into a separate file.
                     NSError *unknownError = [[NSError alloc] initWithDomain:@"ETSearchErrorDomain" code:100 userInfo:userInfo];
 
                     completion(nil, unknownError);

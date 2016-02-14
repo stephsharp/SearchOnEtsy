@@ -98,13 +98,18 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     self.shouldShowFooter = YES;
 
     [self.searchClient searchForKeywords:keywords offset:offset completion:^(NSArray *listings, NSError *error) {
-        self.shouldShowFooter = NO;
-
         if (error) {
             NSLog(@"error: %@", error.localizedDescription);
-            self.fetching = NO;
+
+            // TODO: Replace this with custom error to indicate search was cancelled because a new one started.
+            if (error.code != NSURLErrorCancelled) {
+                self.fetching = NO;
+                self.shouldShowFooter = NO;
+            }
         }
         else {
+            self.shouldShowFooter = NO;
+
             if (listings.count < ETListingsLimit) {
                 self.endOfSearchResults = YES;
             }
