@@ -124,28 +124,33 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
                 });
             }
             else {
-                NSInteger numberOfExistingCards = self.listingCards.count;
-
-                for (int i = 0; i < listings.count; i++) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
-                        // Check the collection view data has not been reloaded because
-                        // another search may be triggered while the items are being inserted.
-                        if (numberOfExistingCards + i == [self.collectionView numberOfItemsInSection:0]) {
-                            ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
-                            [self.listingCards addObject:card];
-                            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
-
-                            BOOL isLastItem = (i == listings.count - 1);
-                            if (isLastItem) {
-                                self.fetching = NO;
-                                [self.collectionView flashScrollIndicators];
-                            }
-                        }
-                    });
-                }
+                [self insertListings:listings];
             }
         }
     }];
+}
+
+- (void)insertListings:(NSArray *)listings
+{
+    NSInteger numberOfExistingCards = self.listingCards.count;
+
+    for (int i = 0; i < listings.count; i++) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC) * i), dispatch_get_main_queue(), ^{
+            // Check the collection view data has not been reloaded because
+            // another search may be triggered while the items are being inserted.
+            if (numberOfExistingCards + i == [self.collectionView numberOfItemsInSection:0]) {
+                ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
+                [self.listingCards addObject:card];
+                [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
+
+                BOOL isLastItem = (i == listings.count - 1);
+                if (isLastItem) {
+                    self.fetching = NO;
+                    [self.collectionView flashScrollIndicators];
+                }
+            }
+        });
+    }
 }
 
 #pragma mark - ETSearchBarDelegate
