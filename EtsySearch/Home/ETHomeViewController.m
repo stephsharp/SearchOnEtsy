@@ -48,6 +48,7 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     self.searchBar.text = nil;
+    [self updateRandomImage];
     [self startTimer];
 }
 
