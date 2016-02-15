@@ -112,7 +112,9 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
     NSString *nextPlaceholder = [NSString stringWithFormat:@"Find something %@...", imageInfo[@"keyword"]];
 
     [self.randomImageView et_fadeImage:nextImage withDuration:ETCrossFadeDuration];
-    [self fadePlaceholder:nextPlaceholder withDuration:ETCrossFadeDuration];
+
+    BOOL fadePlaceholderDuration = self.searchBar.text.length > 0 ? 0 : ETCrossFadeDuration;
+    [self fadePlaceholder:nextPlaceholder withDuration:fadePlaceholderDuration];
 }
 
 - (void)fadePlaceholder:(NSString *)placeholderText withDuration:(NSTimeInterval)duration
