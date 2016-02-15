@@ -111,11 +111,11 @@
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="G54-EV-bnr" customClass="ETTitleView">
-                            <rect key="frame" x="150" y="5.5" width="300" height="33"/>
+                            <rect key="frame" x="150" y="7" width="300" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-jN-zxB" customClass="ETSearchBar">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
