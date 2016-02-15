@@ -15,8 +15,9 @@
 - (UIColor *)lighterColor;
 - (UIColor *)darkerColor;
 
++ (UIColor *)et_orangeColor;
++ (UIColor *)et_veryLightGrayColor;
 + (UIColor *)et_lightGrayColor;
 + (UIColor *)et_darkGrayColor;
-+ (UIColor *)et_orangeColor;
 
 @end

@@ -62,14 +62,19 @@
 
 #pragma mark - Theme colors
 
-+ (UIColor *)et_lightGrayColor
-{
-    return [UIColor et_colorFromHexCode:@"DBDBDB"];
-}
-
 + (UIColor *)et_orangeColor
 {
     return [UIColor et_colorFromHexCode:@"FF6816"];
+}
+
++ (UIColor *)et_veryLightGrayColor
+{
+    return [UIColor et_colorFromHexCode:@"F7F7F7"];
+}
+
++ (UIColor *)et_lightGrayColor
+{
+    return [UIColor et_colorFromHexCode:@"DBDBDB"];
 }
 
 + (UIColor *)et_darkGrayColor
