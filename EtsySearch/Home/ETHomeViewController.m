@@ -16,7 +16,7 @@
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 static NSTimeInterval const ETTimerInterval = 7;
-static NSTimeInterval const ETCrossFadeDuration = 0.5;
+static NSTimeInterval const ETCrossFadeDuration = 0.4;
 static NSUInteger const ETMinHeightForImage = 400;
 static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
