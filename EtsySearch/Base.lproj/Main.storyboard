@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-Hv-4KH" customClass="ETSearchBar">
-                                <rect key="frame" x="60" y="237" width="480" height="46"/>
+                                <rect key="frame" x="60" y="247" width="480" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="900" constant="46" id="uWD-sa-DkY"/>
@@ -191,7 +191,7 @@
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-artistic" translatesAutoresizingMaskIntoConstraints="NO" id="UXf-Kz-hkX">
-                                <rect key="frame" x="235" y="50" width="130" height="163"/>
+                                <rect key="frame" x="235" y="50" width="130" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="7nP-tT-kg4"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="yvr-EG-qtC"/>
@@ -206,9 +206,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="3F7-WY-OH5"/>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" priority="950" constant="-87" id="4Kx-sb-WeO"/>
+                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" priority="950" constant="-77" id="4Kx-sb-WeO"/>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.5" priority="900" id="8sv-5j-bTw"/>
-                            <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerY" secondItem="fXh-lK-ghb" secondAttribute="centerY" constant="-40" id="9oA-hN-QfD"/>
+                            <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerY" secondItem="fXh-lK-ghb" secondAttribute="centerY" constant="-30" id="9oA-hN-QfD"/>
                             <constraint firstItem="UXf-Kz-hkX" firstAttribute="top" secondItem="Xf0-rp-RZv" secondAttribute="bottom" constant="30" id="AjN-Xe-Qin"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="XXA-uZ-mS1"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.8" id="mBm-6D-ogg"/>

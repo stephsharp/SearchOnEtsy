@@ -17,6 +17,8 @@
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 static NSTimeInterval const ETTimerInterval = 7;
 static NSTimeInterval const ETCrossFadeDuration = 0.5;
+static NSUInteger const ETMinHeightForImage = 400;
+static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
 @interface ETHomeViewController () <ETSearchBarDelegate>
 
@@ -56,7 +58,7 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
 {
     [super viewDidLayoutSubviews];
 
-    if (CGRectGetHeight(self.view.bounds) < 400.0f) {
+    if (CGRectGetHeight(self.view.bounds) < ETMinHeightForImage) {
         [self hideRandomImage];
     }
     else {
@@ -158,7 +160,7 @@ static NSTimeInterval const ETCrossFadeDuration = 0.5;
 - (void)hideRandomImage
 {
     self.randomImageViewZeroHeightConstraint.active = YES;
-    self.searchBarYConstraint.constant = self.searchBarYConstraintOriginalConstant - 20;
+    self.searchBarYConstraint.constant = self.searchBarYConstraintOriginalConstant - ETLandscapeSearchBarOffset;
 }
 
 - (void)showRandomImage
