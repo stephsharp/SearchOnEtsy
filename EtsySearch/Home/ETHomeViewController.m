@@ -50,7 +50,7 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     self.searchBar.text = nil;
-    [self updateRandomImage];
+    [self updateRandomImageAnimated:NO];
     [self startTimer];
 }
 
@@ -100,20 +100,21 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 {
     self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithArray:[ETHomeViewController imageInfo]];
 
-    [self updateRandomImage];
+    [self updateRandomImageAnimated:NO];
     [self addTimerObservers];
 }
 
-- (void)updateRandomImage
+- (void)updateRandomImageAnimated:(BOOL)animated
 {
     NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
 
     UIImage *nextImage = [UIImage imageNamed:imageInfo[@"imageName"]];
     NSString *nextPlaceholder = [NSString stringWithFormat:@"Find something %@...", imageInfo[@"keyword"]];
 
-    [self.randomImageView et_fadeImage:nextImage withDuration:ETCrossFadeDuration];
+    BOOL fadeDuration = animated ? ETCrossFadeDuration : 0;
+    [self.randomImageView et_fadeImage:nextImage withDuration:fadeDuration];
 
-    BOOL fadePlaceholderDuration = self.searchBar.text.length > 0 ? 0 : ETCrossFadeDuration;
+    BOOL fadePlaceholderDuration = self.searchBar.text.length == 0 ? fadeDuration : 0;
     [self fadePlaceholder:nextPlaceholder withDuration:fadePlaceholderDuration];
 }
 
@@ -125,6 +126,11 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
                     animations:^{
                         self.searchBar.placeholder = placeholderText;
                     } completion:nil];
+}
+
+- (void)updateRandomImage
+{
+    [self updateRandomImageAnimated:YES];
 }
 
 - (void)startTimer
