@@ -77,9 +77,14 @@
     return [UIColor et_colorFromHexCode:@"DBDBDB"];
 }
 
++ (UIColor *)et_midGrayColor
+{
+    return [UIColor et_colorFromHexCode:@"626262"];
+}
+
 + (UIColor *)et_darkGrayColor
 {
-    return [UIColor et_colorFromHexCode:@"575757"];
+    return [UIColor et_colorFromHexCode:@"363636"];
 }
 
 @end

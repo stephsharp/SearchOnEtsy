@@ -18,6 +18,7 @@
 + (UIColor *)et_orangeColor;
 + (UIColor *)et_veryLightGrayColor;
 + (UIColor *)et_lightGrayColor;
++ (UIColor *)et_midGrayColor;
 + (UIColor *)et_darkGrayColor;
 
 @end

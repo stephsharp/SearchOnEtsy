@@ -30,24 +30,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-ch-Ouf">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="108.5"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyX-Eh-ZNA">
-                                            <rect key="frame" x="8" y="119.5" width="144" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" text="Listing title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyX-Eh-ZNA">
+                                            <rect key="frame" x="8" y="116.5" width="144" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="500" text="ShopName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UM9-hL-nEP">
-                                            <rect key="frame" x="8" y="137.5" width="102.5" height="14.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="500" text="Shop name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UM9-hL-nEP">
+                                            <rect key="frame" x="8" y="136.5" width="100.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1T-8S-1IZ">
-                                            <rect key="frame" x="118" y="137.5" width="33.5" height="14.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="116" y="136.5" width="35.5" height="15.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="1" green="0.40784313729999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -55,11 +55,11 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="y1T-8S-1IZ" firstAttribute="top" secondItem="GyX-Eh-ZNA" secondAttribute="bottom" id="90O-DL-1nT"/>
                                     <constraint firstAttribute="trailing" secondItem="GyX-Eh-ZNA" secondAttribute="trailing" constant="8" id="Z3f-Sr-4Pc"/>
+                                    <constraint firstItem="y1T-8S-1IZ" firstAttribute="top" secondItem="UM9-hL-nEP" secondAttribute="top" id="Ze4-mW-l4A"/>
                                     <constraint firstAttribute="bottom" secondItem="UM9-hL-nEP" secondAttribute="bottom" constant="8" id="bR7-p2-w0y"/>
                                     <constraint firstItem="GyX-Eh-ZNA" firstAttribute="top" secondItem="3dC-ch-Ouf" secondAttribute="bottom" constant="8" id="bwF-xJ-3OS"/>
-                                    <constraint firstItem="UM9-hL-nEP" firstAttribute="top" secondItem="GyX-Eh-ZNA" secondAttribute="bottom" id="cCd-1Y-ipc"/>
+                                    <constraint firstItem="UM9-hL-nEP" firstAttribute="top" secondItem="GyX-Eh-ZNA" secondAttribute="bottom" constant="2" id="cCd-1Y-ipc"/>
                                     <constraint firstAttribute="bottom" secondItem="y1T-8S-1IZ" secondAttribute="bottom" constant="8" id="h4w-hO-YWh"/>
                                     <constraint firstAttribute="trailing" secondItem="3dC-ch-Ouf" secondAttribute="trailing" id="nuK-HO-Msp"/>
                                     <constraint firstItem="y1T-8S-1IZ" firstAttribute="leading" secondItem="UM9-hL-nEP" secondAttribute="trailing" constant="8" id="oFg-Vf-IBy"/>
@@ -116,7 +116,7 @@
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-jN-zxB" customClass="ETSearchBar">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
                                     </userDefinedRuntimeAttributes>
