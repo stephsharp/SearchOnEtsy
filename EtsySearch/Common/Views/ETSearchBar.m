@@ -153,11 +153,6 @@ static NSInteger const ETHorizontalPadding = 8;
     return self.textField.text;
 }
 
-- (void)setFont:(UIFont *)font
-{
-    self.textField.font = font;
-}
-
 - (void)setBorderWidth:(CGFloat)borderWidth
 {
     self.layer.borderWidth = borderWidth;
@@ -166,6 +161,11 @@ static NSInteger const ETHorizontalPadding = 8;
 - (CGFloat)borderWidth
 {
     return self.layer.borderWidth;
+}
+
+- (void)setFont:(UIFont *)font
+{
+    self.textField.font = font;
 }
 
 - (UIFont *)font
