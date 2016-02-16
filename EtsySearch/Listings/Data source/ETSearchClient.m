@@ -62,7 +62,7 @@
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                      options:0
                                                                        error:&jsonError];
-                if (!jsonError) {
+                if (json) {
                     NSArray *listings = [self listingsFromJSON:json];
                     if (completion) {
                         completion(listings, nil);
