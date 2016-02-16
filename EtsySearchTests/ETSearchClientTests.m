@@ -8,12 +8,12 @@
 
 #import <XCTest/XCTest.h>
 #import "ETSearchClient.h"
-#import "TestURLSession.h"
+#import "ETTestURLSession.h"
 
 @interface ETSearchClientTests : XCTestCase
 
 @property (nonatomic) ETSearchClient *client;
-@property (nonatomic) TestURLSession *testSession;
+@property (nonatomic) ETTestURLSession *testSession;
 
 @end
 
@@ -22,7 +22,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.testSession = [TestURLSession new];
+    self.testSession = [ETTestURLSession new];
     self.client = [[ETSearchClient alloc] initWithURLSession:self.testSession];
 }
 

@@ -1,5 +1,5 @@
 //
-//  TestURLSession.h
+//  ETTestURLSession.h
 //  EtsySearch
 //
 //  Created by Steph Sharp on 16/02/2016.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ETURLSession.h"
 
-@interface TestURLSession : NSObject <ETURLSession>
+@interface ETTestURLSession : NSObject <ETURLSession>
 
 @end

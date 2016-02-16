@@ -30,7 +30,7 @@
 		824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */; };
 		828519871C73BE4000E54DBE /* ETRandomObjectEnumeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828519861C73BE4000E54DBE /* ETRandomObjectEnumeratorTests.m */; };
 		82DC93D81C7328830082A279 /* NSURLSession+ETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */; };
-		82DC93DB1C732B090082A279 /* TestURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93DA1C732B090082A279 /* TestURLSession.m */; };
+		82DC93DB1C732B090082A279 /* ETTestURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93DA1C732B090082A279 /* ETTestURLSession.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
@@ -93,8 +93,8 @@
 		82DC93D51C7327F10082A279 /* ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETURLSession.h; sourceTree = "<group>"; };
 		82DC93D61C7328830082A279 /* NSURLSession+ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+ETURLSession.h"; sourceTree = "<group>"; };
 		82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+ETURLSession.m"; sourceTree = "<group>"; };
-		82DC93D91C732B090082A279 /* TestURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestURLSession.h; sourceTree = "<group>"; };
-		82DC93DA1C732B090082A279 /* TestURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestURLSession.m; sourceTree = "<group>"; };
+		82DC93D91C732B090082A279 /* ETTestURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTestURLSession.h; sourceTree = "<group>"; };
+		82DC93DA1C732B090082A279 /* ETTestURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTestURLSession.m; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search on Etsy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -338,10 +338,10 @@
 		82FC0F721C670C4C0017A2B5 /* EtsySearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				82FC0F731C670C4C0017A2B5 /* ETSearchClientTests.m */,
-				82DC93D91C732B090082A279 /* TestURLSession.h */,
-				82DC93DA1C732B090082A279 /* TestURLSession.m */,
 				828519861C73BE4000E54DBE /* ETRandomObjectEnumeratorTests.m */,
+				82FC0F731C670C4C0017A2B5 /* ETSearchClientTests.m */,
+				82DC93D91C732B090082A279 /* ETTestURLSession.h */,
+				82DC93DA1C732B090082A279 /* ETTestURLSession.m */,
 				82FC0F751C670C4C0017A2B5 /* Info.plist */,
 			);
 			path = EtsySearchTests;
@@ -538,7 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828519871C73BE4000E54DBE /* ETRandomObjectEnumeratorTests.m in Sources */,
-				82DC93DB1C732B090082A279 /* TestURLSession.m in Sources */,
+				82DC93DB1C732B090082A279 /* ETTestURLSession.m in Sources */,
 				82FC0F741C670C4C0017A2B5 /* ETSearchClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

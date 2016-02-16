@@ -1,28 +1,28 @@
 //
-//  TestURLSession.m
+//  ETTestURLSession.m
 //  EtsySearch
 //
 //  Created by Steph Sharp on 16/02/2016.
 //  Copyright © 2016 Stephanie Sharp. All rights reserved.
 //
 
-#import "TestURLSession.h"
+#import "ETTestURLSession.h"
 
-@interface TestURLSessionDataTask : NSObject <ETURLSessionDataTask>
+@interface ETTestURLSessionDataTask : NSObject <ETURLSessionDataTask>
 @property (nonatomic, copy) void (^completionHandler)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable);
 - (instancetype)initWithCompletionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
-@implementation TestURLSession
+@implementation ETTestURLSession
 
 - (id<ETURLSessionDataTask>)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler
 {
-    return [[TestURLSessionDataTask alloc] initWithCompletionHandler:completionHandler];
+    return [[ETTestURLSessionDataTask alloc] initWithCompletionHandler:completionHandler];
 }
 
 @end
 
-@implementation TestURLSessionDataTask
+@implementation ETTestURLSessionDataTask
 
 - (instancetype)initWithCompletionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler
 {
