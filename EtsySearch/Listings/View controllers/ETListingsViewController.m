@@ -153,7 +153,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
                     [self.collectionView flashScrollIndicators];
 
                     // If last item is visible (which it may be on iPad), fetch more.
-                    if ([self.collectionView cellForItemAtIndexPath:indexPath]) {
+                    if ([self.collectionView cellForItemAtIndexPath:indexPath] && !self.endOfSearchResults) {
                         [self fetchMoreItems];
                     }
                 }
