@@ -10,7 +10,9 @@
 
 @interface ETRandomObjectEnumerator : NSObject
 
-- (instancetype)initWithArray:(NSArray *)array;
+@property (nonatomic) NSArray *objects;
+
+- (instancetype)initWithObjects:(NSArray *)objects;
 
 - (id)nextObject;
 

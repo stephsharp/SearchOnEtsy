@@ -11,18 +11,17 @@
 
 @interface ETRandomObjectEnumerator ()
 
-@property (nonatomic) NSArray *objects;
 @property (nonatomic) NSEnumerator *randomObjectEnumerator;
 
 @end
 
 @implementation ETRandomObjectEnumerator
 
-- (instancetype)initWithArray:(NSArray *)array
+- (instancetype)initWithObjects:(NSArray *)objects
 {
     self = [super init];
     if (self) {
-        _objects = array;
+        _objects = objects;
         [self resetEnumerator];
     }
     return self;
@@ -30,21 +29,27 @@
 
 - (instancetype)init
 {
-    return [self initWithArray:nil];
+    return [self initWithObjects:nil];
+}
+
+- (void)setObjects:(NSArray *)objects
+{
+    _objects = objects;
+    [self resetEnumerator];
 }
 
 - (void)resetEnumerator
 {
-    NSArray *randomObjects = [self randomizeArray];
-    _randomObjectEnumerator = [randomObjects objectEnumerator];
+    [self randomizeObjects];
+    _randomObjectEnumerator = [self.objects objectEnumerator];
 }
 
-- (NSArray *)randomizeArray
+- (void)randomizeObjects
 {
     NSMutableArray *mutableObjects = [self.objects mutableCopy];
     [mutableObjects shuffle];
 
-    return [mutableObjects copy];
+    _objects = [mutableObjects copy];
 }
 
 - (id)nextObject

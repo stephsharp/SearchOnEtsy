@@ -11,8 +11,10 @@
 #import "TestURLSession.h"
 
 @interface ETSearchClientTests : XCTestCase
+
 @property (nonatomic) ETSearchClient *client;
 @property (nonatomic) TestURLSession *testSession;
+
 @end
 
 @implementation ETSearchClientTests

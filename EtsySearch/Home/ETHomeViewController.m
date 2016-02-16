@@ -99,7 +99,7 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
 - (void)setupRandomImages
 {
-    self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithArray:[ETHomeViewController imageInfo]];
+    self.randomImageEnumerator = [[ETRandomObjectEnumerator alloc] initWithObjects:[ETHomeViewController imageInfo]];
 
     [self updateRandomImageAnimated:NO];
     [self addTimerObservers];
