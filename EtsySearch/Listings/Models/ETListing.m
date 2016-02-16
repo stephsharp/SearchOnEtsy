@@ -7,31 +7,39 @@
 //
 
 #import "ETListing.h"
+#import <MWFeedParser/NSString+HTML.h>
 
 @implementation ETListing
 
-- (instancetype)initWithTitle:(NSString *)title
-             listingURLString:(NSString *)listingURLString
-           mainImageURLString:(NSString *)mainImageURLString
-                     shopName:(NSString *)shopName
-                        price:(NSString *)price
-                 currencyCode:(NSString *)currencyCode
+- (instancetype)initWithJSON:(NSDictionary *)json
 {
     self = [super init];
     if (self) {
-        _title = title;
-        _listingURL = [NSURL URLWithString:listingURLString];
-        _mainImageURL = [NSURL URLWithString:mainImageURLString];
-        _shopName = shopName;
-        _price = price;
-        _currencyCode = currencyCode;
+        [self parseJSON:json];
     }
     return self;
 }
 
 - (instancetype)init
 {
-    return [self initWithTitle:nil listingURLString:nil mainImageURLString:nil shopName:nil price:nil currencyCode:nil];
+    return [self initWithJSON:nil];
+}
+
+- (void)parseJSON:(NSDictionary *)json
+{
+    _title = [json[@"title"] stringByConvertingHTMLToPlainText];
+    _listingURL = [NSURL URLWithString:json[@"url"]];
+    _mainImageURL = [NSURL URLWithString:json[@"Images"][0][@"url_170x135"]];
+    _shopName = json[@"Shop"][@"shop_name"];
+    _price = json[@"price"];
+    _currencyCode = json[@"currency_code"];
+
+    // Color info for MainImage is null, but it can be accessed via the Images array.
+    NSString *hexCode = json[@"Images"][0][@"hex_code"];
+
+    if (hexCode && hexCode != (id)[NSNull null]) {
+        self.mainImageHexCode = hexCode;
+    }
 }
 
 - (NSString *)description

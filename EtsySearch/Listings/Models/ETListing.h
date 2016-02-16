@@ -18,11 +18,6 @@
 @property (nonatomic) NSString *price;
 @property (nonatomic) NSString *currencyCode;
 
-- (instancetype)initWithTitle:(NSString *)title
-             listingURLString:(NSString *)listingURLString
-           mainImageURLString:(NSString *)mainImageURLString
-                     shopName:(NSString *)shopName
-                        price:(NSString *)price
-                 currencyCode:(NSString *)currencyCode NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithJSON:(NSDictionary *)json NS_DESIGNATED_INITIALIZER;
 
 @end

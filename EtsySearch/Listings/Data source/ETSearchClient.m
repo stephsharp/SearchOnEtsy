@@ -9,7 +9,6 @@
 #import "ETSearchClient.h"
 #import "ETConstants.h"
 #import "NSURLSession+ETURLSession.h"
-#import <MWFeedParser/NSString+HTML.h>
 
 @interface ETSearchClient ()
 
@@ -103,21 +102,11 @@
     NSArray *results = json[@"results"];
 
     for (NSDictionary *result in results) {
-        ETListing *listing = [[ETListing alloc] initWithTitle:[result[@"title"] stringByConvertingHTMLToPlainText]
-                                             listingURLString:result[@"url"]
-                                           mainImageURLString:result[@"Images"][0][@"url_170x135"]
-                                                     shopName:result[@"Shop"][@"shop_name"]
-                                                        price:result[@"price"]
-                                                 currencyCode:result[@"currency_code"]];
+        ETListing *listing = [[ETListing alloc] initWithJSON:result];
 
-        // Color info for MainImage is null, but it can be accessed via the Images array.
-        NSString *hexCode = result[@"Images"][0][@"hex_code"];
-
-        if (hexCode && hexCode != (id)[NSNull null]) {
-            listing.mainImageHexCode = hexCode;
+        if (listing) {
+            [mutableListings addObject:listing];
         }
-
-        [mutableListings addObject:listing];
     }
 
     return [mutableListings copy];
