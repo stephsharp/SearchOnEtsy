@@ -20,6 +20,7 @@
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
+static NSUInteger const ETMaxCellsPerRow = 4;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
@@ -142,16 +143,29 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
             if (numberOfExistingCards + i == [self.collectionView numberOfItemsInSection:0]) {
                 ETListingCard *card = [[ETListingCard alloc] initWithListing:listings[i]];
                 [self.listingCards addObject:card];
-                [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0]]];
+
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(numberOfExistingCards + i) inSection:0];
+                [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
 
                 BOOL isLastItem = (i == listings.count - 1);
                 if (isLastItem) {
                     self.fetching = NO;
                     [self.collectionView flashScrollIndicators];
+
+                    // If last item is visible (which it may be on iPad), fetch more.
+                    if ([self.collectionView cellForItemAtIndexPath:indexPath]) {
+                        [self fetchMoreItems];
+                    }
                 }
             }
         });
     }
+}
+
+- (void)fetchMoreItems
+{
+    [self.collectionViewLayout invalidateLayout];
+    [self searchForKeywords:self.searchText withOffset:self.listingCards.count];
 }
 
 #pragma mark - ETSearchBarDelegate
@@ -202,8 +216,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
     BOOL isLastItem = (indexPath.row == self.listingCards.count - 1);
     if (isLastItem && !self.endOfSearchResults && !self.isFetching) {
-        [self.collectionViewLayout invalidateLayout];
-        [self searchForKeywords:self.searchText withOffset:self.listingCards.count];
+        [self fetchMoreItems];
     }
 
     return cell;
@@ -246,7 +259,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)collectionViewLayout;
 
     CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
-    NSUInteger cellsPerRow = collectionViewWidth / ETDefaultCellWidth;
+    NSUInteger cellsPerRow = MIN(collectionViewWidth / ETDefaultCellWidth, ETMaxCellsPerRow);
 
     CGFloat availableWidthForCells = collectionViewWidth - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
     CGFloat cellWidth = availableWidthForCells / cellsPerRow;
