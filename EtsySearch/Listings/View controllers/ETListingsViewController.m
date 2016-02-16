@@ -23,7 +23,7 @@ static NSUInteger const ETDefaultCellWidth = 160;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
-@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
@@ -74,6 +74,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self addEdgeSwipeGestureRecognizer];
+    [self addDismissKeyboardGestureRecognizer];
 
     self.searchBar.text = self.searchText;
 
@@ -161,9 +162,8 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
     if (self.searchText.length > 0) {
         [self beginSearch];
+        [searchBar resignFirstResponder];
     }
-
-    [searchBar resignFirstResponder];
 }
 
 - (void)beginSearch
@@ -277,7 +277,6 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [self.searchBar resignFirstResponder];
 }
 
-
 - (void)addEdgeSwipeGestureRecognizer
 {
     UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
@@ -290,6 +289,26 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 - (void)dismiss
 {
     [self performSegueWithIdentifier:ETHomeSegueIdentifer sender:self];
+}
+
+#pragma mark - Keyboard handling
+
+- (void)addDismissKeyboardGestureRecognizer
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard
+{
+    if ([self.searchBar isFirstResponder]) {
+        [self.searchBar resignFirstResponder];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self dismissKeyboard];
 }
 
 @end

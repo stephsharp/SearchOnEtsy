@@ -203,6 +203,11 @@ static NSInteger const ETHorizontalPadding = 8;
     return YES;
 }
 
+- (BOOL)isFirstResponder
+{
+    return [self.textField isFirstResponder];
+}
+
 #pragma mark - Actions
 
 - (IBAction)search

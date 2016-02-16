@@ -20,7 +20,7 @@ static NSTimeInterval const ETCrossFadeDuration = 0.4;
 static NSUInteger const ETMinHeightForImage = 400;
 static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
-@interface ETHomeViewController () <ETSearchBarDelegate>
+@interface ETHomeViewController () <ETSearchBarDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *randomImageView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *randomImageViewZeroHeightConstraint;
@@ -42,6 +42,7 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
     self.transitioningDelegate = [ETSearchTransitioningDelegate new];
     [self setupRandomImages];
+    [self addDismissKeyboardGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -181,9 +182,8 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
 - (void)searchBarSearchButtonClicked:(ETSearchBar *)searchBar
 {
-    [self.searchBar resignFirstResponder];
-
     if (!searchBar.isEmpty) {
+        [self.searchBar resignFirstResponder];
         [self performSegueWithIdentifier:ETListingsSegueIdentifier sender:searchBar];
     }
 }
@@ -211,6 +211,19 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 - (UIView *)transitioningSearchBar
 {
     return self.searchBar;
+}
+
+#pragma mark - Keyboard handling
+
+- (void)addDismissKeyboardGestureRecognizer
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard
+{
+    [self.searchBar resignFirstResponder];
 }
 
 @end
