@@ -11,7 +11,7 @@
 #import "ETListingCell.h"
 #import "ETListingFlowLayout.h"
 #import "ETListingCard.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import <AFNetworking/UIKit+AFNetworking.h>
 #import "UIImageView+ETFade.h"
 #import <SafariServices/SafariServices.h>
 #import "ETListingsFooterView.h"
@@ -302,6 +302,10 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 - (void)dismiss
 {
     [self performSegueWithIdentifier:ETHomeSegueIdentifer sender:self];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[UIImageView sharedImageDownloader].imageCache removeAllImages];
+    });
 }
 
 #pragma mark - Keyboard handling
