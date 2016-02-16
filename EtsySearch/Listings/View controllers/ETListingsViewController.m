@@ -32,7 +32,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 @property (nonatomic) NSMutableArray *listingCards;
 @property (nonatomic, getter=isFetching) BOOL fetching;
 @property (nonatomic) BOOL endOfSearchResults;
-@property (nonatomic) BOOL shouldShowFooter;
+@property (nonatomic) BOOL shouldShowLoadingIndicator;
 @property (weak, nonatomic) ETListingsFooterView *footerView;
 
 @end
@@ -86,10 +86,10 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 #pragma mark - Properties
 
-- (void)setShouldShowFooter:(BOOL)shouldShowFooter
+- (void)setShouldShowLoadingIndicator:(BOOL)shouldShowLoadingIndicator
 {
-    _shouldShowFooter = shouldShowFooter;
-    shouldShowFooter ? [self.footerView.spinner startAnimation] : [self.footerView.spinner stopAnimation];
+    _shouldShowLoadingIndicator = shouldShowLoadingIndicator;
+    shouldShowLoadingIndicator ? [self.footerView.spinner startAnimation] : [self.footerView.spinner stopAnimation];
 }
 
 #pragma mark - Search
@@ -97,7 +97,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 - (void)searchForKeywords:(NSString *)keywords withOffset:(NSUInteger)offset
 {
     self.fetching = YES;
-    self.shouldShowFooter = YES;
+    self.shouldShowLoadingIndicator = YES;
 
     [self.searchClient searchForKeywords:keywords offset:offset completion:^(NSArray *listings, NSError *error) {
         if (error) {
@@ -106,11 +106,11 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
             // TODO: Replace this with custom error to indicate search was cancelled because a new one started.
             if (error.code != NSURLErrorCancelled) {
                 self.fetching = NO;
-                self.shouldShowFooter = NO;
+                self.shouldShowLoadingIndicator = NO;
             }
         }
         else {
-            self.shouldShowFooter = NO;
+            self.shouldShowLoadingIndicator = NO;
 
             if (listings.count < ETListingsLimit) {
                 self.endOfSearchResults = YES;
@@ -236,7 +236,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    if (self.shouldShowFooter) {
+    if (self.shouldShowLoadingIndicator) {
         return CGSizeMake(CGRectGetWidth(self.collectionView.frame), ETFooterViewHeight);
     }
     return CGSizeMake(0.1, 0.1); // Collection view crashes if footer size is CGRectZero.
