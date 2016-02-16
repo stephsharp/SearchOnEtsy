@@ -40,7 +40,6 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 {
     [super viewDidLoad];
 
-    self.transitioningDelegate = [ETSearchTransitioningDelegate new];
     [self setupRandomImages];
     [self addDismissKeyboardGestureRecognizer];
 }
@@ -80,6 +79,14 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 }
 
 #pragma mark - Properties
+
+- (ETSearchTransitioningDelegate *)transitioningDelegate
+{
+    if (!_transitioningDelegate) {
+        _transitioningDelegate = [ETSearchTransitioningDelegate new];
+    }
+    return _transitioningDelegate;
+}
 
 - (CGFloat)searchBarYConstraintOriginalConstant
 {
