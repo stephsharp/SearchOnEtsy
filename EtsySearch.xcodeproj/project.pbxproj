@@ -28,11 +28,13 @@
 		824CDFD61C6EBC17005C4D52 /* UIImageView+ETFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */; };
 		824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */; };
 		824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */; };
+		82DC93D81C7328830082A279 /* NSURLSession+ETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */; };
+		82DC93DB1C732B090082A279 /* TestURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93DA1C732B090082A279 /* TestURLSession.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
 		82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5D1C670C4C0017A2B5 /* AppDelegate.m */; };
 		82FC0F641C670C4C0017A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F621C670C4C0017A2B5 /* Main.storyboard */; };
 		82FC0F691C670C4C0017A2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FC0F671C670C4C0017A2B5 /* LaunchScreen.storyboard */; };
-		82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */; };
+		82FC0F741C670C4C0017A2B5 /* ETSearchClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F731C670C4C0017A2B5 /* ETSearchClientTests.m */; };
 		82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F821C670EF90017A2B5 /* ETConstants.m */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,11 @@
 		824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchBar.m; sourceTree = "<group>"; };
 		824CDFD41C6EBC17005C4D52 /* ETSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchButton.h; sourceTree = "<group>"; };
 		824CDFD51C6EBC17005C4D52 /* ETSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchButton.m; sourceTree = "<group>"; };
+		82DC93D51C7327F10082A279 /* ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETURLSession.h; sourceTree = "<group>"; };
+		82DC93D61C7328830082A279 /* NSURLSession+ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+ETURLSession.h"; sourceTree = "<group>"; };
+		82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+ETURLSession.m"; sourceTree = "<group>"; };
+		82DC93D91C732B090082A279 /* TestURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestURLSession.h; sourceTree = "<group>"; };
+		82DC93DA1C732B090082A279 /* TestURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestURLSession.m; sourceTree = "<group>"; };
 		82FC0F561C670C4C0017A2B5 /* Search on Etsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search on Etsy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC0F5A1C670C4C0017A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82FC0F5C1C670C4C0017A2B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,7 +101,7 @@
 		82FC0F681C670C4C0017A2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82FC0F6A1C670C4C0017A2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82FC0F6F1C670C4C0017A2B5 /* EtsySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EtsySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EtsySearchTests.m; sourceTree = "<group>"; };
+		82FC0F731C670C4C0017A2B5 /* ETSearchClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSearchClientTests.m; sourceTree = "<group>"; };
 		82FC0F751C670C4C0017A2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82FC0F811C670EF90017A2B5 /* ETConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETConstants.h; sourceTree = "<group>"; };
 		82FC0F821C670EF90017A2B5 /* ETConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETConstants.m; sourceTree = "<group>"; };
@@ -144,6 +151,9 @@
 			children = (
 				824CDF7A1C686658005C4D52 /* ETSearchClient.h */,
 				824CDF7B1C686658005C4D52 /* ETSearchClient.m */,
+				82DC93D51C7327F10082A279 /* ETURLSession.h */,
+				82DC93D61C7328830082A279 /* NSURLSession+ETURLSession.h */,
+				82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */,
 			);
 			path = "Data source";
 			sourceTree = "<group>";
@@ -326,7 +336,9 @@
 		82FC0F721C670C4C0017A2B5 /* EtsySearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				82FC0F731C670C4C0017A2B5 /* EtsySearchTests.m */,
+				82FC0F731C670C4C0017A2B5 /* ETSearchClientTests.m */,
+				82DC93D91C732B090082A279 /* TestURLSession.h */,
+				82DC93DA1C732B090082A279 /* TestURLSession.m */,
 				82FC0F751C670C4C0017A2B5 /* Info.plist */,
 			);
 			path = EtsySearchTests;
@@ -502,6 +514,7 @@
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,
 				824CDF8B1C686658005C4D52 /* ETListing.m in Sources */,
 				824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */,
+				82DC93D81C7328830082A279 /* NSURLSession+ETURLSession.m in Sources */,
 				824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */,
 				824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
@@ -521,7 +534,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82FC0F741C670C4C0017A2B5 /* EtsySearchTests.m in Sources */,
+				82DC93DB1C732B090082A279 /* TestURLSession.m in Sources */,
+				82FC0F741C670C4C0017A2B5 /* ETSearchClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,7 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssharp.EtsySearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EtsySearch.app/EtsySearch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Search on Etsy.app/Search on Etsy";
 			};
 			name = Debug;
 		};
@@ -681,7 +695,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssharp.EtsySearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EtsySearch.app/EtsySearch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Search on Etsy.app/Search on Etsy";
 			};
 			name = Release;
 		};

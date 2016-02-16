@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ETListing.h"
+#import "ETURLSession.h"
 
 @interface ETSearchClient : NSObject
+
+- (instancetype)initWithURLSession:(id<ETURLSession>)session NS_DESIGNATED_INITIALIZER;
 
 - (void)searchForKeywords:(NSString *)keywords offset:(NSUInteger)offset completion:(void (^)(NSArray *listings, NSError *error))completion;
 

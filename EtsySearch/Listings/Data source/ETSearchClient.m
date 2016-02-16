@@ -8,25 +8,32 @@
 
 #import "ETSearchClient.h"
 #import "ETConstants.h"
+#import "NSURLSession+ETURLSession.h"
 #import <MWFeedParser/NSString+HTML.h>
 
 @interface ETSearchClient ()
 
-@property (nonatomic) NSURLSession *session;
-@property (nonatomic) NSURLSessionDataTask *dataTask;
+@property (nonatomic) id<ETURLSession> session;
+@property (nonatomic) id<ETURLSessionDataTask> dataTask;
 
 @end
 
 @implementation ETSearchClient
 
-- (instancetype)init
+- (instancetype)initWithURLSession:(id<ETURLSession>)session
 {
     self = [super init];
     if (self) {
-        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [NSURLSession sessionWithConfiguration:config];
+        _session = session;
     }
     return self;
+}
+
+- (instancetype)init
+{
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    return [self initWithURLSession:session];
 }
 
 - (void)searchForKeywords:(NSString *)keywords offset:(NSUInteger)offset completion:(void (^)(NSArray *listings, NSError *error))completion
