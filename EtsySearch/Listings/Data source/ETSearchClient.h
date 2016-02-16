@@ -6,7 +6,7 @@
 //  Copyright © 2016 Stephanie Sharp. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "ETListing.h"
 #import "ETURLSession.h"
 
