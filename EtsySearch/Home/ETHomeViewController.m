@@ -13,6 +13,7 @@
 #import "ETSearchBar.h"
 #import "ETRandomObjectEnumerator.h"
 #import "UIImageView+ETFade.h"
+#import "ETRandomImage.h"
 
 static NSString *const ETListingsSegueIdentifier = @"ListingsSegue";
 static NSTimeInterval const ETTimerInterval = 7;
@@ -22,7 +23,7 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 
 @interface ETHomeViewController () <ETSearchBarDelegate, UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *randomImageView;
+@property (weak, nonatomic) IBOutlet ETRandomImage *randomImageView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *randomImageViewZeroHeightConstraint;
 @property (nonatomic) IBOutlet NSLayoutConstraint *searchBarYConstraint;
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
@@ -116,11 +117,11 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
 {
     NSDictionary *imageInfo = [self.randomImageEnumerator nextObject];
 
-    UIImage *nextImage = [UIImage imageNamed:imageInfo[@"imageName"]];
+    NSString *nextImage = imageInfo[@"imageName"];
     NSString *nextPlaceholder = [NSString stringWithFormat:@"Find something %@...", imageInfo[@"keyword"]];
 
     BOOL fadeDuration = animated ? ETCrossFadeDuration : 0;
-    [self.randomImageView et_fadeImage:nextImage withDuration:fadeDuration];
+    [self.randomImageView fadeToImage:nextImage withDuration:fadeDuration];
 
     BOOL fadePlaceholderDuration = self.searchBar.text.length == 0 ? fadeDuration : 0;
     [self fadePlaceholder:nextPlaceholder withDuration:fadePlaceholderDuration];

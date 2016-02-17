@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		147B9EE0B80197C35822BA00 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1508205BDAC37D3B47D16C8 /* Pods.framework */; };
+		822BC58C1C746BA200FC2673 /* ETStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC58B1C746BA200FC2673 /* ETStyleKit.m */; };
+		822BC58F1C746BB100FC2673 /* ETRandomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC58E1C746BB100FC2673 /* ETRandomImage.m */; };
 		824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF741C686645005C4D52 /* UIColor+ETTheme.m */; };
 		824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7B1C686658005C4D52 /* ETSearchClient.m */; };
 		824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7E1C686658005C4D52 /* ETListingFlowLayout.m */; };
@@ -55,6 +57,10 @@
 
 /* Begin PBXFileReference section */
 		3F3FF9A88148A314A83AF902 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		822BC58A1C746BA200FC2673 /* ETStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETStyleKit.h; sourceTree = "<group>"; };
+		822BC58B1C746BA200FC2673 /* ETStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETStyleKit.m; sourceTree = "<group>"; };
+		822BC58D1C746BB100FC2673 /* ETRandomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETRandomImage.h; sourceTree = "<group>"; };
+		822BC58E1C746BB100FC2673 /* ETRandomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRandomImage.m; sourceTree = "<group>"; };
 		824CDF731C686645005C4D52 /* UIColor+ETTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ETTheme.h"; sourceTree = "<group>"; };
 		824CDF741C686645005C4D52 /* UIColor+ETTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ETTheme.m"; sourceTree = "<group>"; };
 		824CDF7A1C686658005C4D52 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 			children = (
 				824CDFA41C6D7625005C4D52 /* ETHomeViewController.h */,
 				824CDFA51C6D7625005C4D52 /* ETHomeViewController.m */,
+				822BC58D1C746BB100FC2673 /* ETRandomImage.h */,
+				822BC58E1C746BB100FC2673 /* ETRandomImage.m */,
 				824CDFBB1C6E9458005C4D52 /* ETRandomObjectEnumerator.h */,
 				824CDFBC1C6E9458005C4D52 /* ETRandomObjectEnumerator.m */,
 				824CDFBE1C6E98F3005C4D52 /* NSMutableArray+ETShuffle.h */,
@@ -244,6 +252,8 @@
 		824CDFC21C6E9D13005C4D52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				822BC58A1C746BA200FC2673 /* ETStyleKit.h */,
+				822BC58B1C746BA200FC2673 /* ETStyleKit.m */,
 				824CDFCB1C6EAB19005C4D52 /* Assets.xcassets */,
 				824CDFC71C6E9D47005C4D52 /* HomeImages.plist */,
 			);
@@ -537,6 +547,7 @@
 				824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */,
 				82DC93D81C7328830082A279 /* NSURLSession+ETURLSession.m in Sources */,
 				824CDFA21C6C046E005C4D52 /* ETListingsFooterView.m in Sources */,
+				822BC58F1C746BB100FC2673 /* ETRandomImage.m in Sources */,
 				824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */,
 				82FC0F5E1C670C4C0017A2B5 /* AppDelegate.m in Sources */,
 				824CDFBA1C6DF815005C4D52 /* UIViewController+ETContentViewController.m in Sources */,
@@ -546,6 +557,7 @@
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
 				824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */,
+				822BC58C1C746BA200FC2673 /* ETStyleKit.m in Sources */,
 				824CDFC01C6E98F3005C4D52 /* NSMutableArray+ETShuffle.m in Sources */,
 				82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */,
 			);

@@ -6,97 +6,97 @@
 		<key>keyword</key>
 		<string>artistic</string>
 		<key>imageName</key>
-		<string>icon-artistic</string>
+		<string>PaintingIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>unique</string>
 		<key>imageName</key>
-		<string>icon-unique</string>
+		<string>BuffetIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>stylish</string>
 		<key>imageName</key>
-		<string>icon-stylish</string>
+		<string>ShoeIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>different</string>
 		<key>imageName</key>
-		<string>icon-different</string>
+		<string>BagIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>special</string>
 		<key>imageName</key>
-		<string>icon-special</string>
+		<string>RingIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>elegant</string>
 		<key>imageName</key>
-		<string>icon-elegant</string>
+		<string>DressIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>relaxing</string>
 		<key>imageName</key>
-		<string>icon-relaxing</string>
+		<string>TeaIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>comfy</string>
 		<key>imageName</key>
-		<string>icon-comfy</string>
+		<string>ArmchairIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>classic</string>
 		<key>imageName</key>
-		<string>icon-classic</string>
+		<string>LampIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>classy</string>
 		<key>imageName</key>
-		<string>icon-classy</string>
+		<string>WatchIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>dashing</string>
 		<key>imageName</key>
-		<string>icon-dashing</string>
+		<string>BowtieIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>unusual</string>
 		<key>imageName</key>
-		<string>icon-unusual</string>
+		<string>GlassesIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>creative</string>
 		<key>imageName</key>
-		<string>icon-creative</string>
+		<string>KnittingIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>cosy</string>
 		<key>imageName</key>
-		<string>icon-cosy</string>
+		<string>CoatIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>surprising</string>
 		<key>imageName</key>
-		<string>icon-surprising</string>
+		<string>GiftIcon</string>
 	</dict>
 	<dict>
 		<key>keyword</key>
 		<string>nostalgic</string>
 		<key>imageName</key>
-		<string>icon-nostalgic</string>
+		<string>RadioIcon</string>
 	</dict>
 </array>
 </plist>

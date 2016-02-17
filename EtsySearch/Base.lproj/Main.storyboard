@@ -119,6 +119,9 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1.2"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outlet property="delegate" destination="XOX-Vd-tFZ" id="U4e-Zo-bjQ"/>
@@ -183,41 +186,54 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search for something artistic..."/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1.5"/>
+                                        <real key="value" value="1.7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="5YT-Bv-bGw" id="c1F-K2-fjo"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-artistic" translatesAutoresizingMaskIntoConstraints="NO" id="UXf-Kz-hkX">
-                                <rect key="frame" x="235" y="50" width="130" height="173"/>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LbA-Uu-WTv" customClass="ETRandomImage">
+                                <rect key="frame" x="195" y="50" width="210" height="173"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="7nP-tT-kg4"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="yvr-EG-qtC"/>
+                                    <constraint firstAttribute="height" id="mQk-Dp-6SF"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="7nP-tT-kg4"/>
+                                        <exclude reference="mQk-Dp-6SF"/>
                                     </mask>
                                 </variation>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="3F7-WY-OH5"/>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" priority="950" constant="-77" id="4Kx-sb-WeO"/>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.5" priority="900" id="8sv-5j-bTw"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerY" secondItem="fXh-lK-ghb" secondAttribute="centerY" constant="-30" id="9oA-hN-QfD"/>
-                            <constraint firstItem="UXf-Kz-hkX" firstAttribute="top" secondItem="Xf0-rp-RZv" secondAttribute="bottom" constant="30" id="AjN-Xe-Qin"/>
+                            <constraint firstItem="LbA-Uu-WTv" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="JCS-bv-pp4"/>
+                            <constraint firstItem="LbA-Uu-WTv" firstAttribute="top" secondItem="Xf0-rp-RZv" secondAttribute="bottom" constant="30" id="Tel-nC-arv"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="centerX" secondItem="fXh-lK-ghb" secondAttribute="centerX" id="XXA-uZ-mS1"/>
+                            <constraint firstItem="LbA-Uu-WTv" firstAttribute="bottom" secondItem="fXh-lK-ghb" secondAttribute="centerY" priority="950" constant="-77" id="efj-1y-rKV"/>
                             <constraint firstItem="O7Y-Hv-4KH" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.8" id="mBm-6D-ogg"/>
+                            <constraint firstItem="LbA-Uu-WTv" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.35" id="mt8-y5-QAJ"/>
+                            <constraint firstItem="LbA-Uu-WTv" firstAttribute="width" secondItem="fXh-lK-ghb" secondAttribute="width" multiplier="0.23" priority="999" id="pCq-0I-UI1"/>
                         </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="mt8-y5-QAJ"/>
+                                <exclude reference="pCq-0I-UI1"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="mt8-y5-QAJ"/>
+                                <include reference="pCq-0I-UI1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="i00-7J-pVP"/>
                     <connections>
-                        <outlet property="randomImageView" destination="UXf-Kz-hkX" id="iPI-Zr-m5Z"/>
-                        <outlet property="randomImageViewZeroHeightConstraint" destination="7nP-tT-kg4" id="hil-EG-Jj2"/>
+                        <outlet property="randomImageView" destination="LbA-Uu-WTv" id="Zku-X2-uIM"/>
+                        <outlet property="randomImageViewZeroHeightConstraint" destination="mQk-Dp-6SF" id="VUG-XP-QUp"/>
                         <outlet property="searchBar" destination="O7Y-Hv-4KH" id="8rq-eF-9PT"/>
                         <outlet property="searchBarYConstraint" destination="9oA-hN-QfD" id="o9p-qm-djE"/>
                         <segue destination="8Ia-vn-3KS" kind="presentation" identifier="ListingsSegue" id="Eci-yn-LiE"/>
@@ -229,7 +245,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-artistic" width="130" height="130"/>
         <image name="left-arrow" width="13" height="21"/>
     </resources>
     <color key="tintColor" red="1" green="0.40784313725490196" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
