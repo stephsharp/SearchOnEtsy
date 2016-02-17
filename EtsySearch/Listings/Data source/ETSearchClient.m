@@ -7,8 +7,8 @@
 //
 
 #import "ETSearchClient.h"
-#import "ETConstants.h"
 #import "NSURLSession+ETURLSession.h"
+#import "ETSearchURL.h"
 
 @interface ETSearchClient ()
 
@@ -43,11 +43,7 @@
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
-    NSCharacterSet *expectedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
-    NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
-
-    // Including Images here instead of MainImage to get the average color info (which is null in MainImage).
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=%ld&offset=%ld", ETAPIKey, keywordQueryString, (unsigned long)ETListingsLimit, (unsigned long)offset]];
+    NSURL *url = [ETSearchURL urlWithKeywords:keywords offset:offset];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
