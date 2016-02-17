@@ -318,7 +318,9 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self dismissKeyboard];
+    if (!scrollView.isDecelerating) {
+        [self dismissKeyboard];
+    }
 }
 
 @end
