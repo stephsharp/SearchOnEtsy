@@ -10,6 +10,8 @@
 		147B9EE0B80197C35822BA00 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1508205BDAC37D3B47D16C8 /* Pods.framework */; };
 		822BC58C1C746BA200FC2673 /* ETStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC58B1C746BA200FC2673 /* ETStyleKit.m */; };
 		822BC58F1C746BB100FC2673 /* ETRandomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC58E1C746BB100FC2673 /* ETRandomImage.m */; };
+		822BC5921C746EA800FC2673 /* ETSearchErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC5911C746EA800FC2673 /* ETSearchErrorViewController.m */; };
+		822BC5981C75112A00FC2673 /* UIViewController+ETEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC5971C75112A00FC2673 /* UIViewController+ETEmbed.m */; };
 		824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF741C686645005C4D52 /* UIColor+ETTheme.m */; };
 		824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7B1C686658005C4D52 /* ETSearchClient.m */; };
 		824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7E1C686658005C4D52 /* ETListingFlowLayout.m */; };
@@ -61,6 +63,10 @@
 		822BC58B1C746BA200FC2673 /* ETStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETStyleKit.m; sourceTree = "<group>"; };
 		822BC58D1C746BB100FC2673 /* ETRandomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETRandomImage.h; sourceTree = "<group>"; };
 		822BC58E1C746BB100FC2673 /* ETRandomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRandomImage.m; sourceTree = "<group>"; };
+		822BC5901C746EA800FC2673 /* ETSearchErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchErrorViewController.h; sourceTree = "<group>"; };
+		822BC5911C746EA800FC2673 /* ETSearchErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchErrorViewController.m; sourceTree = "<group>"; };
+		822BC5961C75112A00FC2673 /* UIViewController+ETEmbed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ETEmbed.h"; sourceTree = "<group>"; };
+		822BC5971C75112A00FC2673 /* UIViewController+ETEmbed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ETEmbed.m"; sourceTree = "<group>"; };
 		824CDF731C686645005C4D52 /* UIColor+ETTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ETTheme.h"; sourceTree = "<group>"; };
 		824CDF741C686645005C4D52 /* UIColor+ETTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ETTheme.m"; sourceTree = "<group>"; };
 		824CDF7A1C686658005C4D52 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 			children = (
 				824CDF831C686658005C4D52 /* ETListingsViewController.h */,
 				824CDF841C686658005C4D52 /* ETListingsViewController.m */,
+				822BC5901C746EA800FC2673 /* ETSearchErrorViewController.h */,
+				822BC5911C746EA800FC2673 /* ETSearchErrorViewController.m */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -276,6 +284,8 @@
 				824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */,
 				828519941C7420A500E54DBE /* NSError+ETSearchErrors.h */,
 				828519951C7420A500E54DBE /* NSError+ETSearchErrors.m */,
+				822BC5961C75112A00FC2673 /* UIViewController+ETEmbed.h */,
+				822BC5971C75112A00FC2673 /* UIViewController+ETEmbed.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -542,6 +552,7 @@
 				828519961C7420A500E54DBE /* NSError+ETSearchErrors.m in Sources */,
 				824CDFB81C6DF815005C4D52 /* ETSearchTransitionAnimator.m in Sources */,
 				824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */,
+				822BC5981C75112A00FC2673 /* UIViewController+ETEmbed.m in Sources */,
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,
 				824CDF8B1C686658005C4D52 /* ETListing.m in Sources */,
 				824CDFD71C6EBC17005C4D52 /* ETSearchBar.m in Sources */,
@@ -555,6 +566,7 @@
 				824CDFD61C6EBC17005C4D52 /* UIImageView+ETFade.m in Sources */,
 				824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
+				822BC5921C746EA800FC2673 /* ETSearchErrorViewController.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
 				824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */,
 				822BC58C1C746BA200FC2673 /* ETStyleKit.m in Sources */,

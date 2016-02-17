@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -145,6 +146,62 @@
                 <exit id="Vk4-At-I1v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1388" y="327"/>
+        </scene>
+        <!--Search Error View Controller-->
+        <scene sceneID="Nlq-Qd-VD0">
+            <objects>
+                <viewController storyboardIdentifier="SearchErrorViewController" id="mcs-a8-U6K" customClass="ETSearchErrorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BCJ-ur-gRq"/>
+                        <viewControllerLayoutGuide type="bottom" id="BhN-is-nI5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hLy-UC-cFT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-wy-o0N">
+                                <rect key="frame" x="265" y="154" width="71" height="30"/>
+                                <state key="normal" title="Try again?"/>
+                                <connections>
+                                    <action selector="retry:" destination="mcs-a8-U6K" eventType="touchUpInside" id="oHu-yx-YdS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="500" text="Something unexpected happened." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-UL-Bnd">
+                                <rect key="frame" x="196" y="98" width="208" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" text="Oh, silly error." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-fZ-Huz">
+                                <rect key="frame" x="252.5" y="60" width="95" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9686274528503418" green="0.9686274528503418" blue="0.9686274528503418" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BjJ-UL-Bnd" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="69P-S2-AtC"/>
+                            <constraint firstItem="BjJ-UL-Bnd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hLy-UC-cFT" secondAttribute="leadingMargin" id="DKo-Ci-lGI"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BjJ-UL-Bnd" secondAttribute="trailing" id="If3-13-7VS"/>
+                            <constraint firstItem="lFB-fZ-Huz" firstAttribute="top" secondItem="BCJ-ur-gRq" secondAttribute="bottom" constant="60" id="Lbl-GA-uu2"/>
+                            <constraint firstItem="BjJ-UL-Bnd" firstAttribute="top" secondItem="lFB-fZ-Huz" secondAttribute="bottom" constant="20" id="X6h-s8-xFC"/>
+                            <constraint firstItem="BoE-wy-o0N" firstAttribute="top" secondItem="BjJ-UL-Bnd" secondAttribute="bottom" constant="40" id="vOG-eG-RWs"/>
+                            <constraint firstItem="lFB-fZ-Huz" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="zFh-gS-H4S"/>
+                            <constraint firstItem="BoE-wy-o0N" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="zYG-cw-jxN"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="errorDescriptionLabel" destination="BjJ-UL-Bnd" id="vJ2-U7-y6x"/>
+                        <outlet property="errorTitleLabel" destination="lFB-fZ-Huz" id="piF-CC-bI9"/>
+                        <outlet property="retryButton" destination="BoE-wy-o0N" id="zuE-Q5-sEe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cv8-eF-rQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="1026"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yag-qE-XYe">

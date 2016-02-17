@@ -18,6 +18,8 @@
 #import "ETConstants.h"
 #import "ETSearchBar.h"
 #import "NSError+ETSearchErrors.h"
+#import "ETSearchErrorViewController.h"
+#import "UIViewController+ETEmbed.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -25,7 +27,7 @@ static NSUInteger const ETMaxCellsPerRow = 4;
 static NSUInteger const ETFooterViewHeight = 55;
 static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
-@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface ETListingsViewController () <ETSearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIScrollViewDelegate, ETSearchErrorViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet ETSearchBar *searchBar;
 
@@ -35,6 +37,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 @property (nonatomic) BOOL endOfSearchResults;
 @property (nonatomic) BOOL shouldShowLoadingIndicator;
 @property (weak, nonatomic) ETListingsFooterView *footerView;
+@property (nonatomic) ETSearchErrorViewController *errorViewController;
 
 @end
 
@@ -80,7 +83,7 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     self.searchBar.text = self.searchText;
 
     if (self.searchText.length > 0) {
-        [self beginSearch];
+        [self beginNewSearch];
     }
 }
 
@@ -122,20 +125,24 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 - (void)handleSearchError:(NSError *)error
 {
-    if (error.code != NSURLErrorCancelled) {
-        self.fetching = NO;
-        [self hideLoadingIndicatorAnimated];
-
-        if (error.domain == ETSearchErrorDomain &&
-            error.code == ETSearchErrorNoResults) {
-            // Show no results screen
-            NSLog(@"No results: %@", error.localizedDescription);
-        }
-        else {
-            // Show error screen
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
+    if (error.code == NSURLErrorCancelled) {
+        return;
     }
+
+    self.fetching = NO;
+    [self hideLoadingIndicatorAnimated];
+
+    if (error.domain == ETSearchErrorDomain && error.code == ETSearchErrorNoResults) {
+        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Nothing to see here." description:error.localizedFailureReason buttonTitle:@"Try something else?"];
+    }
+    else {
+        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Oh, silly error." description:error.localizedFailureReason buttonTitle:@"Try again?"];
+    }
+
+    self.errorViewController.delegate = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self et_embedViewController:self.errorViewController useLayoutGuides:YES animated:YES];
+    });
 }
 
 - (void)insertListings:(NSArray *)listings
@@ -190,18 +197,38 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     self.searchText = searchBar.text;
 
     if (self.searchText.length > 0) {
-        [self beginSearch];
+        [self removeErrorViewController];
+        [self beginNewSearch];
         [searchBar resignFirstResponder];
     }
 }
 
-- (void)beginSearch
+- (void)beginNewSearch
 {
     self.endOfSearchResults = NO;
     [self.listingCards removeAllObjects];
     [self.collectionView reloadData];
 
     [self searchForKeywords:self.searchText withOffset:0];
+}
+
+#pragma mark - ETSearchErrorViewControllerDelegate
+
+- (void)searchViewControllerShouldRetry:(ETSearchErrorViewController *)searchErrorViewController
+{
+    if ([self.errorViewController.retryButtonTitle isEqualToString:@"Try again?"]) {
+        [self searchBarSearchButtonClicked:self.searchBar];
+    }
+    else if ([self.errorViewController.retryButtonTitle isEqualToString:@"Try something else?"]) {
+        self.searchBar.text = nil;
+        [self.searchBar becomeFirstResponder];
+    }
+}
+
+- (void)removeErrorViewController
+{
+    [self.errorViewController et_removeFromParentViewControllerAnimated:YES];
+    self.errorViewController = nil;
 }
 
 #pragma mark - UICollectionViewDataSource

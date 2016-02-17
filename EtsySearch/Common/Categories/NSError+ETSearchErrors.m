@@ -13,7 +13,7 @@
 + (NSError *)et_unknownError
 {
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Error", nil),
-                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"An error occurred.", nil) };
+                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Something unexpected happened.", nil) };
 
     return [[NSError alloc] initWithDomain:ETSearchErrorDomain code:ETSearchErrorUnknown userInfo:userInfo];
 }

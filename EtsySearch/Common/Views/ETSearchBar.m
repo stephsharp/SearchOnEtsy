@@ -196,10 +196,15 @@ static NSInteger const ETHorizontalPadding = 8;
 
 #pragma mark - UIResponder
 
+- (BOOL)becomeFirstResponder
+{
+    [self.textField becomeFirstResponder];
+    return YES;
+}
+
 - (BOOL)resignFirstResponder
 {
     [self.textField resignFirstResponder];
-
     return YES;
 }
 
