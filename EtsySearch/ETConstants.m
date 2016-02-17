@@ -10,3 +10,4 @@
 
 NSString *const ETAPIKey = @"liwecjs0c3ssk6let4p1wqt9";
 NSUInteger const ETListingsLimit = 20;
+NSString *const ETActiveListingsURL = @"https://api.etsy.com/v2/listings/active";

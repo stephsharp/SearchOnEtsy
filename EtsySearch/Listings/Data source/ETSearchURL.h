@@ -10,6 +10,6 @@
 
 @interface ETSearchURL : NSObject
 
-+ (NSURL *)urlWithKeywords:(NSString *)keywords offset:(NSUInteger)offset;
++ (NSURL *)listingsURLWithKeywords:(NSString *)keywords offset:(NSUInteger)offset;
 
 @end

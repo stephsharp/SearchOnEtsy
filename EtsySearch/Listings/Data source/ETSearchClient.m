@@ -43,7 +43,7 @@
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
-    NSURL *url = [ETSearchURL urlWithKeywords:keywords offset:offset];
+    NSURL *url = [ETSearchURL listingsURLWithKeywords:keywords offset:offset];
 
     self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{

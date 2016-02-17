@@ -10,3 +10,4 @@
 
 extern NSString *const ETAPIKey;
 extern NSUInteger const ETListingsLimit;
+extern NSString *const ETActiveListingsURL;

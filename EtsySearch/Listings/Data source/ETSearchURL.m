@@ -11,15 +11,20 @@
 
 @implementation ETSearchURL
 
-+ (NSURL *)urlWithKeywords:(NSString *)keywords offset:(NSUInteger)offset
++ (NSURL *)listingsURLWithKeywords:(NSString *)keywords offset:(NSUInteger)offset
 {
-    NSCharacterSet *expectedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
-    NSString *keywordQueryString = [keywords stringByAddingPercentEncodingWithAllowedCharacters:expectedCharacterSet];
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:ETActiveListingsURL];
 
+    NSURLQueryItem *apiKeyItem = [NSURLQueryItem queryItemWithName:@"api_key" value:ETAPIKey];
     // Including Images here instead of MainImage to get the average color info (which is null in MainImage).
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.etsy.com/v2/listings/active?api_key=%@&includes=Images,Shop&keywords=%@&limit=%ld&offset=%ld", ETAPIKey, keywordQueryString, (unsigned long)ETListingsLimit, (unsigned long)offset]];
+    NSURLQueryItem *includesItem = [NSURLQueryItem queryItemWithName:@"includes" value:@"Images,Shop"];
+    NSURLQueryItem *keywordsItem = [NSURLQueryItem queryItemWithName:@"keywords" value:keywords];
+    NSURLQueryItem *limitItem = [NSURLQueryItem queryItemWithName:@"limit" value:@(ETListingsLimit).stringValue];
+    NSURLQueryItem *offsetItem = [NSURLQueryItem queryItemWithName:@"offset" value:@(offset).stringValue];
 
-    return url;
+    components.queryItems = @[apiKeyItem, includesItem, keywordsItem, limitItem, offsetItem];
+
+    return components.URL;
 }
 
 @end
