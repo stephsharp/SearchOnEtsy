@@ -112,13 +112,7 @@ static NSInteger const ETHorizontalPadding = 8;
                                                                  metrics:nil
                                                                    views:views]];
 
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:button
-                                                     attribute:NSLayoutAttributeHeight
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:button
-                                                     attribute:NSLayoutAttributeWidth
-                                                    multiplier:1
-                                                      constant:0]];
+    [self addConstraint:[button.heightAnchor constraintEqualToAnchor:button.widthAnchor]];
 }
 
 #pragma mark - Properties
