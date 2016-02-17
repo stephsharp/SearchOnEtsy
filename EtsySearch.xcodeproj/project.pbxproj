@@ -32,6 +32,7 @@
 		8285198B1C73E7BF00E54DBE /* ETListingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8285198A1C73E7BF00E54DBE /* ETListingTests.m */; };
 		8285198E1C74013F00E54DBE /* ETSearchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8285198D1C74013F00E54DBE /* ETSearchURL.m */; };
 		828519901C740EA900E54DBE /* ETSearchURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8285198F1C740EA900E54DBE /* ETSearchURLTests.m */; };
+		828519961C7420A500E54DBE /* NSError+ETSearchErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 828519951C7420A500E54DBE /* NSError+ETSearchErrors.m */; };
 		82DC93D81C7328830082A279 /* NSURLSession+ETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */; };
 		82DC93DB1C732B090082A279 /* ETTestURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DC93DA1C732B090082A279 /* ETTestURLSession.m */; };
 		82FC0F5B1C670C4C0017A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FC0F5A1C670C4C0017A2B5 /* main.m */; };
@@ -97,6 +98,8 @@
 		8285198C1C74013F00E54DBE /* ETSearchURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchURL.h; sourceTree = "<group>"; };
 		8285198D1C74013F00E54DBE /* ETSearchURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchURL.m; sourceTree = "<group>"; };
 		8285198F1C740EA900E54DBE /* ETSearchURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchURLTests.m; sourceTree = "<group>"; };
+		828519941C7420A500E54DBE /* NSError+ETSearchErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+ETSearchErrors.h"; sourceTree = "<group>"; };
+		828519951C7420A500E54DBE /* NSError+ETSearchErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+ETSearchErrors.m"; sourceTree = "<group>"; };
 		82DC93D51C7327F10082A279 /* ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETURLSession.h; sourceTree = "<group>"; };
 		82DC93D61C7328830082A279 /* NSURLSession+ETURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+ETURLSession.h"; sourceTree = "<group>"; };
 		82DC93D71C7328830082A279 /* NSURLSession+ETURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+ETURLSession.m"; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 			children = (
 				824CDFCF1C6EBC17005C4D52 /* UIImageView+ETFade.h */,
 				824CDFD01C6EBC17005C4D52 /* UIImageView+ETFade.m */,
+				828519941C7420A500E54DBE /* NSError+ETSearchErrors.h */,
+				828519951C7420A500E54DBE /* NSError+ETSearchErrors.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				8285198E1C74013F00E54DBE /* ETSearchURL.m in Sources */,
 				824CDFB91C6DF815005C4D52 /* ETSearchTransitioningDelegate.m in Sources */,
 				824CDF9F1C6BF841005C4D52 /* ETTitleView.m in Sources */,
+				828519961C7420A500E54DBE /* NSError+ETSearchErrors.m in Sources */,
 				824CDFB81C6DF815005C4D52 /* ETSearchTransitionAnimator.m in Sources */,
 				824CDF931C6AA3E9005C4D52 /* ETListingCard.m in Sources */,
 				824CDF8D1C686658005C4D52 /* ETListingCell.m in Sources */,

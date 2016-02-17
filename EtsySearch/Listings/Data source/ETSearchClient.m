@@ -9,6 +9,7 @@
 #import "ETSearchClient.h"
 #import "NSURLSession+ETURLSession.h"
 #import "ETSearchURL.h"
+#import "NSError+ETSearchErrors.h"
 
 @interface ETSearchClient ()
 
@@ -50,11 +51,8 @@
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         });
 
-        if (error) {
-            if (completion) {
-                // TODO: If cancelled, send a custom error to say task was cancelled because new search was initiated.
-                completion(nil, error);
-            }
+        if (error && completion) {
+            completion(nil, error);
         }
         else if (response) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -66,7 +64,12 @@
                 if (json) {
                     NSArray *listings = [self listingsFromJSON:json];
                     if (completion) {
-                        completion(listings, nil);
+                        if (listings.count == 0 && offset == 0) {
+                            completion(nil, [NSError et_noResultsErrorWithKeywords:keywords]);
+                        }
+                        else {
+                            completion(listings, nil);
+                        }
                     }
                 }
                 else {
@@ -77,13 +80,7 @@
             }
             else {
                 if (completion) {
-                    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", nil),
-                                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"An unknown error occurred.", nil),
-                                                };
-                    // TODO: Extract error codes into a separate file.
-                    NSError *unknownError = [[NSError alloc] initWithDomain:@"ETSearchErrorDomain" code:100 userInfo:userInfo];
-
-                    completion(nil, unknownError);
+                    completion(nil, [NSError et_unknownError]);
                 }
             }
         }

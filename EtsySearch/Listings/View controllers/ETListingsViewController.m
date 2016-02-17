@@ -17,6 +17,7 @@
 #import "ETListingsFooterView.h"
 #import "ETConstants.h"
 #import "ETSearchBar.h"
+#import "NSError+ETSearchErrors.h"
 
 static NSString *const ETListingReuseIdentifier = @"ListingCell";
 static NSUInteger const ETDefaultCellWidth = 160;
@@ -100,35 +101,41 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
     [self.searchClient searchForKeywords:keywords offset:offset completion:^(NSArray *listings, NSError *error) {
         if (error) {
-            NSLog(@"error: %@", error.localizedDescription);
-
-            // TODO: Replace this with custom error to indicate search was cancelled because a new one started.
-            if (error.code != NSURLErrorCancelled) {
-                self.fetching = NO;
-                self.shouldShowLoadingIndicator = NO;
-            }
+            [self handleSearchError:error];
         }
         else {
-            self.shouldShowLoadingIndicator = NO;
-
             if (listings.count < ETListingsLimit) {
                 self.endOfSearchResults = YES;
             }
 
             if (listings.count == 0) {
                 self.fetching = NO;
-
-                // Not as smooth as I would like, but sligthly better than invalidating layout
-                // which causes collection view to flicker when coming to rest.
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.collectionView performBatchUpdates:nil completion:nil];
-                });
+                [self hideLoadingIndicatorAnimated];
             }
             else {
+                self.shouldShowLoadingIndicator = NO;
                 [self insertListings:listings];
             }
         }
     }];
+}
+
+- (void)handleSearchError:(NSError *)error
+{
+    if (error.code != NSURLErrorCancelled) {
+        self.fetching = NO;
+        [self hideLoadingIndicatorAnimated];
+
+        if (error.domain == ETSearchErrorDomain &&
+            error.code == ETSearchErrorNoResults) {
+            // Show no results screen
+            NSLog(@"No results: %@", error.localizedDescription);
+        }
+        else {
+            // Show error screen
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+    }
 }
 
 - (void)insertListings:(NSArray *)listings
@@ -159,6 +166,15 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
             }
         });
     }
+}
+
+- (void)hideLoadingIndicatorAnimated
+{
+    self.shouldShowLoadingIndicator = NO;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView performBatchUpdates:nil completion:nil];
+    });
 }
 
 - (void)fetchMoreItems
