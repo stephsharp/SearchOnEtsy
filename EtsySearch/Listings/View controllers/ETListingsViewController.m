@@ -75,7 +75,6 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self addEdgeSwipeGestureRecognizer];
-    [self addDismissKeyboardGestureRecognizer];
 
     self.searchBar.text = self.searchText;
 
@@ -309,12 +308,6 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 }
 
 #pragma mark - Keyboard handling
-
-- (void)addDismissKeyboardGestureRecognizer
-{
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
 
 - (void)dismissKeyboard
 {
