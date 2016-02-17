@@ -29,16 +29,26 @@
 {
     _title = [json[@"title"] stringByConvertingHTMLToPlainText];
     _listingURL = [NSURL URLWithString:json[@"url"]];
-    _mainImageURL = [NSURL URLWithString:json[@"Images"][0][@"url_170x135"]];
-    _shopName = json[@"Shop"][@"shop_name"];
+
+    NSDictionary *shop = json[@"Shop"];
+    if (shop && [shop isKindOfClass:[NSDictionary class]]) {
+        _shopName = shop[@"shop_name"];
+    }
+
     _price = json[@"price"];
     _currencyCode = json[@"currency_code"];
 
     // Color info for MainImage is null, but it can be accessed via the Images array.
-    NSString *hexCode = json[@"Images"][0][@"hex_code"];
+    NSArray *images = json[@"Images"];
 
-    if (hexCode && hexCode != (id)[NSNull null]) {
-        self.mainImageHexCode = hexCode;
+    if (images && [images isKindOfClass:[NSArray class]]) {
+        NSDictionary *mainImage = images.firstObject;
+        _mainImageURL = [NSURL URLWithString:mainImage[@"url_170x135"]];
+
+        NSString *hexCode = mainImage[@"hex_code"];
+        if (hexCode && hexCode != (id)[NSNull null]) {
+            self.mainImageHexCode = hexCode;
+        }
     }
 }
 
