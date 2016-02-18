@@ -49,9 +49,7 @@
         self.toSearchBar.hidden = YES;
 
         [containerView addSubview:self.fromSearchBar];
-
-        CGRect frame = [self.toSearchBar convertRect:self.toSearchBar.bounds toView:nil];
-        [self setupConstraintsOnSearchBar:self.fromSearchBar forFrame:frame];
+        [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             for (UIView *view in fromVC.view.subviews) {
@@ -87,21 +85,12 @@
     }
 }
 
-- (void)setupConstraintsOnSearchBar:(UIView *)searchBar forFrame:(CGRect)frame
+- (void)constrainView:(UIView *)fromView toPositionAndSizeOfView:(UIView *)toView
 {
-    NSDictionary *views = NSDictionaryOfVariableBindings(searchBar);
-
-    NSString *horizontalFormat = [NSString stringWithFormat:@"H:|-(%f)-[searchBar(%f)]", frame.origin.x, frame.size.width];
-    [searchBar.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalFormat
-                                                                                options:0
-                                                                                metrics:nil
-                                                                                  views:views]];
-
-    NSString *verticalFormat = [NSString stringWithFormat:@"V:|-(%f)-[searchBar(%f)]", frame.origin.y, frame.size.height];
-    [searchBar.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat
-                                                                                options:0
-                                                                                metrics:nil
-                                                                                  views:views]];
+    [fromView.superview addConstraint:[fromView.leadingAnchor constraintEqualToAnchor:toView.leadingAnchor]];
+    [fromView.superview addConstraint:[fromView.topAnchor constraintEqualToAnchor:toView.topAnchor]];
+    [fromView.superview addConstraint:[fromView.widthAnchor constraintEqualToAnchor:toView.widthAnchor]];
+    [fromView.superview addConstraint:[fromView.heightAnchor constraintEqualToAnchor:toView.heightAnchor]];
 }
 
 - (void)setupOriginalConstraintsOnSearchBar:(UIView *)searchBar
