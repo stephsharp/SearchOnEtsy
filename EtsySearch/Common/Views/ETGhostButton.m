@@ -62,6 +62,18 @@
     self.layer.borderWidth = borderWidth;
 }
 
+- (void)setHighlightedOpacity:(CGFloat)highlightedOpacity
+{
+    _highlightedOpacity = highlightedOpacity;
+    [self updateButtonColorForCurrentState];
+}
+
+- (void)setSelectedOpacity:(CGFloat)selectedOpacity
+{
+    _selectedOpacity = selectedOpacity;
+    [self updateButtonColorForCurrentState];
+}
+
 #pragma mark - UIView
 
 - (void)tintColorDidChange
@@ -83,7 +95,7 @@
     [self updateButtonColorForCurrentState];
 }
 
-#pragma mark -
+#pragma mark - Update UI
 
 - (void)updateButtonColorForCurrentState
 {
