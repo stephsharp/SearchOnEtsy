@@ -66,6 +66,11 @@
         }];
     }
     else {
+        if (![self superviewHasConstraintsForView:self.fromSearchBar]) {
+            [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
+            [self.fromSearchBar.superview layoutIfNeeded];
+        }
+
         self.fromSearchBar.hidden = NO;
         [toVC.view addSubview:self.fromSearchBar];
         [self setupOriginalConstraintsOnSearchBar:self.fromSearchBar];
@@ -96,6 +101,16 @@
 - (void)setupOriginalConstraintsOnSearchBar:(UIView *)searchBar
 {
     [searchBar.superview addConstraints:self.fromSearchBarConstraints];
+}
+
+- (BOOL)superviewHasConstraintsForView:(UIView *)view
+{
+    for (NSLayoutConstraint *constraint in view.superview.constraints) {
+        if (constraint.firstItem == view || constraint.secondItem == view) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end
