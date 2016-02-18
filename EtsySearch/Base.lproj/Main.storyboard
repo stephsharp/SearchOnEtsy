@@ -171,7 +171,7 @@
                                 <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-wy-o0N" customClass="ETFlatButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-wy-o0N" customClass="ETGhostButton">
                                 <rect key="frame" x="225" y="115.5" width="150" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5yY-Kx-lux"/>
@@ -187,11 +187,8 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
-                                        <color key="value" red="1" green="0.40784314274787903" blue="0.086274512112140656" alpha="0.03652283281733746" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="filledTitleColor">
-                                        <color key="value" red="1" green="0.40784314269999999" blue="0.086274512110000007" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="highlightedOpacity">
+                                        <real key="value" value="0.040000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -200,6 +197,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9686274528503418" green="0.9686274528503418" blue="0.9686274528503418" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.40784314274787903" blue="0.086274512112140656" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BjJ-UL-Bnd" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="69P-S2-AtC"/>
                             <constraint firstItem="BjJ-UL-Bnd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hLy-UC-cFT" secondAttribute="leadingMargin" id="DKo-Ci-lGI"/>
