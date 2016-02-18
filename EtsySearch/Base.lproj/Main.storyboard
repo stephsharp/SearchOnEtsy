@@ -163,7 +163,7 @@
                                 <rect key="frame" x="265" y="154" width="71" height="30"/>
                                 <state key="normal" title="Try again?"/>
                                 <connections>
-                                    <action selector="retry:" destination="mcs-a8-U6K" eventType="touchUpInside" id="oHu-yx-YdS"/>
+                                    <action selector="performAction:" destination="mcs-a8-U6K" eventType="touchUpInside" id="CMq-wT-cX6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="500" text="Something unexpected happened." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-UL-Bnd">
@@ -194,9 +194,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="errorButton" destination="BoE-wy-o0N" id="G7M-Db-kBm"/>
                         <outlet property="errorDescriptionLabel" destination="BjJ-UL-Bnd" id="vJ2-U7-y6x"/>
                         <outlet property="errorTitleLabel" destination="lFB-fZ-Huz" id="piF-CC-bI9"/>
-                        <outlet property="retryButton" destination="BoE-wy-o0N" id="zuE-Q5-sEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cv8-eF-rQH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,7 +12,7 @@
 
 @protocol ETSearchErrorViewControllerDelegate <NSObject>
 
-- (void)searchViewControllerShouldRetry:(ETSearchErrorViewController *)searchErrorViewController;
+- (void)searchViewControllerShouldPerformAction:(ETSearchErrorViewController *)searchErrorViewController;
 
 @end
 
@@ -22,7 +22,7 @@
 
 @property (nonatomic) NSString *errorTitle;
 @property (nonatomic) NSString *errorDescription;
-@property (nonatomic) NSString *retryButtonTitle;
+@property (nonatomic) NSString *errorButtonTitle;
 
 + (ETSearchErrorViewController *)errorViewControllerWithTitle:(NSString *)title
                                                   description:(NSString *)description

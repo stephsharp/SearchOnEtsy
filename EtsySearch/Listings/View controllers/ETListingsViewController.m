@@ -214,12 +214,12 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 #pragma mark - ETSearchErrorViewControllerDelegate
 
-- (void)searchViewControllerShouldRetry:(ETSearchErrorViewController *)searchErrorViewController
+- (void)searchViewControllerShouldPerformAction:(ETSearchErrorViewController *)searchErrorViewController
 {
-    if ([self.errorViewController.retryButtonTitle isEqualToString:@"Try again?"]) {
+    if ([self.errorViewController.errorButtonTitle isEqualToString:@"Try again?"]) {
         [self searchBarSearchButtonClicked:self.searchBar];
     }
-    else if ([self.errorViewController.retryButtonTitle isEqualToString:@"Try something else?"]) {
+    else if ([self.errorViewController.errorButtonTitle isEqualToString:@"Try something else?"]) {
         self.searchBar.text = nil;
         [self.searchBar becomeFirstResponder];
     }

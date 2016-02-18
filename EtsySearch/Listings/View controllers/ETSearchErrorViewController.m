@@ -14,7 +14,7 @@ static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewC
 
 @property (weak, nonatomic) IBOutlet UILabel *errorTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorDescriptionLabel;
-@property (weak, nonatomic) IBOutlet UIButton *retryButton;
+@property (weak, nonatomic) IBOutlet UIButton *errorButton;
 
 @end
 
@@ -26,7 +26,7 @@ static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewC
 
     self.errorTitleLabel.text = self.errorTitle;
     self.errorDescriptionLabel.text = self.errorDescription;
-    [self.retryButton setTitle:self.retryButtonTitle forState:UIControlStateNormal];
+    [self.errorButton setTitle:self.errorButtonTitle forState:UIControlStateNormal];
 }
 
 #pragma mark - Properties
@@ -43,17 +43,17 @@ static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewC
     self.errorDescriptionLabel.text = errorDescription;
 }
 
-- (void)setRetryButtonTitle:(NSString *)retryButtonTitle
+- (void)setErrorButtonTitle:(NSString *)errorButtonTitle
 {
-    _retryButtonTitle = retryButtonTitle;
-    [self.retryButton setTitle:self.retryButtonTitle forState:UIControlStateNormal];
+    _errorButtonTitle = errorButtonTitle;
+    [self.errorButton setTitle:self.errorButtonTitle forState:UIControlStateNormal];
 }
 
 #pragma mark - Actions
 
-- (IBAction)retry:(UIButton *)sender
+- (IBAction)performAction:(UIButton *)sender
 {
-    [self.delegate searchViewControllerShouldRetry:self];
+    [self.delegate searchViewControllerShouldPerformAction:self];
 }
 
 #pragma mark - Factory methods
@@ -65,7 +65,7 @@ static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewC
 
     errorVC.errorTitle = title;
     errorVC.errorDescription = description;
-    errorVC.retryButtonTitle = buttonTitle;
+    errorVC.errorButtonTitle = buttonTitle;
 
     return errorVC;
 }
