@@ -133,10 +133,10 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [self hideLoadingIndicatorAnimated];
 
     if (error.domain == ETSearchErrorDomain && error.code == ETSearchErrorNoResults) {
-        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Nothing to see here." description:error.localizedFailureReason buttonTitle:@"Try something else?"];
+        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Nothing to see here." description:error.localizedDescription buttonTitle:@"Try something else?"];
     }
     else {
-        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Oh, silly error." description:error.localizedFailureReason buttonTitle:@"Try again?"];
+        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Oh, silly error." description:error.localizedDescription buttonTitle:@"Try again?"];
     }
 
     self.errorViewController.delegate = self;

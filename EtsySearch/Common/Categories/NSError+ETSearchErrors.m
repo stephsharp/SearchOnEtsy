@@ -12,17 +12,15 @@
 
 + (NSError *)et_unknownError
 {
-    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Error", nil),
-                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Something unexpected happened.", nil) };
+    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Something unexpected happened.", nil) };
 
     return [[NSError alloc] initWithDomain:ETSearchErrorDomain code:ETSearchErrorUnknown userInfo:userInfo];
 }
 
 + (NSError *)et_noResultsErrorWithKeywords:(NSString *)keywords
 {
-    NSString *failureReason = [NSString stringWithFormat:@"We couldn't find any results for \"%@\".", keywords];
-    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"No results.", nil),
-                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(failureReason, nil) };
+    NSString *description = [NSString stringWithFormat:@"We couldn't find any results for \"%@\".", keywords];
+    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(description, nil) };
 
     return [[NSError alloc] initWithDomain:ETSearchErrorDomain code:ETSearchErrorNoResults userInfo:userInfo];
 }
