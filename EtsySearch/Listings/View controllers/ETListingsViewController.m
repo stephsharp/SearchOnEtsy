@@ -133,10 +133,10 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     [self hideLoadingIndicatorAnimated];
 
     if (error.domain == ETSearchErrorDomain && error.code == ETSearchErrorNoResults) {
-        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Nothing to see here." description:error.localizedDescription buttonTitle:@"Try something else?"];
+        self.errorViewController = [ETSearchErrorViewController noResultsErrorViewControllerWithDescription:error.localizedDescription];
     }
     else {
-        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithTitle:@"Oh, silly error." description:error.localizedDescription buttonTitle:@"Try again?"];
+        self.errorViewController = [ETSearchErrorViewController errorViewControllerWithDescription:error.localizedDescription];
     }
 
     self.errorViewController.delegate = self;
@@ -216,12 +216,12 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
 
 - (void)searchViewControllerShouldPerformAction:(ETSearchErrorViewController *)searchErrorViewController
 {
-    if ([self.errorViewController.errorButtonTitle isEqualToString:@"Try again?"]) {
-        [self searchBarSearchButtonClicked:self.searchBar];
-    }
-    else if ([self.errorViewController.errorButtonTitle isEqualToString:@"Try something else?"]) {
+    if (self.errorViewController.type == ETSearchErrorViewControllerTypeNoResults) {
         self.searchBar.text = nil;
         [self.searchBar becomeFirstResponder];
+    }
+    else {
+        [self searchBarSearchButtonClicked:self.searchBar];
     }
 }
 

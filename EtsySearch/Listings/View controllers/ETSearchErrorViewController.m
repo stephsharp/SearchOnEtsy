@@ -9,6 +9,10 @@
 #import "ETSearchErrorViewController.h"
 
 static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewController";
+static NSString *const ETSearchErrorDefaultTitle = @"Oh, silly error.";
+static NSString *const ETSearchErrorNoResultsTitle = @"Nothing to see here.";
+static NSString *const ETSearchErrorDefaultButtonTitle = @"Try again?";
+static NSString *const ETSearchErrorNoResultsButtonTitle = @"Try something else?";
 
 @interface ETSearchErrorViewController ()
 
@@ -68,6 +72,21 @@ static NSString *const ETSearchErrorViewControllerIdentifer = @"SearchErrorViewC
     errorVC.errorButtonTitle = buttonTitle;
 
     return errorVC;
+}
+
++ (ETSearchErrorViewController *)errorViewControllerWithDescription:(NSString *)description
+{
+    return [ETSearchErrorViewController errorViewControllerWithTitle:ETSearchErrorDefaultTitle
+                                                         description:description
+                                                         buttonTitle:ETSearchErrorDefaultButtonTitle];
+}
+
++ (ETSearchErrorViewController *)noResultsErrorViewControllerWithDescription:(NSString *)description
+{
+    ETSearchErrorViewController *noResultsErrorVC = [ETSearchErrorViewController errorViewControllerWithTitle:ETSearchErrorNoResultsTitle description:description buttonTitle:ETSearchErrorNoResultsButtonTitle];
+    noResultsErrorVC.type = ETSearchErrorViewControllerTypeNoResults;
+
+    return noResultsErrorVC;
 }
 
 @end
