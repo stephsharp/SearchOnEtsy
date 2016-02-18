@@ -92,11 +92,5 @@
 		<key>imageName</key>
 		<string>GiftIcon</string>
 	</dict>
-	<dict>
-		<key>keyword</key>
-		<string>nostalgic</string>
-		<key>imageName</key>
-		<string>RadioIcon</string>
-	</dict>
 </array>
 </plist>
