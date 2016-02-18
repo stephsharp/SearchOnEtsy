@@ -159,34 +159,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-wy-o0N">
-                                <rect key="frame" x="265" y="154" width="71" height="30"/>
-                                <state key="normal" title="Try again?"/>
-                                <connections>
-                                    <action selector="performAction:" destination="mcs-a8-U6K" eventType="touchUpInside" id="CMq-wT-cX6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="500" text="Something unexpected happened." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-UL-Bnd">
-                                <rect key="frame" x="196" y="98" width="208" height="16"/>
+                                <rect key="frame" x="196" y="69.5" width="208" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="1000" text="Oh, silly error." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-fZ-Huz">
-                                <rect key="frame" x="252.5" y="60" width="95" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="249" y="30" width="100.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-wy-o0N" customClass="ETFlatButton">
+                                <rect key="frame" x="225" y="115.5" width="150" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5yY-Kx-lux"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" red="1" green="0.40784314274787903" blue="0.086274512112140656" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="8" maxX="20" maxY="8"/>
+                                <state key="normal" title="Try again?"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                        <color key="value" red="1" green="0.40784314274787903" blue="0.086274512112140656" alpha="0.03652283281733746" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledTitleColor">
+                                        <color key="value" red="1" green="0.40784314269999999" blue="0.086274512110000007" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="performAction:" destination="mcs-a8-U6K" eventType="touchUpInside" id="CMq-wT-cX6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9686274528503418" green="0.9686274528503418" blue="0.9686274528503418" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BjJ-UL-Bnd" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="69P-S2-AtC"/>
                             <constraint firstItem="BjJ-UL-Bnd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hLy-UC-cFT" secondAttribute="leadingMargin" id="DKo-Ci-lGI"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BjJ-UL-Bnd" secondAttribute="trailing" id="If3-13-7VS"/>
-                            <constraint firstItem="lFB-fZ-Huz" firstAttribute="top" secondItem="BCJ-ur-gRq" secondAttribute="bottom" constant="60" id="Lbl-GA-uu2"/>
+                            <constraint firstItem="lFB-fZ-Huz" firstAttribute="top" secondItem="BCJ-ur-gRq" secondAttribute="bottom" constant="30" id="Lbl-GA-uu2"/>
                             <constraint firstItem="BjJ-UL-Bnd" firstAttribute="top" secondItem="lFB-fZ-Huz" secondAttribute="bottom" constant="20" id="X6h-s8-xFC"/>
-                            <constraint firstItem="BoE-wy-o0N" firstAttribute="top" secondItem="BjJ-UL-Bnd" secondAttribute="bottom" constant="40" id="vOG-eG-RWs"/>
+                            <constraint firstItem="BoE-wy-o0N" firstAttribute="top" secondItem="BjJ-UL-Bnd" secondAttribute="bottom" constant="30" id="vOG-eG-RWs"/>
                             <constraint firstItem="lFB-fZ-Huz" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="zFh-gS-H4S"/>
                             <constraint firstItem="BoE-wy-o0N" firstAttribute="centerX" secondItem="hLy-UC-cFT" secondAttribute="centerX" id="zYG-cw-jxN"/>
                         </constraints>

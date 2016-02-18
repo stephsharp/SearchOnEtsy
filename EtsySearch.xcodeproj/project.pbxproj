@@ -12,6 +12,7 @@
 		822BC58F1C746BB100FC2673 /* ETRandomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC58E1C746BB100FC2673 /* ETRandomImage.m */; };
 		822BC5921C746EA800FC2673 /* ETSearchErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC5911C746EA800FC2673 /* ETSearchErrorViewController.m */; };
 		822BC5981C75112A00FC2673 /* UIViewController+ETEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC5971C75112A00FC2673 /* UIViewController+ETEmbed.m */; };
+		822BC59B1C754EC000FC2673 /* ETFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 822BC59A1C754EC000FC2673 /* ETFlatButton.m */; };
 		824CDF751C686645005C4D52 /* UIColor+ETTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF741C686645005C4D52 /* UIColor+ETTheme.m */; };
 		824CDF891C686658005C4D52 /* ETSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7B1C686658005C4D52 /* ETSearchClient.m */; };
 		824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 824CDF7E1C686658005C4D52 /* ETListingFlowLayout.m */; };
@@ -67,6 +68,8 @@
 		822BC5911C746EA800FC2673 /* ETSearchErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSearchErrorViewController.m; sourceTree = "<group>"; };
 		822BC5961C75112A00FC2673 /* UIViewController+ETEmbed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ETEmbed.h"; sourceTree = "<group>"; };
 		822BC5971C75112A00FC2673 /* UIViewController+ETEmbed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ETEmbed.m"; sourceTree = "<group>"; };
+		822BC5991C754EC000FC2673 /* ETFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETFlatButton.h; sourceTree = "<group>"; };
+		822BC59A1C754EC000FC2673 /* ETFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETFlatButton.m; sourceTree = "<group>"; };
 		824CDF731C686645005C4D52 /* UIColor+ETTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ETTheme.h"; sourceTree = "<group>"; };
 		824CDF741C686645005C4D52 /* UIColor+ETTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ETTheme.m"; sourceTree = "<group>"; };
 		824CDF7A1C686658005C4D52 /* ETSearchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSearchClient.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 		824CDFD11C6EBC17005C4D52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				822BC5991C754EC000FC2673 /* ETFlatButton.h */,
+				822BC59A1C754EC000FC2673 /* ETFlatButton.m */,
 				824CDFD21C6EBC17005C4D52 /* ETSearchBar.h */,
 				824CDFD31C6EBC17005C4D52 /* ETSearchBar.m */,
 				824CDFD41C6EBC17005C4D52 /* ETSearchButton.h */,
@@ -566,6 +571,7 @@
 				824CDFD61C6EBC17005C4D52 /* UIImageView+ETFade.m in Sources */,
 				824CDF8A1C686658005C4D52 /* ETListingFlowLayout.m in Sources */,
 				82FC0F831C670EF90017A2B5 /* ETConstants.m in Sources */,
+				822BC59B1C754EC000FC2673 /* ETFlatButton.m in Sources */,
 				822BC5921C746EA800FC2673 /* ETSearchErrorViewController.m in Sources */,
 				824CDF8C1C686658005C4D52 /* ETListingsViewController.m in Sources */,
 				824CDFD81C6EBC17005C4D52 /* ETSearchButton.m in Sources */,
