@@ -6,7 +6,7 @@
 
 ####Home screen with animated transition
 
-When a user sees an empty screen with a tiny search bar at the top, it doesn’t make for a great user experience. I used [Google](https://www.google.com) as an example and created a more inviting home screen with a large search bar and a simple image above.
+When a user sees an empty screen with a tiny search bar at the top, it doesn't make for a great user experience. I used [Google](https://www.google.com) as an example and created a more inviting home screen with a large search bar and a simple image above.
 
 When transitioning to the search results screen, the search bar shrinks in size and animates up into the navigation bar. I made a [Keynote prototype](Resources/keynote-prototype.m4v) to test the look and feel of the transition before implementing it.
 
