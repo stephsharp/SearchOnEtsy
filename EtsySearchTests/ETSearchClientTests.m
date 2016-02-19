@@ -50,10 +50,16 @@
     self.testSession.data = jsonData;
     self.testSession.error = [NSError errorWithDomain:@"TestErrorDomain" code:0 userInfo:nil];
 
+    __block NSArray *receivedListings;
+    __block NSError *receivedError;
+
     [self.client searchForKeywords:@"coffee table" offset:0 completion:^(NSArray *listings, NSError *error) {
-        XCTAssertNil(listings);
-        XCTAssertEqualObjects(error.domain, @"TestErrorDomain");
+        receivedListings = listings;
+        receivedError = error;
     }];
+
+    XCTAssertNil(receivedListings);
+    XCTAssertEqualObjects(receivedError.domain, @"TestErrorDomain");
 }
 
 - (void)testValidJSON
@@ -65,11 +71,17 @@
     self.testSession.data = jsonData;
     self.testSession.response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL new] statusCode:200 HTTPVersion:nil headerFields:nil];
 
+    __block NSArray *receivedListings;
+    __block NSError *receivedError;
+
     [self.client searchForKeywords:@"some keywords" offset:0 completion:^(NSArray *listings, NSError *error) {
-        XCTAssertNotNil(listings);
-        XCTAssertTrue([((ETListing *)listings[0]).title isEqualToString:@"Title 1"]);
-        XCTAssertTrue([((ETListing *)listings[1]).shopName isEqualToString:@"Shop B"]);
+        receivedListings = listings;
+        receivedError = error;
     }];
+
+    XCTAssertNotNil(receivedListings);
+    XCTAssertTrue([((ETListing *)receivedListings[0]).title isEqualToString:@"Title 1"]);
+    XCTAssertTrue([((ETListing *)receivedListings[1]).shopName isEqualToString:@"Shop B"]);
 }
 
 - (void)testInvalidJSON
@@ -77,10 +89,16 @@
     self.testSession.data = [NSData new];
     self.testSession.response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL new] statusCode:200 HTTPVersion:nil headerFields:nil];
 
+    __block NSArray *receivedListings;
+    __block NSError *receivedError;
+
     [self.client searchForKeywords:@"invalid json" offset:0 completion:^(NSArray *listings, NSError *error) {
-        XCTAssertNil(listings);
-        XCTAssertNotNil(error);
+        receivedListings = listings;
+        receivedError = error;
     }];
+
+    XCTAssertNil(receivedListings);
+    XCTAssertNotNil(receivedError);
 }
 
 - (void)testNoResultsError
@@ -91,22 +109,34 @@
     self.testSession.data = jsonData;
     self.testSession.response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL new] statusCode:200 HTTPVersion:nil headerFields:nil];
 
+    __block NSArray *receivedListings;
+    __block NSError *receivedError;
+
     [self.client searchForKeywords:@"no results" offset:0 completion:^(NSArray *listings, NSError *error) {
-        XCTAssertNil(listings);
-        XCTAssertTrue([error.domain isEqualToString:ETSearchErrorDomain]);
-        XCTAssertTrue(error.code == ETSearchErrorNoResults);
+        receivedListings = listings;
+        receivedError = error;
     }];
+
+    XCTAssertNil(receivedListings);
+    XCTAssertTrue([receivedError.domain isEqualToString:ETSearchErrorDomain]);
+    XCTAssertTrue(receivedError.code == ETSearchErrorNoResults);
 }
 
 - (void)testDefaultError
 {
     self.testSession.response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL new] statusCode:404 HTTPVersion:nil headerFields:nil];
 
+    __block NSArray *receivedListings;
+    __block NSError *receivedError;
+
     [self.client searchForKeywords:@"not found" offset:0 completion:^(NSArray *listings, NSError *error) {
-        XCTAssertNil(listings);
-        XCTAssertTrue([error.domain isEqualToString:ETSearchErrorDomain]);
-        XCTAssertTrue(error.code == ETSearchErrorDefault);
+        receivedListings = listings;
+        receivedError = error;
     }];
+
+    XCTAssertNil(receivedListings);
+    XCTAssertTrue([receivedError.domain isEqualToString:ETSearchErrorDomain]);
+    XCTAssertTrue(receivedError.code == ETSearchErrorDefault);
 }
 
 @end
