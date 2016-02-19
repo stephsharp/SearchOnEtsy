@@ -47,7 +47,7 @@ Here's what I would do next:
 - Improve the collection view layout. Try some different options for displaying the footer view in an attempt to simplify the logic involved in showing and hiding the loading indicator.
 - Implement sorting and filtering of results.
 
-##Notes on installation
+##Installation
 
 All the pods are checked into source control, so there's no need to run `pod install`. Just clone the repo, build and run.
 
