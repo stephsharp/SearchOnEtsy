@@ -10,11 +10,11 @@
 
 @implementation NSError (ETSearchErrors)
 
-+ (NSError *)et_unknownError
++ (NSError *)et_defaultError
 {
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: NSLocalizedString(@"Something unexpected happened.", nil) };
 
-    return [[NSError alloc] initWithDomain:ETSearchErrorDomain code:ETSearchErrorUnknown userInfo:userInfo];
+    return [[NSError alloc] initWithDomain:ETSearchErrorDomain code:ETSearchErrorDefault userInfo:userInfo];
 }
 
 + (NSError *)et_noResultsErrorWithKeywords:(NSString *)keywords

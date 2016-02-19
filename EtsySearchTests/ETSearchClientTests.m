@@ -98,14 +98,14 @@
     }];
 }
 
-- (void)testUnknownError
+- (void)testDefaultError
 {
     self.testSession.response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL new] statusCode:404 HTTPVersion:nil headerFields:nil];
 
     [self.client searchForKeywords:@"not found" offset:0 completion:^(NSArray *listings, NSError *error) {
         XCTAssertNil(listings);
         XCTAssertTrue([error.domain isEqualToString:ETSearchErrorDomain]);
-        XCTAssertTrue(error.code == ETSearchErrorUnknown);
+        XCTAssertTrue(error.code == ETSearchErrorDefault);
     }];
 }
 

@@ -11,13 +11,13 @@
 static NSString *const ETSearchErrorDomain = @"ETSearchErrorDomain";
 
 typedef NS_ENUM(NSInteger, ETSearchError) {
-    ETSearchErrorUnknown = 0,
+    ETSearchErrorDefault = 0,
     ETSearchErrorNoResults = 1,
 };
 
 @interface NSError (ETSearchErrors)
 
-+ (NSError *)et_unknownError;
++ (NSError *)et_defaultError;
 + (NSError *)et_noResultsErrorWithKeywords:(NSString *)keywords;
 
 @end

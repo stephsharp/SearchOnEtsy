@@ -80,7 +80,7 @@
             }
             else {
                 if (completion) {
-                    completion(nil, [NSError et_unknownError]);
+                    completion(nil, [NSError et_defaultError]);
                 }
             }
         }
