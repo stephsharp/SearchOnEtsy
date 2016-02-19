@@ -12,6 +12,9 @@
 
 @property (weak, nonatomic) id<UIViewControllerContextTransitioning> transitionContext;
 
+@property (nonatomic) NSArray *tempSearchBarConstraints;
+@property (nonatomic) UIView *originalSearchBarSuperview;
+
 @end
 
 @implementation ETSearchTransitionAnimator
@@ -48,8 +51,9 @@
         toVC.view.alpha = 0;
         self.toSearchBar.hidden = YES;
 
+        self.originalSearchBarSuperview = self.fromSearchBar.superview;
         [containerView addSubview:self.fromSearchBar];
-        [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
+        self.tempSearchBarConstraints = [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             for (UIView *view in fromVC.view.subviews) {
@@ -67,13 +71,14 @@
     }
     else {
         if (![self superviewHasConstraintsForView:self.fromSearchBar]) {
-            [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
+            self.tempSearchBarConstraints = [self constrainView:self.fromSearchBar toPositionAndSizeOfView:self.toSearchBar];
             [self.fromSearchBar.superview layoutIfNeeded];
         }
 
         self.fromSearchBar.hidden = NO;
-        [toVC.view addSubview:self.fromSearchBar];
-        [self setupOriginalConstraintsOnSearchBar:self.fromSearchBar];
+        [self.fromSearchBar.superview removeConstraints:self.tempSearchBarConstraints];
+        [containerView addSubview:self.fromSearchBar];
+        [self setupOriginalConstraintsOnSearchBar:self.fromSearchBar withNewSuperview:containerView];
         self.toSearchBar.hidden = YES;
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -85,22 +90,60 @@
             [self.fromSearchBar layoutIfNeeded];
         }
         completion:^(BOOL finished) {
+            [toVC.view addSubview:self.fromSearchBar];
+            [self setupOriginalConstraintsOnSearchBar:self.fromSearchBar withNewSuperview:nil];
             [self.transitionContext completeTransition:YES];
         }];
     }
 }
 
-- (void)constrainView:(UIView *)fromView toPositionAndSizeOfView:(UIView *)toView
+- (NSArray *)constrainView:(UIView *)fromView toPositionAndSizeOfView:(UIView *)toView
 {
-    [fromView.superview addConstraint:[fromView.leadingAnchor constraintEqualToAnchor:toView.leadingAnchor]];
-    [fromView.superview addConstraint:[fromView.topAnchor constraintEqualToAnchor:toView.topAnchor]];
-    [fromView.superview addConstraint:[fromView.widthAnchor constraintEqualToAnchor:toView.widthAnchor]];
-    [fromView.superview addConstraint:[fromView.heightAnchor constraintEqualToAnchor:toView.heightAnchor]];
+    NSLayoutConstraint *leading = [fromView.leadingAnchor constraintEqualToAnchor:toView.leadingAnchor];
+    NSLayoutConstraint *top = [fromView.topAnchor constraintEqualToAnchor:toView.topAnchor];
+    NSLayoutConstraint *width = [fromView.widthAnchor constraintEqualToAnchor:toView.widthAnchor];
+    NSLayoutConstraint *height = [fromView.heightAnchor constraintEqualToAnchor:toView.heightAnchor];
+
+    NSArray *constraints = @[leading, top, width, height];
+    [fromView.superview addConstraints:constraints];
+
+    return constraints;
 }
 
-- (void)setupOriginalConstraintsOnSearchBar:(UIView *)searchBar
+- (void)setupOriginalConstraintsOnSearchBar:(UIView *)searchBar withNewSuperview:(UIView *)newSuperview
 {
-    [searchBar.superview addConstraints:self.fromSearchBarConstraints];
+    NSArray *constraintsToAdd;
+
+    if (!newSuperview) {
+        constraintsToAdd = self.fromSearchBarConstraints;
+    }
+    else {
+        NSMutableArray *newConstraints = [NSMutableArray array];
+
+        for (NSLayoutConstraint *constraint in self.fromSearchBarConstraints) {
+            UIView *firstItem = constraint.firstItem;
+            UIView *secondItem = constraint.secondItem;
+
+            if (firstItem == self.originalSearchBarSuperview) {
+                firstItem = newSuperview;
+            }
+            if (secondItem == self.originalSearchBarSuperview) {
+                secondItem = newSuperview;
+            }
+
+            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:firstItem
+                                                                             attribute:constraint.firstAttribute
+                                                                             relatedBy:constraint.relation
+                                                                                toItem:secondItem
+                                                                             attribute:constraint.secondAttribute
+                                                                            multiplier:constraint.multiplier
+                                                                              constant:constraint.constant];
+            [newConstraints addObject:newConstraint];
+        }
+        constraintsToAdd = [newConstraints copy];
+    }
+
+    [searchBar.superview addConstraints:constraintsToAdd];
 }
 
 - (BOOL)superviewHasConstraintsForView:(UIView *)view
