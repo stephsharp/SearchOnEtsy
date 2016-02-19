@@ -23,16 +23,16 @@
     XCTAssertNil(listing.title);
 }
 
-- (void)testHTMLTitle
+- (void)testHTMLEntitiesInTitle
 {
-    NSDictionary *htmlTitle1 = @{@"title": @"OAK SIDEBOARD, Danish Modern Side Table made from Old Oak 60&#39;s Design"};
-    NSDictionary *htmlTitle2 = @{@"title": @"Set of 4 Metal Square Table Legs 17&quot;-28&quot; with hardware"};
+    NSDictionary *title1 = @{@"title": @"OAK SIDEBOARD, Danish Modern Side Table made from Old Oak 60&#39;s Design"};
+    NSDictionary *title2 = @{@"title": @"Set of 4 Metal Square Table Legs 17&quot;-28&quot; with hardware"};
 
     NSString *plainTextTitle1 = @"OAK SIDEBOARD, Danish Modern Side Table made from Old Oak 60's Design";
     NSString *plainTextTitle2 = @"Set of 4 Metal Square Table Legs 17\"-28\" with hardware";
 
-    ETListing *listing1 = [[ETListing alloc] initWithJSON:htmlTitle1];
-    ETListing *listing2 = [[ETListing alloc] initWithJSON:htmlTitle2];
+    ETListing *listing1 = [[ETListing alloc] initWithJSON:title1];
+    ETListing *listing2 = [[ETListing alloc] initWithJSON:title2];
 
     XCTAssertTrue([listing1.title isEqualToString:plainTextTitle1]);
     XCTAssertTrue([listing2.title isEqualToString:plainTextTitle2]);

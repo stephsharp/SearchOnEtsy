@@ -52,7 +52,7 @@
 
     [self.client searchForKeywords:@"coffee table" offset:0 completion:^(NSArray *listings, NSError *error) {
         XCTAssertNil(listings);
-        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, @"TestErrorDomain");
     }];
 }
 

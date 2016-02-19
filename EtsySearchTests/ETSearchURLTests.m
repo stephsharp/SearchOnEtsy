@@ -15,28 +15,28 @@
 
 @implementation ETSearchURLTests
 
-- (void)testKeyword
+- (void)testKeywordsParameterExists
 {
     NSURL *url = [ETSearchURL listingsURLWithKeywords:@"coffee" offset:0];
 
     XCTAssertTrue([url.absoluteString containsString:@"keywords=coffee"]);
 }
 
-- (void)testKeywordsWithPercentEncoding
+- (void)testKeywordsParameterHasPercentEncoding
 {
     NSURL *url = [ETSearchURL listingsURLWithKeywords:@"coffee table" offset:0];
 
     XCTAssertTrue([url.absoluteString containsString:@"keywords=coffee%20table"]);
 }
 
-- (void)testKeywordsIsNil
+- (void)testKeywordsParameterIsExcludedIfKeywordsIsNil
 {
     NSURL *url = [ETSearchURL listingsURLWithKeywords:nil offset:0];
 
     XCTAssertFalse([url.absoluteString containsString:@"keywords="]);
 }
 
-- (void)testOffset
+- (void)testOffsetParameterExists
 {
     NSURL *urlWithoutOffset = [ETSearchURL listingsURLWithKeywords:nil offset:0];
     NSURL *urlWithOffset = [ETSearchURL listingsURLWithKeywords:nil offset:50];
