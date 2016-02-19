@@ -12,7 +12,7 @@ When transitioning to the search results screen, the search bar shrinks in size 
 
 ####Custom search bar
 
-I wanted more control over the appearance and behaviour of the search bar than I was able to get from a `UISearchBar`. I created an `IBDesignable` view with `IBInspectable` properties so that I could adjust settings like border width and text color directly from the storyboard.
+I wanted more control over the appearance and behaviour of the search bar than I was able to get from a `UISearchBar`. I created an `IBDesignable` view with `IBInspectable` properties so that I could adjust settings like border width and text colour directly from the storyboard.
 
 ![Search on Etsy screenshots](Resources/screenshot-2.png)
 
