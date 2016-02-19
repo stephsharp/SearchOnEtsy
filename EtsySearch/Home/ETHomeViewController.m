@@ -234,4 +234,11 @@ static NSUInteger const ETLandscapeSearchBarOffset = 40;
     [self.searchBar resignFirstResponder];
 }
 
+#pragma mark - UIViewController
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
 @end
