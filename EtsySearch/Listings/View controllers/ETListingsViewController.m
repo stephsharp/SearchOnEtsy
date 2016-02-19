@@ -87,6 +87,12 @@ static NSString *const ETHomeSegueIdentifer = @"UnwindToHome";
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.collectionViewLayout invalidateLayout];
+}
+
 #pragma mark - Properties
 
 - (void)setShouldShowLoadingIndicator:(BOOL)shouldShowLoadingIndicator
