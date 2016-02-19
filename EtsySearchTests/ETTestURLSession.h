@@ -11,4 +11,8 @@
 
 @interface ETTestURLSession : NSObject <ETURLSession>
 
+@property (nonatomic) NSData *data;
+@property (nonatomic) NSURLResponse *response;
+@property (nonatomic) NSError *error;
+
 @end

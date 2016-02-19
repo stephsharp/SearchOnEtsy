@@ -9,25 +9,34 @@
 #import "ETTestURLSession.h"
 
 @interface ETTestURLSessionDataTask : NSObject <ETURLSessionDataTask>
+
+@property (nonatomic) NSData *data;
+@property (nonatomic) NSURLResponse *response;
+@property (nonatomic) NSError *error;
 @property (nonatomic, copy) void (^completionHandler)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable);
-- (instancetype)initWithCompletionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler;
+
+- (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error completionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler;
+
 @end
 
 @implementation ETTestURLSession
 
 - (id<ETURLSessionDataTask>)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler
 {
-    return [[ETTestURLSessionDataTask alloc] initWithCompletionHandler:completionHandler];
+    return [[ETTestURLSessionDataTask alloc] initWithData:self.data response:self.response error:self.error completionHandler:completionHandler];
 }
 
 @end
 
 @implementation ETTestURLSessionDataTask
 
-- (instancetype)initWithCompletionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler
+- (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error completionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler
 {
     self = [super init];
     if (self) {
+        _data = data;
+        _response = response;
+        _error = error;
         _completionHandler = [completionHandler copy];
     }
     return self;
@@ -35,7 +44,7 @@
 
 - (void)resume
 {
-    self.completionHandler(nil, nil, [NSError new]);
+    self.completionHandler(self.data, self.response, self.error);
 }
 
 - (void)cancel

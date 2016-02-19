@@ -74,7 +74,7 @@
                 }
                 else {
                     if (completion) {
-                        completion(nil, error);
+                        completion(nil, jsonError);
                     }
                 }
             }
@@ -83,6 +83,9 @@
                     completion(nil, [NSError et_unknownError]);
                 }
             }
+        }
+        else if (completion) {
+            completion (nil, nil);
         }
     }];
 
